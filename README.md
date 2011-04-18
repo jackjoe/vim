@@ -10,10 +10,10 @@ Installation
   ln -s ~/.vim/.gvimrc ~/.gvimrc
 
 For your local settings, copy the *default.vimrc.local* file to .vimrc.local, and add a symlink:
-`cd ~/.vim`
-`mv default.vimrc.local .vimrc.local`
-`ln -s ~/.vim/.vimrc.local ~/.vimrc.local`
-l
+  cd ~/.vim
+  mv default.vimrc.local .vimrc.local
+  ln -s ~/.vim/.vimrc.local ~/.vimrc.local
+
 Extra
 -----
 The *update_bundles* is a ruby script that can be run through:
