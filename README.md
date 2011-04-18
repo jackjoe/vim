@@ -5,15 +5,15 @@ Our main vim settings, with bundles (managed through [vim-pathogen](https://gith
 
 Installation
 ------------
-  git clone git@github.com:proximitybbdo/vim.git ~/.vim
-  ln -s ~/.vim/.vimrc ~/.vimrc
-  ln -s ~/.vim/.gvimrc ~/.gvimrc
+`git clone git@github.com:proximitybbdo/vim.git ~/.vim`  
+`ln -s ~/.vim/.vimrc ~/.vimrc`  
+`ln -s ~/.vim/.gvimrc ~/.gvimrc`  
 
 For your local settings, copy the *default.vimrc.local* file to .vimrc.local, and add a symlink:
-  cd ~/.vim
-  mv default.vimrc.local .vimrc.local
-    ln -s ~/.vim/.vimrc.local ~/.vimrc.local
-
+`cd ~/.vim`
+`mv default.vimrc.local .vimrc.local`
+`ln -s ~/.vim/.vimrc.local ~/.vimrc.local`
+l
 Extra
 -----
 The *update_bundles* is a ruby script that can be run through:
