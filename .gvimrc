@@ -5,7 +5,7 @@ set go-=T
 set bg=dark
 
 " The beautiful solarized
-set background=light
+set background=dark
 colorscheme solarized
 set gfn=Menlo:h12
 
@@ -19,7 +19,3 @@ set fuoptions=maxvert,maxhorz
 " Set visible column wrap to 78 chars
 set colorcolumn=78
 set textwidth=78
-
-if &background == "dark"
-    hi normal guibg=black
-endif
