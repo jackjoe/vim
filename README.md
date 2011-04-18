@@ -1,10 +1,21 @@
 Proximity goes commandline
 ==========================
 
-dotfiles
---------
-dotfiles, config files, those little .whatsmysrc files you use and tweak to
-maximise perfomance. We store them in one dir, and symlink from the homefolder
+Our main vim settings, with bundles (managed through [vim-pathogen](https://github.com/tpope/vim-pathogen) and an update_bundles script to keep everything up te date.
 
-We have seperate folders for Vim, the text editor; and bash, the login shell
-we are currently using
+Installation
+------------
+`git clone git@github.com:proximitybbdo/vim.git ~/.vim`
+`ln -s ~/.vim/.vimrc ~/.vimrc`
+`ln -s ~/.vim/.gvimrc ~/.gvimrc`
+
+Extra
+-----
+The *update_bundles* is a ruby script that can be run through:
+`ruby update_bundles`
+
+Or you can make it executable:
+`chmod +x update_bundles`
+
+and run it like so:
+`./update_bundles`
