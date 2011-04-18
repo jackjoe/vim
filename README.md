@@ -12,7 +12,7 @@ Installation
 For your local settings, copy the *default.vimrc.local* file to .vimrc.local, and add a symlink:
   cd ~/.vim
   mv default.vimrc.local .vimrc.local
-  ln -s ~/.vim/.vimrc.local ~/.vimrc.local
+    ln -s ~/.vim/.vimrc.local ~/.vimrc.local
 
 Extra
 -----
