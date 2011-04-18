@@ -1,7 +1,7 @@
 Proximity goes commandline
 ==========================
 
-Our main vim settings, with bundles (managed through [vim-pathogen](https://github.com/tpope/vim-pathogen) and an update_bundles script to keep everything up te date.
+Our main vim settings, with bundles (managed through [vim-pathogen](https://github.com/tpope/vim-pathogen)) and an update_bundles script to keep everything up te date.
 
 Installation
 ------------
