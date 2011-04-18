@@ -1,7 +1,7 @@
 Proximity goes commandline
 ==========================
 
-Our main vim settings, with bundles (managed through [vim-pathogen](https://github.com/tpope/vim-pathogen)) and an update_bundles script to keep everything up te date.
+Our main vim settings, with bundles (managed through [vim-pathogen](https://github.com/tpope/vim-pathogen)) and an **update_bundles** script to keep everything up te date.
 
 Installation
 ------------
@@ -13,10 +13,10 @@ For your local settings, copy the *default.vimrc.local* file to .vimrc.local, an
 `cd ~/.vim`  
 `mv default.vimrc.local .vimrc.local`  
 `ln -s ~/.vim/.vimrc.local ~/.vimrc.local`  
-l
+
 Extra
 -----
-The *update_bundles* is a ruby script that can be run through:
+The **update_bundles** is a ruby script that can be run through:
 `ruby update_bundles`
 
 Or you can make it executable:
