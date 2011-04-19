@@ -24,3 +24,16 @@ Or you can make it executable:
 
 and run it like so:
 `./update_bundles`
+
+The plugins and bundles
+=======================
+
+vim-tcomment
+------------
+Normal mode
+`gcc` toggle comment for current line
+Visual mode
+`gc<CR>`
+
+
+
