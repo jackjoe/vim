@@ -22,33 +22,30 @@ call pathogen#helptags()
 set nocompatible
 
 " General editor ************************************************************
-syntax on                       " Enable syntax highlighting
+syntax on         " Enable syntax highlighting
 
-set number                      " Line number
+set number        " Line number
 set hidden
-" set list
-" set listchars=tab:▸\ ,eol:¬
-" set listchars=tab: ,eol:$
-" set listchars=tab:>.,trail:.,extends:#,nbsp:.
-set ruler           " show the cursor position all the time
-set showcmd         " display incomplete commands
-set showmatch       " Show matching bracets when text indicator is over them
-set autoread        " Set to auto read when a file is changed from the outside
 
-set pastetoggle=<F2>    " If you press F2 all smart tabbing will be removed;
-                        " needed for pasting
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set showmatch     " Show matching bracets when text indicator is over them
+set autoread      " Set to auto read when a file is changed from the outside
+
+set pastetoggle=<F2>  " If you press F2 all smart tabbing will be removed;
+                      " needed for pasting
 
 "Invisible character colors
 highlight NonText guifg=#7A7A90
 highlight SpecialKey guifg=#7A7A90
 
-set history=1000                " keep 1000 lines of command line history
-set undolevels=200              " Undo history
-set ttyfast                     " Yes, we have a fast terminal
+set history=1000      " keep 1000 lines of command line history
+set undolevels=200    " Undo history
+set ttyfast           " Yes, we have a fast terminal
 
 
 " Color + font **************************************************************
-syntax enable 									" Enable syntax hl
+syntax enable 				" Enable syntax hl
 
 colorscheme default
 
@@ -57,7 +54,7 @@ set encoding=utf8
 
 set gfn=Monaco:h11
 
-set ffs=unix,mac,dos						" Support all three, in this order
+set ffs=unix,mac,dos	" Support all three, in this order
 set shell=/bin/bash
 
 " File type specific ********************************************************
