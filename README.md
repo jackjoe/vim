@@ -9,10 +9,15 @@ Installation
 `ln -s ~/.vim/vimrc ~/.vimrc`  
 `ln -s ~/.vim/gvimrc ~/.gvimrc`  
 
-For your local settings, copy the *default.vimrc* file to .vimrc.local, and add a symlink:
+For your local settings, copy the *default.vimrc* file to vimrc.local, and add a symlink:
 `cd ~/.vim`  
 `mv default.vimrc vimrc.local`  
 `ln -s ~/.vim/vimrc.local ~/.vimrc.local`  
+
+For your local settings, copy the *default.gvimrc* file to gvimrc.local, and add a symlink:
+`cd ~/.vim`  
+`mv default.gvimrc gvimrc.local`  
+`ln -s ~/.vim/gvimrc.local ~/.gvimrc.local`  
 
 Extra
 -----

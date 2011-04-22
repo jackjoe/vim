@@ -19,3 +19,12 @@ set fuoptions=maxvert,maxhorz
 " Set visible column wrap to 78 chars
 set colorcolumn=78
 set textwidth=78
+
+" ---------------------------------------------------------------------------
+" |                           Host specific                                 |
+" |               Don't forget to symlink .vimrc.local !                    |
+" ---------------------------------------------------------------------------
+if filereadable(expand("~/.gvimrc.local"))
+  source ~/.gvimrc.local
+endif
+" 
