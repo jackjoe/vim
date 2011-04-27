@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 git_bundles = [ 
+  "git://github.com/slack/vim-l9.git",
   "git://github.com/astashov/vim-ruby-debugger.git",
   "git://github.com/msanders/snipmate.vim.git",
   "git://github.com/scrooloose/nerdtree.git",
@@ -17,15 +18,14 @@ git_bundles = [
   "git://github.com/vim-ruby/vim-ruby.git",
   "git://github.com/mattn/zencoding-vim",
   "git://github.com/vim-scripts/FuzzyFinder.git",
-  "git://github.com/slack/vim-l9.git",
   "git://github.com/itspriddle/vim-lesscss.git",
-  "git://github.com/altercation/vim-colors-solarized.git"
+  "git://github.com/altercation/vim-colors-solarized.git",
+  "git://github.com/ingydotnet/yaml-vim.git"
 ]
 
 vim_org_scripts = [
   ["IndexedSearch", "7062",  "plugin"],
   ["jquery",        "12107", "syntax"],
-  ["yaml",          "739",   "syntax"],
 ]
 
 require 'fileutils'
