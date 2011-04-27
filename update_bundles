@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
 git_bundles = [ 
+<<<<<<< HEAD
   "git://github.com/slack/vim-l9.git",
+  "git://github.com/mileszs/ack.vim.git", 
   "git://github.com/astashov/vim-ruby-debugger.git",
   "git://github.com/msanders/snipmate.vim.git",
   "git://github.com/scrooloose/nerdtree.git",
