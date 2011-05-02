@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 git_bundles = [ 
-<<<<<<< HEAD
   "git://github.com/slack/vim-l9.git",
   "git://github.com/mileszs/ack.vim.git", 
   "git://github.com/astashov/vim-ruby-debugger.git",
@@ -22,7 +21,8 @@ git_bundles = [
   "git://github.com/vim-scripts/FuzzyFinder.git",
   "git://github.com/itspriddle/vim-lesscss.git",
   "git://github.com/altercation/vim-colors-solarized.git",
-  "git://github.com/ingydotnet/yaml-vim.git"
+  "git://github.com/ingydotnet/yaml-vim.git",
+  "git://github.com/jeroenbourgois/vim-actionscript.git"
 ]
 
 vim_org_scripts = [
