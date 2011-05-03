@@ -11,6 +11,16 @@
 " |                               General                                   |
 " ---------------------------------------------------------------------------
 
+" Disable arrow keys *******************************************************
+
+noremap  <Up> ""
+noremap! <Up> <Esc>
+noremap  <Down> ""
+noremap! <Down> <Esc>
+noremap  <Left> ""
+noremap! <Left> <Esc>
+noremap  <Right> ""
+noremap! <Right> <Esc>
 
 " Pathogen *****************************************************************
 call pathogen#runtime_append_all_bundles()
