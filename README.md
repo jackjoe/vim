@@ -41,4 +41,6 @@ Visual mode
 `gc<CR>`
 
 
-
+FuzzyFinder
+-----------
+special mapping <c-s> to search with wildcart
