@@ -728,11 +728,11 @@ function! s:Commit(args) abort
     endif
     let command .= s:repo().git_command('commit').' '.a:args
     if &shell =~# 'csh'
-      silent execute '!('.command.' > '.outfile.') >& '.errorfile
+      call system('('.command.' > '.outfile.') >& '.errorfile)
     elseif a:args =~# '\%(^\| \)--interactive\>'
-      execute '!'.command.' 2> '.errorfile
+      call system(command.' 2> '.errorfile)
     else
-      silent execute '!'.command.' > '.outfile.' 2> '.errorfile
+      call system(command.' > '.outfile.' 2> '.errorfile)
     endif
     if !v:shell_error
       if filereadable(outfile)
@@ -1621,7 +1621,7 @@ function! s:ReplaceCmd(cmd,...) abort
       endif
     endif
     set noautowrite
-    silent exe '!'.escape(prefix.a:cmd,'%#').' > '.tmp
+    call system(prefix.a:cmd.' > '.tmp)
   finally
     let &autowrite = aw
     if exists('old_index')

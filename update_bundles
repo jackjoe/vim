@@ -22,12 +22,13 @@ git_bundles = [
   "git://github.com/itspriddle/vim-lesscss.git",
   "git://github.com/altercation/vim-colors-solarized.git",
   "git://github.com/ingydotnet/yaml-vim.git",
-  "git://github.com/jeroenbourgois/vim-actionscript.git"
+  "git://github.com/jeroenbourgois/vim-actionscript.git",
+  "git://github.com/vim-scripts/matchit.zip.git"
 ]
 
 vim_org_scripts = [
-  ["IndexedSearch", "7062",  "plugin"],
-  ["jquery",        "12107", "syntax"],
+  ["IndexedSearch", "7062",   "plugin"],
+  ["jquery",        "12107",  "syntax"],
 ]
 
 require 'fileutils'
