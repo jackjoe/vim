@@ -140,6 +140,9 @@ nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 " Zencoding ***************************************************************** 
 imap <c-e> <c-y>,
 
+" FuzzyFinder  ***************************************************************
+nmap <c-s> :FufFile **/<CR>
+
 " ---------------------------------------------------------------------------
 " |                           Host specific                                 |
 " |               Don't forget to symlink .vimrc.local !                    |
