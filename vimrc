@@ -7,6 +7,42 @@
 " |                                                                         |
 " ---------------------------------------------------------------------------
 
+
+" ---------------------------------------------------------------------------
+" |                               Vundle                                    |
+" |                          Must be on top
+" ---------------------------------------------------------------------------
+set nocompatible
+filetype off  " required!
+
+set rtp+=~/.vim/vundle.git/ 
+call vundle#rc()
+
+" Original repos on github
+Bundle 'mileszs/ack.vim.git'
+Bundle 'tpope/vim-git.git'
+Bundle 'tpope/vim-haml.git'
+Bundle 'tpope/vim-markdown.git'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'tsaleh/vim-align.git'
+Bundle 'tsaleh/vim-supertab.git'
+Bundle 'tsaleh/vim-tcomment.git'
+Bundle 'vim-ruby/vim-ruby.git'
+Bundle 'mattn/zencoding-vim'
+Bundle 'vim-scripts/FuzzyFinder.git'
+Bundle 'itspriddle/vim-lesscss.git'
+Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'ingydotnet/yaml-vim.git'
+Bundle 'jeroenbourgois/vim-actionscript.git'
+Bundle 'vim-scripts/matchit.zip.git'
+Bundle 'scrooloose/nerdtree.git'
+" " vim-scripts repos
+Bundle 'L9'
+" " non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+
 " ---------------------------------------------------------------------------
 " |                               General                                   |
 " ---------------------------------------------------------------------------
