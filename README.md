@@ -19,16 +19,13 @@ For your local settings, copy the *default.gvimrc* file to gvimrc.local, and add
 `mv default.gvimrc gvimrc.local`  
 `ln -s ~/.vim/gvimrc.local ~/.gvimrc.local`  
 
-Extra
+Vundle
 -----
-The **update_bundles** is a ruby script that can be run through:
-`ruby update_bundles`
+Vundle allows you to install bundles.
+You can run it by calling ':BundleInstall' from within vim.
 
-Or you can make it executable:
-`chmod +x update_bundles`
-
-and run it like so:
-`./update_bundles`
+If you have troubles executing the command, you probably need to fetch vundle first:
+`git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git`
 
 The plugins and bundles
 =======================
@@ -39,7 +36,6 @@ Normal mode
 `gcc` toggle comment for current line
 Visual mode
 `gc<CR>`
-
 
 FuzzyFinder
 -----------
