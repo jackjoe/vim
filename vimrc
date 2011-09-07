@@ -75,8 +75,10 @@ set showcmd       " display incomplete commands
 set showmatch     " Show matching bracets when text indicator is over them
 set autoread      " Set to auto read when a file is changed from the outside
 
-set pastetoggle=<F2>  " If you press F2 all smart tabbing will be removed;
-                      " needed for pasting
+" Enable F2 key for toggling pastemode
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
 
 "Invisible character colors
 highlight NonText guifg=#7A7A90
@@ -85,7 +87,6 @@ highlight SpecialKey guifg=#7A7A90
 set history=1000      " keep 1000 lines of command line history
 set undolevels=200    " Undo history
 set ttyfast           " Yes, we have a fast terminal
-
 
 " Color + font **************************************************************
 syntax enable 				" Enable syntax hl
@@ -140,7 +141,7 @@ set laststatus=2						" Always hide the statusline
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
+    let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
     return curdir
 endfunction
 
@@ -181,5 +182,4 @@ nmap <c-s> :FufFile **/<CR>
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-"  
 
