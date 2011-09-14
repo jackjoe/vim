@@ -19,16 +19,16 @@ set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
 " Original repos on github
-Bundle 'mileszs/ack.vim.git'
+Bundle 'mileszs/ack.vim.git' " Use :Ack 's' to search in all project files
 Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-markdown.git'
 Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-repeat.git' " Repeat.vim remaps . in a way that plugins can tap into it.
 Bundle 'tpope/vim-surround.git'
-Bundle 'tsaleh/vim-align.git'
-Bundle 'tsaleh/vim-supertab.git'
-Bundle 'tsaleh/vim-tcomment.git'
+Bundle 'tsaleh/vim-align.git' " 
+Bundle 'tsaleh/vim-supertab.git' " Tab completion
+Bundle 'tsaleh/vim-tcomment.git' " comment via gcc (smart commenting)
 Bundle 'vim-ruby/vim-ruby.git'
 Bundle 'mattn/zencoding-vim'
 Bundle 'vim-scripts/FuzzyFinder.git'
@@ -38,8 +38,10 @@ Bundle 'ingydotnet/yaml-vim.git'
 Bundle 'jeroenbourgois/vim-actionscript.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
+
 " " vim-scripts repos
 Bundle 'L9'
+
 " " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 
@@ -141,8 +143,8 @@ set laststatus=2						" Always hide the statusline
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
-    return curdir
+  let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
+  return curdir
 endfunction
 
 function! HasPaste()
