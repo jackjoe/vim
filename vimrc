@@ -1,4 +1,4 @@
-" ---------------------------------------------------------------------------
+u
 " |                                                                         |
 " |                         Proximity goes Vim!                             |
 " |                                                                         |
@@ -19,16 +19,16 @@ set rtp+=~/.vim/vundle.git/
 call vundle#rc()
 
 " Original repos on github
-Bundle 'mileszs/ack.vim.git' " Use :Ack 's' to search in all project files
+Bundle 'mileszs/ack.vim.git'
 Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-haml.git'
 Bundle 'tpope/vim-markdown.git'
 Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-repeat.git' " Repeat.vim remaps . in a way that plugins can tap into it.
+Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-surround.git'
-Bundle 'tsaleh/vim-align.git' " 
-Bundle 'tsaleh/vim-supertab.git' " Tab completion
-Bundle 'tsaleh/vim-tcomment.git' " comment via gcc (smart commenting)
+Bundle 'tsaleh/vim-align.git' 
+Bundle 'tsaleh/vim-supertab.git'
+Bundle 'tsaleh/vim-tcomment.git'
 Bundle 'vim-ruby/vim-ruby.git'
 Bundle 'mattn/zencoding-vim'
 Bundle 'vim-scripts/FuzzyFinder.git'
@@ -175,11 +175,10 @@ nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 imap <c-e> <c-y>,
 
 " FuzzyFinder  ***************************************************************
-nmap <c-s> :FufFile **/<CR>
+nmap <c-g> :FufFile **/<CR>
 
 " ---------------------------------------------------------------------------
 " |                           Host specific                                 |
-" |               Don't forget to symlink .vimrc.local !                    |
 " ---------------------------------------------------------------------------
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
