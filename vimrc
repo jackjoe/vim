@@ -1,4 +1,4 @@
-u
+" ---------------------------------------------------------------------------
 " |                                                                         |
 " |                         Proximity goes Vim!                             |
 " |                                                                         |
@@ -7,12 +7,12 @@ u
 " |                                                                         |
 " ---------------------------------------------------------------------------
 
-
 " ---------------------------------------------------------------------------
 " |                               Vundle                                    |
 " |                          Must be on top
 " ---------------------------------------------------------------------------
 set nocompatible
+filetype on   " first on, to avoid vim exiting with status code 1!
 filetype off  " required!
 
 set rtp+=~/.vim/vundle.git/ 
@@ -39,11 +39,11 @@ Bundle 'jeroenbourgois/vim-actionscript.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
 
-" " vim-scripts repos
+" vim-scripts repos
 Bundle 'L9'
 
-" " non github repos
-" Bundle 'git://git.wincent.com/command-t.git'
+" non github repos
+Bundle 'git://git.wincent.com/command-t.git'
 
 " ---------------------------------------------------------------------------
 " |                               General                                   |
