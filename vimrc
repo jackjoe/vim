@@ -15,8 +15,12 @@ set nocompatible
 filetype on   " first on, to avoid vim exiting with status code 1!
 filetype off  " required!
 
-set rtp+=~/.vim/vundle.git/ 
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+
+" let Vundle manage Vundle
+" required! 
+Bundle 'gmarik/vundle'
 
 " Original repos on github
 Bundle 'mileszs/ack.vim.git'
@@ -38,6 +42,7 @@ Bundle 'ingydotnet/yaml-vim.git'
 Bundle 'jeroenbourgois/vim-actionscript.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
+Bundle 'http://github.com/gmarik/snipmate.vim.git'
 
 " vim-scripts repos
 Bundle 'L9'
