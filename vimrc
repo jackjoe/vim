@@ -178,8 +178,8 @@ imap <c-e> <c-y>,
 nmap <c-g> :FufFile **/<CR>
 
 " Switch files  **************************************************************
-nmap nn <ESC>:bn<CR>
-nmap pp <ESC>:bn<CR>
+nmap <c-h> <ESC>:bn<CR>
+nmap <c-l> <ESC>:bn<CR>
 
 " ---------------------------------------------------------------------------
 " |                           Host specific                                 |
