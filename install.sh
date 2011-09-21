@@ -19,9 +19,13 @@ else
 fi
 
 # Backup vimrc if exists + symlink new vimrc
-[ -e "~/.vimrc" ] && mv "~/.vimrc" "~/.vimrc.backup" 
+if [ -f "$HOME/.vimrc" ] || [ -L "$HOME/.vimrc" ] ; then
+	mv "$HOME/.vimrc" "$HOME/.vimrc.backup" 
+fi
 ln -s vimrc ~/.vimrc
 
 # Backup gvimrc if exists + symlink new gvimrc
-[ -e "~/.gvimrc" ] && mv "~/.gvimrc" "~/.gvimrc.backup" 
+if [ -f "$HOME/.gvimrc" ] || [ -L "$HOME/.gvimrc" ] ; then
+  mv "$HOME/.gvimrc" "$HOME/.gvimrc.backup" 
+fi
 ln -s gvimrc ~/.gvimrc
