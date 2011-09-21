@@ -44,6 +44,7 @@ Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle "honza/snipmate-snippets.git"
 Bundle "msanders/snipmate.vim"
+Bundle "kchmck/vim-coffee-script.git"
 
 " vim-scripts repos
 Bundle 'L9'
