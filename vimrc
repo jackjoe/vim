@@ -11,9 +11,9 @@
 " |                               Vundle                                    |
 " |                          Must be on top
 " ---------------------------------------------------------------------------
-set nocompatible
 filetype on   " first on, to avoid vim exiting with status code 1!
 filetype off  " required!
+set nocompatible
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -42,7 +42,8 @@ Bundle 'ingydotnet/yaml-vim.git'
 Bundle 'jeroenbourgois/vim-actionscript.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'http://github.com/gmarik/snipmate.vim.git'
+Bundle "honza/snipmate-snippets.git"
+Bundle "msanders/snipmate.vim"
 
 " vim-scripts repos
 Bundle 'L9'
@@ -180,7 +181,7 @@ nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 imap <c-e> <c-y>,
 
 " FuzzyFinder  ***************************************************************
-nmap <c-g> :FufFile **/<CR>
+nmap @ :FufFile **/<CR>
 
 " Switch files  **************************************************************
 nmap <c-h> <ESC>:bn<CR>

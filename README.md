@@ -19,8 +19,15 @@ For your local settings, copy the *default.gvimrc* file to gvimrc.local, and add
 `mv default.gvimrc gvimrc.local`  
 `ln -s ~/.vim/gvimrc.local ~/.gvimrc.local`  
 
+Next, install Vundle
+
 Vundle
 -----
+run:  
+`git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`  
+`vim .`   
+`:BundleInstall`  
+
 Vundle allows you to install bundles.
 You can run it by calling ':BundleInstall' from within vim.
 
@@ -39,4 +46,4 @@ Visual mode
 
 FuzzyFinder
 -----------
-special mapping <c-s> to search with wildcart
+special mapping @ to search with wildcart
