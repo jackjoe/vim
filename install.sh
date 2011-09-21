@@ -18,4 +18,14 @@ else
   git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 fi
 
+# Backup vimrc if exists + symlink new vimrc
+if [ -f "$HOME/.vimrc" ] || [ -L "$HOME/.vimrc" ] ; then
+	mv "$HOME/.vimrc" "$HOME/.vimrc.backup" 
+fi
+ln -s vimrc ~/.vimrc
 
+# Backup gvimrc if exists + symlink new gvimrc
+if [ -f "$HOME/.gvimrc" ] || [ -L "$HOME/.gvimrc" ] ; then
+  mv "$HOME/.gvimrc" "$HOME/.gvimrc.backup" 
+fi
+ln -s gvimrc ~/.gvimrc
