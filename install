@@ -91,10 +91,10 @@ _install_homesick() {
     if [ $OVERWRITE == 0 ] ; then
       _print  "Original .vimrc still standing"
     else
-      ln -fs $BASEDIR/vimrc $BASEDIR/../.vimrc
+      ln -fs vimrc $BASEDIR/../.vimrc
     fi
   else
-    ln -s $BASEDIR/vimrc $BASEDIR/../.vimrc
+    ln -s vimrc $BASEDIR/../.vimrc
   fi
 
   _success "Ready for homesick"
