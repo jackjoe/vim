@@ -49,9 +49,6 @@ Bundle "kchmck/vim-coffee-script.git"
 " vim-scripts repos
 Bundle 'L9'
 
-" non github repos
-Bundle 'git://git.wincent.com/command-t.git'
-
 " ---------------------------------------------------------------------------
 " |                               General                                   |
 " ---------------------------------------------------------------------------
@@ -79,10 +76,11 @@ syntax on         " Enable syntax highlighting
 set number        " Line number
 set hidden
 
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set showmatch     " Show matching bracets when text indicator is over them
-set autoread      " Set to auto read when a file is changed from the outside
+set ruler             " show the cursor position all the time
+set showcmd           " display incomplete commands
+set showmatch         " Show matching bracets when text indicator is over them
+set autoread          " Set to auto read when a file is changed from the outside
+set clipboard=unnamed " Yank everything to the system clipboard
 
 " Enable F2 key for toggling pastemode
 nnoremap <F2> :set invpaste paste?<CR>
@@ -146,7 +144,10 @@ set noswapfile
 " Status bar ****************************************************************
 set laststatus=2						" Always hide the statusline
 
-" Format the statusline
+" Tell snipmate to pull it's snippets from a custom directory
+let g:snippets_dir = $HOME.'/.vim/bundle/snipmate-snippets/snippets'
+
+" Format the statusline *****************************************************
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 function! CurDir()
@@ -168,6 +169,18 @@ if has("autocmd")
 endif
 
 " ---------------------------------------------------------------------------
+" |                 Custom functions and helpers                            |
+" ---------------------------------------------------------------------------
+function! FixNewLine()
+  :%s/\
+  /\r/
+  :%s/\s\+$//
+  :retab
+  :let @/=''
+endfunction
+:command! FEOL :call FixNewLine()
+
+" ---------------------------------------------------------------------------
 " |                       Keyboard mapping                                   |
 " ---------------------------------------------------------------------------
 
@@ -175,10 +188,23 @@ endif
 imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc'
 let mapleader = ","
 
-" NERDTree ******************************************************************
+" Move between splits
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Block movement
+nmap <tab> %
+vmap <tab> %
+
+" Clear the search highlight
+map <silent> \ :silent nohlsearch<cr>
+
+" NERDTree *******************************************************************
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
-" Zencoding ***************************************************************** 
+" Zencoding ****************************************************************** 
 imap <c-e> <c-y>,
 
 " FuzzyFinder  ***************************************************************
@@ -187,6 +213,27 @@ nmap @ :FufFile **/<CR>
 " Switch files  **************************************************************
 nmap <c-h> <ESC>:bn<CR>
 nmap <c-l> <ESC>:bn<CR>
+
+" Commands for vim-rails *****************************************************
+function! s:setRails()
+  map <buffer> <leader>rc :Rcontroller
+  map <buffer> <leader>vc :RVcontroller
+  map <buffer> <leader>sc :RScontroller
+  map <buffer> <leader>vf :RVfunctional
+  map <buffer> <leader>sf :RSfunctional
+  map <buffer> <leader>m :Rmodel
+  map <buffer> <leader>vm :RVmodel
+  map <buffer> <leader>sm :RSmodel
+  map <buffer> <leader>u :Runittest
+  map <buffer> <leader>vu :RVunittest
+  map <buffer> <leader>su :RSunittest
+  map <buffer> <leader>vv :RVview
+  map <buffer> <leader>sv :RSview
+  map <buffer> <leader>A  :A<cr>
+  map <buffer> <leader>av :AV<cr>
+  map <buffer> <leader>as :AS<cr>
+  map <buffer> <leader>aa :R<cr>
+endfunction
 
 " ---------------------------------------------------------------------------
 " |                           Host specific                                 |

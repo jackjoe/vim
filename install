@@ -34,13 +34,6 @@ _usage() {
 
 #############################################################################
 
-if [ $# -eq 0 ]; then
-  _print "Installing"
-  _install
-fi
-
-#############################################################################
-
 _install() {
   # Vundle
   _print "Installing Vundle"
@@ -67,6 +60,10 @@ _install() {
 
 _install_homesick() {
 	BASEDIR=$(dirname $0);
+echo "$BASEDIR"
+DIR="$( cd "$( dirname "$0" )" && pwd )"
+echo "$DIR"
+exit 0
   if [ -f "$BASEDIR/../.vimrc" ] || [ -L "$BASEDIR/../.vimrc" ] ; then
     OVERWRITE=0;
 
@@ -91,14 +88,22 @@ _install_homesick() {
     if [ $OVERWRITE == 0 ] ; then
       _print  "Original .vimrc still standing"
     else
-      ln -fs vimrc $BASEDIR/../.vimrc
+      ln -fs vimrc ../.vimrc
     fi
   else
-    ln -s vimrc $BASEDIR/../.vimrc
+    ln -s vimrc ../.vimrc
   fi
+cd $cur_dir
 
   _success "Ready for homesick"
 }
+
+#############################################################################
+
+if [ $# -eq 0 ]; then
+  _print "Installing"
+  _install
+fi
 
 #############################################################################
 
