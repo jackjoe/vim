@@ -188,12 +188,6 @@ endfunction
 imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc'
 let mapleader = ","
 
-" Move between splits
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
 " Block movement
 nmap <tab> %
 vmap <tab> %
