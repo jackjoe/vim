@@ -198,6 +198,9 @@ map <C-l> <C-w>l
 nmap <tab> %
 vmap <tab> %
 
+" Show/hide hidden characters
+nmap <leader>l :set list!<cr>
+
 " Clear the search highlight
 map <silent> \ :silent nohlsearch<cr>
 
