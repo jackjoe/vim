@@ -208,7 +208,7 @@ imap <c-e> <c-y>,
 nmap @ :FufFile **/<CR>
 
 " Switch files  **************************************************************
-nmap <c-h> <ESC>:bn<CR>
+nmap <c-h> <ESC>:bp<CR>
 nmap <c-l> <ESC>:bn<CR>
 
 " Commands for vim-rails *****************************************************
