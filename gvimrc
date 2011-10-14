@@ -5,9 +5,11 @@ set go-=T
 set bg=dark
 
 " The beautiful solarized
-set background=dark
-colorscheme solarized
-set gfn=Menlo:h12
+colorscheme wombat
+set gfn=Monaco:h11
+
+" Disable error bells.
+set noerrorbells 
 
 " Size matters
 set lines=50

@@ -87,20 +87,20 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 
-"Invisible character colors
+" Invisible character colors
 highlight NonText guifg=#7A7A90
 highlight SpecialKey guifg=#7A7A90
 
 set history=1000      " keep 1000 lines of command line history
 set undolevels=200    " Undo history
 set ttyfast           " Yes, we have a fast terminal
+set noerrorbells      " Disable error bells.
 
 " Color + font **************************************************************
 syntax enable 				" Enable syntax hl
 
 colorscheme default
 
-"set t_Co=256
 set encoding=utf8
 
 set gfn=Monaco:h11
@@ -115,6 +115,7 @@ filetype plugin on
 " Specific color coding for some file extensions
 au BufRead,BufNewFile *.module set filetype=php
 au BufRead,BufNewFile *.inc set filetype=php
+au BufRead,BufNewFile *.ru set filetype=ruby
 
 " Search improvements *******************************************************
 set hlsearch                " Highlight search things
