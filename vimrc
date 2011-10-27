@@ -82,11 +82,6 @@ set showmatch         " Show matching bracets when text indicator is over them
 set autoread          " Set to auto read when a file is changed from the outside
 set clipboard=unnamed " Yank everything to the system clipboard
 
-" Enable F2 key for toggling pastemode
-nnoremap <F2> :set invpaste paste?<CR>
-imap <F2> <C-O><F2>
-set pastetoggle=<F2>
-
 " Invisible character colors
 highlight NonText guifg=#7A7A90
 highlight SpecialKey guifg=#7A7A90
@@ -192,6 +187,14 @@ let mapleader = ","
 " Block movement
 nmap <tab> %
 vmap <tab> %
+
+" Enable F2 key for toggling pastemode
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
+
+" paste with paste mode and exit
+imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
