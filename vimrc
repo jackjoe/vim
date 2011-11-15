@@ -207,6 +207,9 @@ map <silent> \ :silent nohlsearch<cr>
 " NERDTree *******************************************************************
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
 " Zencoding ****************************************************************** 
 imap <c-e> <c-y>,
 
