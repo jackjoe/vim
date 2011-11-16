@@ -204,6 +204,10 @@ nmap <leader>l :set list!<cr>
 " Clear the search highlight
 map <silent> \ :silent nohlsearch<cr>
 
+" Mappings specific for html
+:vmap <C-b> <S-S><strong>
+:vmap <C-i> <S-S><em>
+
 " NERDTree *******************************************************************
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
