@@ -215,6 +215,10 @@ map <silent> \ :silent nohlsearch<cr>
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader>c :CoffeeCompile<CR>
 
+" Mappings specific for html
+:vmap <leader>b <S-S><strong>
+:vmap <leader>i <S-S><em>
+
 " NERDTree *******************************************************************
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
@@ -225,7 +229,7 @@ let NERDTreeDirArrows = 1
 imap <c-e> <c-y>,
 
 " FuzzyFinder  ***************************************************************
-nmap @ :FufFile **/<CR>
+nmap <C-o> :FufFile **/<CR>
 
 " Switch files  **************************************************************
 nmap <c-h> <ESC>:bp<CR>
