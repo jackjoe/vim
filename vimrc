@@ -33,6 +33,7 @@ Bundle 'tpope/vim-surround.git'
 Bundle 'tsaleh/vim-align.git' 
 Bundle 'tsaleh/vim-supertab.git'
 Bundle 'tsaleh/vim-tcomment.git'
+Bundle 'scrooloose/syntastic.git'
 Bundle 'vim-ruby/vim-ruby.git'
 Bundle 'mattn/zencoding-vim'
 Bundle 'vim-scripts/FuzzyFinder.git'
@@ -140,10 +141,16 @@ set nowb
 set noswapfile
 
 " Status bar ****************************************************************
-set laststatus=2						" Always hide the statusline
+set laststatus=2           " Always hide the statusline
 
 " Tell snipmate to pull it's snippets from a custom directory
 let g:snippets_dir = $HOME.'/.vim/bundle/snipmate-snippets/snippets'
+
+" Syntastic *****************************************************************
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_enable_signs=1
 
 " Format the statusline *****************************************************
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
@@ -154,11 +161,11 @@ function! CurDir()
 endfunction
 
 function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    else
-        return ''
-    endif
+  if &paste
+    return 'PASTE MODE  '
+  else
+    return ''
+  endif
 endfunction
 
 " Source after saving *******************************************************
@@ -203,6 +210,10 @@ nmap <leader>l :set list!<cr>
 
 " Clear the search highlight
 map <silent> \ :silent nohlsearch<cr>
+
+" Coffeescript  **************************************************************
+vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
+map <leader>c :CoffeeCompile<CR>
 
 " NERDTree *******************************************************************
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
