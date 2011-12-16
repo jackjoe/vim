@@ -134,6 +134,7 @@ set copyindent              " Take indentation from previous line
 set wrap                    " set linewrap
 
 set list listchars=tab:»·,trail:·,eol:¬,nbsp:_
+set list!
 
 " Files/backup **************************************************************
 set nobackup                " do not keep a backup file, use versions instead
