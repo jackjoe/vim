@@ -23,29 +23,26 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Original repos on github
-Bundle 'mileszs/ack.vim.git'
-Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-haml.git'
+Bundle 'jeroenbourgois/vim-actionscript.git'
 Bundle 'tpope/vim-markdown.git'
 Bundle 'tpope/vim-rails.git'
+Bundle 'vim-ruby/vim-ruby.git'
+Bundle 'ingydotnet/yaml-vim.git'
+Bundle "kchmck/vim-coffee-script.git"
+Bundle 'mattn/zencoding-vim'
+
+Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-repeat.git'
+Bundle 'mileszs/ack.vim.git'
 Bundle 'tpope/vim-surround.git'
-Bundle 'tsaleh/vim-align.git' 
 Bundle 'ervandew/supertab.git'
 Bundle 'tsaleh/vim-tcomment.git'
 Bundle 'scrooloose/syntastic.git'
-Bundle 'vim-ruby/vim-ruby.git'
-Bundle 'mattn/zencoding-vim'
-Bundle 'vim-scripts/FuzzyFinder.git'
 Bundle 'itspriddle/vim-lesscss.git'
-Bundle 'altercation/vim-colors-solarized.git'
-Bundle 'ingydotnet/yaml-vim.git'
-Bundle 'jeroenbourgois/vim-actionscript.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
-Bundle "honza/snipmate-snippets.git"
 Bundle "msanders/snipmate.vim"
-Bundle "kchmck/vim-coffee-script.git"
 
 " vim-scripts repos
 Bundle 'L9'
@@ -151,7 +148,12 @@ let g:snippets_dir = $HOME.'/.vim/bundle/snipmate-snippets/snippets'
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_enable_signs=1
+
+let g:syntastic_enable_signs=1    " show signs in bar
+let g:syntastic_quiet_warnings=1  " warnings suck
+
+let g:syntastic_mode_map = {'mode': 'passive'}
+nmap <F3> :SyntasticCheck<CR>     " do check
 
 " Format the statusline *****************************************************
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
@@ -198,25 +200,23 @@ let mapleader = ","
 nmap <tab> %
 vmap <tab> %
 
-" Enable F2 key for toggling pastemode
-nnoremap <F2> :set invpaste paste?<CR>
-imap <F2> <C-O><F2>
-set pastetoggle=<F2>
-
-" paste with paste mode and exit
-imap <Leader>v  <C-O>:set paste<CR><C-r>*<C-O>:set nopaste<CR>
-
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
 
 " Clear the search highlight
 map <silent> \ :silent nohlsearch<cr>
 
+" Paste mode  ****************************************************************
+" Enable F2 key for toggling pastemode
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
+
 " Coffeescript  **************************************************************
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader>c :CoffeeCompile<CR>
 
-" Mappings specific for html
+" Mappings specific for html *************************************************
 :vmap <leader>b <S-S><strong>
 :vmap <leader>i <S-S><em>
 
@@ -228,9 +228,6 @@ let NERDTreeDirArrows = 1
 
 " Zencoding ****************************************************************** 
 imap <c-e> <c-y>,
-
-" FuzzyFinder  ***************************************************************
-nmap <C-o> :FufFile **/<CR>
 
 " Switch files  **************************************************************
 nmap <c-h> <ESC>:bp<CR>
