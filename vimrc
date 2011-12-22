@@ -44,6 +44,8 @@ Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle "msanders/snipmate.vim"
 
+Bundle "wincent/Command-T"
+
 " vim-scripts repos
 Bundle 'L9'
 
@@ -74,36 +76,31 @@ syntax on         " Enable syntax highlighting
 set number        " Line number
 set hidden
 
-set ruler             " show the cursor position all the time
-set showcmd           " display incomplete commands
-set showmatch         " Show matching bracets when text indicator is over them
-set autoread          " Set to auto read when a file is changed from the outside
-set clipboard=unnamed " Yank everything to the system clipboard
+set ruler                         " show the cursor position all the time
+set showcmd                       " display incomplete commands
+set showmatch                     " Show matching bracets when text indicator is over them
+set autoread                      " Set to auto read when a file is changed from the outside
+set clipboard=unnamed             " Yank everything to the system clipboard
 
 " Invisible character colors
 highlight NonText guifg=#7A7A90
 highlight SpecialKey guifg=#7A7A90
 
-set history=1000      " keep 1000 lines of command line history
-set undolevels=200    " Undo history
-set ttyfast           " Yes, we have a fast terminal
-set noerrorbells      " Disable error bells.
+set history=1000                  " keep 1000 lines of command line history
+set undolevels=200                " Undo history
+set ttyfast                       " Yes, we have a fast terminal
+set noerrorbells                  " Disable error bells.
 
 " Color + font **************************************************************
-syntax enable 				" Enable syntax hl
+syntax enable 				            " Enable syntax hl
 
 colorscheme default
-
 set encoding=utf8
-
 set gfn=Monaco:h11
-
-set ffs=unix,mac,dos	" Support all three, in this order
+set ffs=unix,mac,dos	            " Support all three, in this order
 set shell=/bin/bash
 
 " File type specific ********************************************************
-filetype indent on
-filetype plugin on
 
 " Specific color coding for some file extensions
 au BufRead,BufNewFile *.module set filetype=php
@@ -111,16 +108,16 @@ au BufRead,BufNewFile *.inc set filetype=php
 au BufRead,BufNewFile *.ru set filetype=ruby
 
 " Search improvements *******************************************************
-set hlsearch                " Highlight search things
-set incsearch               " Make search act like search in modern browsers
-set ignorecase              " Case insensitive matching.
-set smartcase               " Ignore case when searching lowercase
+set hlsearch                      " Highlight search things
+set incsearch                     " Make search act like search in modern browsers
+set ignorecase                    " Case insensitive matching...
+set smartcase                     " ... unless they contain at least one capital letter
 
 " Text settings / tabbing / indenting ***************************************
-set softtabstop=2 " Use a 2 space soft tab
 set shiftwidth=2
 set tabstop=2
 set expandtab
+set wrap                          " set linewrap
 
 set lbr
 set tw=500
@@ -128,18 +125,16 @@ set ai                      " Auto indent
 set si                      " Smart indent
 set copyindent              " Take indentation from previous line
 
-set wrap                    " set linewrap
-
-set list listchars=tab:»·,trail:·,eol:¬,nbsp:_
-set list!
+" List chars
+set list                          " Show invisible characters
+set backspace=indent,eol,start    " backspace through everything in insert mode
+set listchars=""                  " Reset the listchars
+set listchars=tab:»·,trail:·,eol:¬,nbsp:_
 
 " Files/backup **************************************************************
 set nobackup                " do not keep a backup file, use versions instead
 set nowb
 set noswapfile
-
-" Status bar ****************************************************************
-set laststatus=2           " Always hide the statusline
 
 " Tell snipmate to pull it's snippets from a custom directory
 let g:snippets_dir = $HOME.'/.vim/bundle/snipmate-snippets/snippets'
@@ -156,7 +151,7 @@ let g:syntastic_mode_map = {'mode': 'passive'}
 nmap <F3> :SyntasticCheck<CR>     " do check
 
 " Format the statusline *****************************************************
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+set statusline+=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 function! CurDir()
   let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
@@ -203,8 +198,18 @@ vmap <tab> %
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
 
-" Clear the search highlight
-map <silent> \ :silent nohlsearch<cr>
+" clear the search buffer when hitting return
+:nnoremap <CR> :nohlsearch<cr>
+
+command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
+
+" Command-T  *****************************************************************
+" double percentage sign in command mode is expanded
+" to directory of current file - http://vimcasts.org/e/14
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+
+map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
+map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 " Paste mode  ****************************************************************
 " Enable F2 key for toggling pastemode
@@ -232,6 +237,12 @@ imap <c-e> <c-y>,
 " Switch files  **************************************************************
 nmap <c-h> <ESC>:bp<CR>
 nmap <c-l> <ESC>:bn<CR>
+
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " Commands for vim-rails *****************************************************
 function! s:setRails()
