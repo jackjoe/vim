@@ -201,7 +201,13 @@ nmap <leader>l :set list!<cr>
 " clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
+" Clean whitespace
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
+
+" Sudo to write
+cmap w!! w !sudo tee % >/dev/null
+
+nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e $MYVIMRC<cr>
 
 " Command-T  *****************************************************************
 " double percentage sign in command mode is expanded
