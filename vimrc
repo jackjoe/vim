@@ -29,7 +29,7 @@ Bundle 'tpope/vim-markdown.git'
 Bundle 'tpope/vim-rails.git'
 Bundle 'vim-ruby/vim-ruby.git'
 Bundle 'ingydotnet/yaml-vim.git'
-Bundle "kchmck/vim-coffee-script.git"
+Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'mattn/zencoding-vim'
 
 Bundle 'tpope/vim-git.git'
@@ -42,9 +42,9 @@ Bundle 'scrooloose/syntastic.git'
 Bundle 'itspriddle/vim-lesscss.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
-Bundle "msanders/snipmate.vim"
-
-Bundle "wincent/Command-T"
+Bundle 'msanders/snipmate.vim'
+Bundle 'wincent/Command-T'
+Bundle 'kien/rainbow_parentheses.vim'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -243,6 +243,14 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+" Rainbow Parentheses ********************************************************
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+map <leader>R :RainbowParenthesesToggle<CR>
 
 " Commands for vim-rails *****************************************************
 function! s:setRails()
