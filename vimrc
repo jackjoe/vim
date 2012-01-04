@@ -96,7 +96,7 @@ syntax enable 				            " Enable syntax hl
 
 colorscheme default
 set encoding=utf8
-set gfn=Monaco:h11
+set gfn=Monaco:h12
 set ffs=unix,mac,dos	            " Support all three, in this order
 set shell=/bin/bash
 
@@ -114,6 +114,7 @@ set ignorecase                    " Case insensitive matching...
 set smartcase                     " ... unless they contain at least one capital letter
 
 " Text settings / tabbing / indenting ***************************************
+set softtabstop=2
 set shiftwidth=2
 set tabstop=2
 set expandtab
@@ -121,9 +122,9 @@ set wrap                          " set linewrap
 
 set lbr
 set tw=500
-set ai                      " Auto indent
-set si                      " Smart indent
-set copyindent              " Take indentation from previous line
+set ai                            " Auto indent
+set si                            " Smart indent
+set copyindent                    " Take indentation from previous line
 
 " List chars
 set list                          " Show invisible characters
