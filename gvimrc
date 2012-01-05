@@ -25,4 +25,3 @@ set fuoptions=maxvert,maxhorz
 if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
-" 
