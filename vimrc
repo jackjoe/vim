@@ -44,6 +44,7 @@ Bundle 'itspriddle/vim-lesscss.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'msanders/snipmate.vim'
+Bundle 'Townk/vim-autoclose'
 Bundle 'wincent/Command-T'
 Bundle 'kien/rainbow_parentheses.vim'
 
