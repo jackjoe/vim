@@ -287,6 +287,13 @@ function! s:setRails()
   map <buffer> <leader>aa :R<cr>
 endfunction
 
+
+" CSS and LessCSS {{{
+
+au BufNewFile,BufRead *.less setlocal filetype=less
+
+" }}}
+
 " ---------------------------------------------------------------------------
 " |                           Host specific                                 |
 " ---------------------------------------------------------------------------
