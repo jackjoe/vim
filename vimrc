@@ -207,6 +207,9 @@ nmap <leader>l :set list!<cr>
 " Clean whitespace
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
+" Clean whitespace
+map <leader>W  :%s/s+$//<cr>:let @/=''<CR>
+
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
