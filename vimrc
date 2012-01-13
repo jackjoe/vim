@@ -34,6 +34,7 @@ Bundle 'mattn/zencoding-vim'
 
 Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-endwise'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'ervandew/supertab.git'
