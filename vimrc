@@ -212,6 +212,11 @@ cmap w!! w !sudo tee % >/dev/null
 
 nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e $MYVIMRC<cr>
 
+" Fuck you, help key, seriously
+set fuoptions=maxvert,maxhorz
+noremap  <F1> :set invfullscreen<CR>
+inoremap <F1> <ESC>:set invfullscreen<CR>
+
 " Command-T  *****************************************************************
 " double percentage sign in command mode is expanded
 " to directory of current file - http://vimcasts.org/e/14
