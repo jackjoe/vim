@@ -13,6 +13,9 @@
 " ---------------------------------------------------------------------------
 filetype on   " first on, to avoid vim exiting with status code 1!
 filetype off  " required!
+
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
 set nocompatible
 
 set rtp+=~/.vim/bundle/vundle/
@@ -32,6 +35,7 @@ Bundle 'ingydotnet/yaml-vim.git'
 Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'mattn/zencoding-vim'
 
+Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'mileszs/ack.vim.git'
@@ -66,11 +70,9 @@ noremap   <Right>  <NOP>
 
 filetype plugin indent on
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
-
 " General editor ************************************************************
+set laststatus=2   " Always show the statusline
+
 syntax on         " Enable syntax highlighting
 
 set number        " Line number
@@ -166,6 +168,8 @@ function! HasPaste()
     return ''
   endif
 endfunction
+
+let g:Powerline_symbols = 'fancy'
 
 " Source after saving *******************************************************
 if has("autocmd")
