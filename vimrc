@@ -38,6 +38,7 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-repeat.git'
+Bundle 'tpope/vim-endwise'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'ervandew/supertab.git'
@@ -47,6 +48,7 @@ Bundle 'itspriddle/vim-lesscss.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
 Bundle 'msanders/snipmate.vim'
+Bundle 'Townk/vim-autoclose'
 Bundle 'wincent/Command-T'
 Bundle 'kien/rainbow_parentheses.vim'
 
@@ -209,10 +211,18 @@ nmap <leader>l :set list!<cr>
 " Clean whitespace
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
+" Clean whitespace
+map <leader>W  :%s/s+$//<cr>:let @/=''<CR>
+
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 
 nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e $MYVIMRC<cr>
+
+" Fuck you, help key, seriously
+set fuoptions=maxvert,maxhorz
+noremap  <F1> :set invfullscreen<CR>
+inoremap <F1> <ESC>:set invfullscreen<CR>
 
 " Command-T  *****************************************************************
 " double percentage sign in command mode is expanded
@@ -283,6 +293,13 @@ function! s:setRails()
   map <buffer> <leader>as :AS<cr>
   map <buffer> <leader>aa :R<cr>
 endfunction
+
+
+" CSS and LessCSS {{{
+
+au BufNewFile,BufRead *.less setlocal filetype=less
+
+" }}}
 
 " ---------------------------------------------------------------------------
 " |                           Host specific                                 |
