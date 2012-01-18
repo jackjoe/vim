@@ -107,6 +107,8 @@ set shell=/bin/bash
 " Specific color coding for some file extensions
 au BufRead,BufNewFile *.module set filetype=php
 au BufRead,BufNewFile *.inc set filetype=php
+au BufRead,BufNewFile *.install set filetype=php
+au BufRead,BufNewFile *.module set filetype=php
 au BufRead,BufNewFile *.ru set filetype=ruby
 
 " Search improvements *******************************************************
