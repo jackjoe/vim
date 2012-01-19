@@ -22,7 +22,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " Original repos on github
@@ -51,9 +51,11 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'Townk/vim-autoclose'
 Bundle 'wincent/Command-T'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'docunext/closetag.vim'
 
 " vim-scripts repos
 Bundle 'L9'
+" Bundle 'remote-PHP-debugger'
 
 " ---------------------------------------------------------------------------
 " |                               General                                   |
@@ -100,7 +102,7 @@ syntax enable 				            " Enable syntax hl
 
 colorscheme default
 set encoding=utf8
-set gfn=Monaco:h12
+" set gfn=Monaco:h12
 set ffs=unix,mac,dos	            " Support all three, in this order
 set shell=/bin/bash
 
@@ -254,7 +256,7 @@ nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" Zencoding ****************************************************************** 
+" Zencoding ******************************************************************
 imap <c-e> <c-y>,
 
 " Switch files  **************************************************************
