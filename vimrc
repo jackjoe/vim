@@ -182,9 +182,21 @@ if has("autocmd")
   autocmd! bufwritepost .vimrc source $MYVIMRC
 endif
 
+" Supertab and omnicomplete
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+
+" Tab completion options
+" (only complete to the longest unambiguous match, and show a menu)
+set completeopt=longest,menu
+set wildmode=list:longest,list:full
+set complete=.,t
+
+
 " ---------------------------------------------------------------------------
-" |                 Custom functions and helpers                            |
+" Custom functions and helpers 
 " ---------------------------------------------------------------------------
+
 function! FixNewLine()
   :%s/\
   /\r/
@@ -195,7 +207,7 @@ endfunction
 :command! FEOL :call FixNewLine()
 
 " ---------------------------------------------------------------------------
-" |                       Keyboard mapping                                   |
+" Keyboard mapping
 " ---------------------------------------------------------------------------
 
 " Vim recommended ***********************************************************
