@@ -58,7 +58,7 @@ Bundle 'L9'
 " Bundle 'remote-PHP-debugger'
 
 " ---------------------------------------------------------------------------
-" |                               General                                   |
+" G E N E R A L
 " ---------------------------------------------------------------------------
 
 " Disable arrow keys *******************************************************
@@ -106,14 +106,15 @@ set encoding=utf8
 set ffs=unix,mac,dos	            " Support all three, in this order
 set shell=/bin/bash
 
-" File type specific ********************************************************
-
-" Specific color coding for some file extensions
-au BufRead,BufNewFile *.module set filetype=php
-au BufRead,BufNewFile *.inc set filetype=php
-au BufRead,BufNewFile *.install set filetype=php
-au BufRead,BufNewFile *.module set filetype=php
-au BufRead,BufNewFile *.ru set filetype=ruby
+" ---------------------------------------------------------------------------
+"  F I L E  T Y P E S 
+" ---------------------------------------------------------------------------
+"
+au BufRead,BufNewFile *.module    set filetype=php
+au BufRead,BufNewFile *.inc       set filetype=php
+au BufRead,BufNewFile *.install   set filetype=php
+au BufRead,BufNewFile *.module    set filetype=php
+au BufRead,BufNewFile *.ru        set filetype=ruby
 
 " Search improvements *******************************************************
 set hlsearch                      " Highlight search things
