@@ -30,17 +30,15 @@ Bundle 'tpope/vim-rails.git'
 Bundle 'vim-ruby/vim-ruby.git'
 Bundle 'ingydotnet/yaml-vim.git'
 Bundle 'kchmck/vim-coffee-script.git'
-Bundle 'mattn/zencoding-vim'
 
+Bundle 'mattn/zencoding-vim'
 Bundle 'Lokaltog/vim-powerline.git'
-Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'ervandew/supertab.git'
-Bundle 'tsaleh/vim-tcomment.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'itspriddle/vim-lesscss.git'
 Bundle 'vim-scripts/matchit.zip.git'
@@ -53,6 +51,7 @@ Bundle 'docunext/closetag.vim'
 
 " vim-scripts repos
 Bundle 'L9'
+Bundle 'tComment'
 " Bundle 'remote-PHP-debugger'
 
 " ---------------------------------------------------------------------------
@@ -155,11 +154,11 @@ set statusline+=%*
 let g:syntastic_enable_signs=1    " show signs in bar
 let g:syntastic_quiet_warnings=1  " warnings suck
 
-let g:syntastic_mode_map = {'mode': 'passive'}
+let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': [], 'passive_filetypes': []}
 nmap <F3> :SyntasticCheck<CR>     " do check
 
 " Format the statusline *****************************************************
-set statusline+=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+" set statusline+=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 function! CurDir()
   let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
@@ -183,11 +182,13 @@ endif
 
 " Supertab and omnicomplete
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
-" set completeopt=longest,menu
+set completeopt=longest,menu
+set completeopt=menu,preview
+set wildmenu
 set wildmode=list:longest,list:full
 set complete=.,t
 
