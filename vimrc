@@ -43,16 +43,24 @@ Bundle 'scrooloose/syntastic.git'
 Bundle 'itspriddle/vim-lesscss.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'msanders/snipmate.vim'
 Bundle 'Townk/vim-autoclose'
 Bundle 'wincent/Command-T'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
 
+" Snipmate specific ~ start
+" Install dependencies:
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "snipmate-snippets"
+
+" Install snipmate:
+Bundle "garbas/vim-snipmate"
+" Snipmate specific ~ end
+
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
-" Bundle 'remote-PHP-debugger'
 
 " ---------------------------------------------------------------------------
 " G E N E R A L
@@ -143,9 +151,6 @@ set nobackup                " do not keep a backup file, use versions instead
 set nowb
 set noswapfile
 
-" Tell snipmate to pull it's snippets from a custom directory
-let g:snippets_dir = $HOME.'/.vim/bundle/snipmate-snippets/snippets'
-
 " Syntastic *****************************************************************
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -179,18 +184,6 @@ let g:Powerline_symbols = 'fancy'
 if has("autocmd")
   autocmd! bufwritepost .vimrc source $MYVIMRC
 endif
-
-" Supertab and omnicomplete
-let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
-" Tab completion options
-" (only complete to the longest unambiguous match, and show a menu)
-set completeopt=longest,menu
-set completeopt=menu,preview
-set wildmenu
-set wildmode=list:longest,list:full
-set complete=.,t
 
 " ---------------------------------------------------------------------------
 " Custom functions and helpers 
