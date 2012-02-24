@@ -79,7 +79,8 @@ noremap   <Right>  <NOP>
 
 filetype plugin indent on
 
-" General editor ************************************************************
+" ================ General Config ====================
+"
 set laststatus=2   " Always show the statusline
 
 syntax on         " Enable syntax highlighting
@@ -94,6 +95,7 @@ set autoread                      " Set to auto read when a file is changed from
 set clipboard=unnamed             " Yank everything to the system clipboard
 
 " Invisible character colors
+
 highlight NonText guifg=#7A7A90
 highlight SpecialKey guifg=#7A7A90
 
@@ -102,7 +104,21 @@ set undolevels=200                " Undo history
 set ttyfast                       " Yes, we have a fast terminal
 set noerrorbells                  " Disable error bells.
 
-" Color + font **************************************************************
+" ================ Folds ============================
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+" ================ Completion =======================
+
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+
+" =============== Color + font ======================
+
 syntax enable 				            " Enable syntax hl
 
 colorscheme default
