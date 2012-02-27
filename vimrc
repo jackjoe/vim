@@ -31,6 +31,8 @@ Bundle 'vim-ruby/vim-ruby.git'
 Bundle 'ingydotnet/yaml-vim.git'
 Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'mattn/zencoding-vim'
+Bundle 'nvie/vim-pyflakes'
+Bundle 'nvie/vim-pep8'
 
 Bundle 'Lokaltog/vim-powerline.git'
 Bundle 'tpope/vim-git.git'
@@ -99,8 +101,8 @@ set noerrorbells                  " Disable error bells.
 syntax enable 				            " Enable syntax hl
 
 colorscheme default
+
 set encoding=utf8
-" set gfn=Monaco:h12
 set ffs=unix,mac,dos	            " Support all three, in this order
 set shell=/bin/bash
 
@@ -309,9 +311,7 @@ function! s:setRails()
 endfunction
 
 " CSS and LessCSS {{{
-
 au BufNewFile,BufRead *.less setlocal filetype=less
-
 " }}}
 
 " ---------------------------------------------------------------------------
