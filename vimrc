@@ -33,29 +33,36 @@ Bundle 'kchmck/vim-coffee-script.git'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nvie/vim-pyflakes'
 Bundle 'nvie/vim-pep8'
-
+Bundle 'mattn/zencoding-vim'
 Bundle 'Lokaltog/vim-powerline.git'
-Bundle 'tpope/vim-git.git'
 Bundle 'tpope/vim-repeat.git'
 Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mileszs/ack.vim.git'
 Bundle 'tpope/vim-surround.git'
 Bundle 'ervandew/supertab.git'
-Bundle 'tsaleh/vim-tcomment.git'
 Bundle 'scrooloose/syntastic.git'
 Bundle 'itspriddle/vim-lesscss.git'
 Bundle 'vim-scripts/matchit.zip.git'
 Bundle 'scrooloose/nerdtree.git'
-Bundle 'msanders/snipmate.vim'
 Bundle 'Townk/vim-autoclose'
 Bundle 'wincent/Command-T'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
 
+" Snipmate specific ~ start
+" Install dependencies:
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "snipmate-snippets"
+
+" Install snipmate:
+Bundle "garbas/vim-snipmate"
+" Snipmate specific ~ end
+
 " vim-scripts repos
 Bundle 'L9'
-" Bundle 'remote-PHP-debugger'
+Bundle 'tComment'
 
 " ---------------------------------------------------------------------------
 " G E N E R A L
@@ -74,7 +81,8 @@ noremap   <Right>  <NOP>
 
 filetype plugin indent on
 
-" General editor ************************************************************
+" ================ General Config ====================
+"
 set laststatus=2   " Always show the statusline
 
 syntax on         " Enable syntax highlighting
@@ -89,6 +97,7 @@ set autoread                      " Set to auto read when a file is changed from
 set clipboard=unnamed             " Yank everything to the system clipboard
 
 " Invisible character colors
+
 highlight NonText guifg=#7A7A90
 highlight SpecialKey guifg=#7A7A90
 
@@ -97,7 +106,21 @@ set undolevels=200                " Undo history
 set ttyfast                       " Yes, we have a fast terminal
 set noerrorbells                  " Disable error bells.
 
-" Color + font **************************************************************
+" ================ Folds ============================
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+" ================ Completion =======================
+
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+
+" =============== Color + font ======================
+
 syntax enable 				            " Enable syntax hl
 
 colorscheme default
@@ -146,9 +169,6 @@ set nobackup                " do not keep a backup file, use versions instead
 set nowb
 set noswapfile
 
-" Tell snipmate to pull it's snippets from a custom directory
-let g:snippets_dir = $HOME.'/.vim/bundle/snipmate-snippets/snippets'
-
 " Syntastic *****************************************************************
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -157,11 +177,11 @@ set statusline+=%*
 let g:syntastic_enable_signs=1    " show signs in bar
 let g:syntastic_quiet_warnings=1  " warnings suck
 
-let g:syntastic_mode_map = {'mode': 'passive'}
+let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': [], 'passive_filetypes': []}
 nmap <F3> :SyntasticCheck<CR>     " do check
 
 " Format the statusline *****************************************************
-set statusline+=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
+" set statusline+=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 function! CurDir()
   let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
@@ -182,16 +202,6 @@ let g:Powerline_symbols = 'fancy'
 if has("autocmd")
   autocmd! bufwritepost .vimrc source $MYVIMRC
 endif
-
-" Supertab and omnicomplete
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
-" Tab completion options
-" (only complete to the longest unambiguous match, and show a menu)
-" set completeopt=longest,menu
-set wildmode=list:longest,list:full
-set complete=.,t
 
 " ---------------------------------------------------------------------------
 " Custom functions and helpers 
