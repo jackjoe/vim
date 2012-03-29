@@ -61,6 +61,7 @@ Bundle "garbas/vim-snipmate"
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
+Bundle 'Align'
 
 " ---------------------------------------------------------------------------
 " G E N E R A L
