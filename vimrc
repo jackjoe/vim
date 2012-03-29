@@ -87,6 +87,7 @@ filetype plugin indent on
 set laststatus=2   " Always show the statusline
 
 syntax on         " Enable syntax highlighting
+syntax enable 		" Enable syntax hl
 
 set number        " Line number
 set hidden
@@ -121,8 +122,6 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 
 " =============== Color + font ======================
-
-syntax enable 				            " Enable syntax hl
 
 colorscheme default
 
