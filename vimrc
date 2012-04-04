@@ -322,6 +322,7 @@ endfunction
 
 " CSS and LessCSS {{{
 au BufNewFile,BufRead *.less setlocal filetype=less
+au BufNewFile,BufRead *.less set ft=css.less
 " }}}
 
 " ---------------------------------------------------------------------------
