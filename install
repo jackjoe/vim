@@ -25,8 +25,6 @@ _usage() {
   Options: 
 
   -h                Show this message 
-  -a                Alternative install, homesick compatible, will just symlink vimrc 
-                    into ../home/.vimrc, which you can then 'homesick symlink REPONAME'
   " 
 
   exit 0 
@@ -58,55 +56,11 @@ _install() {
 
   ln -s $curdir/gvimrc ~/.gvimrc
 
+  _print "Spin Vim for a setup run"
+
+  vim . -c 'BundleInstall' -c 'qa'
+
   _success "Ready to rock"
-}
-
-_install_homesick() {
-  BASEDIR=$(dirname $0);
-
-  echo "$BASEDIR"
-
-  DIR="$( cd "$( dirname "$0" )" && pwd )"
-
-  echo "$DIR"
-
-  exit 0
-
-  if [ -f "$BASEDIR/../.vimrc" ] || [ -L "$BASEDIR/../.vimrc" ] ; then
-    OVERWRITE=0;
-
-    while true
-    do
-      read -s -n1 -p "Overwrite .vimrc in your castle? (y/n)" RESP
-
-      case $RESP
-        in
-        [yY])
-          OVERWRITE=1;
-          break
-          ;;
-        [nN])
-          break
-          ;;
-        *)
-
-      echo "Wrong argument, y or n only"
-
-      esac
-    done
-
-    if [ $OVERWRITE == 0 ] ; then
-      _print  "Original .vimrc still standing"
-    else
-      ln -fs vimrc ../.vimrc
-    fi
-  else
-    ln -s vimrc ../.vimrc
-  fi
-
-  cd $cur_dir
-
-  _success "Ready for homesick"
 }
 
 #############################################################################
@@ -123,10 +77,6 @@ while getopts :ha opt; do
   case $opt in 
     h) 
     _usage 
-    ;; 
-    a) 
-    _print "Installing for homesick"
-    _install_homesick
     ;; 
     *) 
     _error "Invalid option received" 
