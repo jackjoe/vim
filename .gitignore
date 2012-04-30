@@ -1,3 +1,4 @@
 .netrwhist
 *.local
+.DS_Store
 bundle/

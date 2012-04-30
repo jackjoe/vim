@@ -21,30 +21,30 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
-
-" Original repos on github
-Bundle 'tpope/vim-haml.git'
-Bundle 'jeroenbourgois/vim-actionscript.git'
-Bundle 'tpope/vim-markdown.git'
-Bundle 'tpope/vim-rails.git'
-Bundle 'vim-ruby/vim-ruby.git'
-Bundle 'ingydotnet/yaml-vim.git'
-Bundle 'kchmck/vim-coffee-script.git'
+"
+"" Original repos on github
+Bundle 'jeroenbourgois/vim-actionscript'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'ingydotnet/yaml-vim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nvie/vim-pyflakes'
 Bundle 'nvie/vim-pep8'
 Bundle 'mattn/zencoding-vim'
-Bundle 'Lokaltog/vim-powerline.git'
-Bundle 'tpope/vim-repeat.git'
-Bundle 'tpope/vim-endwise'
-Bundle 'tpope/vim-fugitive'
-Bundle 'mileszs/ack.vim.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'ervandew/supertab.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'itspriddle/vim-lesscss.git'
-Bundle 'vim-scripts/matchit.zip.git'
-Bundle 'scrooloose/nerdtree.git'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'mileszs/ack.vim'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'itspriddle/vim-lesscss'
+Bundle 'vim-scripts/matchit.zip'
+Bundle 'scrooloose/nerdtree'
 Bundle 'Townk/vim-autoclose'
 Bundle 'wincent/Command-T'
 Bundle 'kien/rainbow_parentheses.vim'
@@ -64,6 +64,7 @@ Bundle "garbas/vim-snipmate"
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
+Bundle 'Align'
 
 " ---------------------------------------------------------------------------
 " G E N E R A L
@@ -87,6 +88,7 @@ filetype plugin indent on
 set laststatus=2   " Always show the statusline
 
 syntax on         " Enable syntax highlighting
+syntax enable 		" Enable syntax hl
 
 set number        " Line number
 set hidden
@@ -121,8 +123,6 @@ set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 
 " =============== Color + font ======================
-
-syntax enable 				            " Enable syntax hl
 
 colorscheme default
 
@@ -323,6 +323,7 @@ endfunction
 
 " CSS and LessCSS {{{
 au BufNewFile,BufRead *.less setlocal filetype=less
+au BufNewFile,BufRead *.less set ft=css.less
 " }}}
 
 " ---------------------------------------------------------------------------

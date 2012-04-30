@@ -2,7 +2,7 @@
 
 # Colors
 COL_BLUE="\x1b[36;01m"
-COL_BLUE="\x1b[32;01m"
+COL_GREEN="\x1b[32;01m"
 COL_RESET="\x1b[39;49;00m"
 COL_RED="\x1b[31;01m"
 
@@ -12,11 +12,11 @@ _print() {
 }
 
 _error() {
-  _print $COL_RED"\n[Error] $1\n"
+  printf $COL_RED"\n\t[Error] $1\n"$COL_RESET
 }
 
 _success() {
-  _print $COL_GREEN"\n$1\n"
+  printf $COL_GREEN"\n\t$1\n"$COL_RESET
 }
 
 _usage() {                 
@@ -25,8 +25,14 @@ _usage() {
   Options: 
 
   -h                Show this message 
-  -a                Alternative install, homesick compatible, will just symlink vimrc 
-                    into ../home/.vimrc, which you can then 'homesick symlink REPONAME'
+  -m                Install MacVim through homebrew first, then setup vim config
+
+  Important:
+
+  There is one catch: to install Command-T successfully, you *need* a Vim that 
+  comes with Ruby support AND the Ruby version used to built Command-T ad hoc, 
+  has to match the ruby version of that Vim! You can install MacVim in one go
+  by passing -h. Some ruby versions might causes errors, let us know!
   " 
 
   exit 0 
@@ -34,11 +40,19 @@ _usage() {
 
 #############################################################################
 
+_install_macvim() {
+  # MacVim
+  _print "Installing MacVim with homebrew (don't worry, won't install twice)"
+  echo `sudo mv /usr/bin/vim /usr/bin/vim.osx` > /dev/null
+  brew install macvim --override-system-vim
+}
+
 _install() {
+
   # Vundle
   _print "Installing Vundle"
   if [ -d "./bundle/vundle" ] ; then
-    _print "Vundle is already installed"
+    _success "Vundle is already installed"
   else
     git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
   fi
@@ -58,55 +72,21 @@ _install() {
 
   ln -s $curdir/gvimrc ~/.gvimrc
 
-  _success "Ready to rock"
-}
+  _print "Spin Vim for a setup run"
 
-_install_homesick() {
-  BASEDIR=$(dirname $0);
+  vim . -c 'BundleInstall' -c 'qa'
+  
+  _print "Trying to build Command-T"
 
-  echo "$BASEDIR"
+  cd $curdir/bundle/Command-T/ruby/command-t/
+  echo `ruby extconf.rb` > /dev/null
+  echo `make` > /dev/null
+  echo `cd $curdir` > /dev/null
+  _success  "Command-T ready"
 
-  DIR="$( cd "$( dirname "$0" )" && pwd )"
+  _success  "Ready to rock!"
 
-  echo "$DIR"
-
-  exit 0
-
-  if [ -f "$BASEDIR/../.vimrc" ] || [ -L "$BASEDIR/../.vimrc" ] ; then
-    OVERWRITE=0;
-
-    while true
-    do
-      read -s -n1 -p "Overwrite .vimrc in your castle? (y/n)" RESP
-
-      case $RESP
-        in
-        [yY])
-          OVERWRITE=1;
-          break
-          ;;
-        [nN])
-          break
-          ;;
-        *)
-
-      echo "Wrong argument, y or n only"
-
-      esac
-    done
-
-    if [ $OVERWRITE == 0 ] ; then
-      _print  "Original .vimrc still standing"
-    else
-      ln -fs vimrc ../.vimrc
-    fi
-  else
-    ln -s vimrc ../.vimrc
-  fi
-
-  cd $cur_dir
-
-  _success "Ready for homesick"
+  _print    "* Reload your shell for maximum effect *"
 }
 
 #############################################################################
@@ -119,14 +99,14 @@ fi
 #############################################################################
 
 # parse arguments
-while getopts :ha opt; do  
+while getopts :hma opt; do  
   case $opt in 
+    m)
+    _install_macvim
+    _install
+    ;;
     h) 
     _usage 
-    ;; 
-    a) 
-    _print "Installing for homesick"
-    _install_homesick
     ;; 
     *) 
     _error "Invalid option received" 
