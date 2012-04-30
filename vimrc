@@ -49,6 +49,7 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'wincent/Command-T'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
+Bundle 'kien/ctrlp.vim'
 
 " Snipmate specific ~ start
 " Install dependencies:
