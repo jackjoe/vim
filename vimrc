@@ -46,7 +46,6 @@ Bundle 'itspriddle/vim-lesscss'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'scrooloose/nerdtree'
 Bundle 'Townk/vim-autoclose'
-Bundle 'wincent/Command-T'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
@@ -250,14 +249,6 @@ nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e $MYVIMRC<cr>
 set fuoptions=maxvert,maxhorz
 noremap  <F1> :set invfullscreen<CR>
 inoremap <F1> <ESC>:set invfullscreen<CR>
-
-" Command-T  *****************************************************************
-" double percentage sign in command mode is expanded
-" to directory of current file - http://vimcasts.org/e/14
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
 
 " Paste mode  ****************************************************************
 " Enable F2 key for toggling pastemode
