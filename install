@@ -76,14 +76,6 @@ _install() {
 
   vim . -c 'BundleInstall' -c 'qa'
   
-  _print "Trying to build Command-T"
-
-  cd $curdir/bundle/Command-T/ruby/command-t/
-  echo `ruby extconf.rb` > /dev/null
-  echo `make` > /dev/null
-  echo `cd $curdir` > /dev/null
-  _success  "Command-T ready"
-
   _success  "Ready to rock!"
 
   _print    "* Reload your shell for maximum effect *"
