@@ -59,19 +59,13 @@ _install() {
 
   curdir=$(pwd)
 
-  # Backup vimrc if exists + symlink new vimrc
+  # Backup vimrc if exists
   if [ -f "$HOME/.vimrc" ] || [ -L "$HOME/.vimrc" ] ; then
     mv "$HOME/.vimrc" "$HOME/.vimrc.backup" 
   fi
+
+  # Symlink new vimrc
   ln -s $curdir/vimrc ~/.vimrc
-
-  # Backup gvimrc if exists + symlink new gvimrc
-  if [ -f "$HOME/.gvimrc" ] || [ -L "$HOME/.gvimrc" ] ; then
-    mv "$HOME/.gvimrc" "$HOME/.gvimrc.backup" 
-  fi
-
-  ln -s $curdir/gvimrc ~/.gvimrc
-
   _print "Spin Vim for a setup run"
 
   vim . -c 'BundleInstall' -c 'qa'
