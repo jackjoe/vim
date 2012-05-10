@@ -224,10 +224,6 @@ endfunction
 imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc'
 let mapleader = ","
 
-" Block movement
-nmap <tab> %
-vmap <tab> %
-
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
 
