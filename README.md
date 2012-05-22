@@ -5,7 +5,9 @@ Our main vim settings, using Vundle to manage various plugins
 
 Installation
 ------------
-`git clone git@github.com:proximitybbdo/vim.git ~/.vim`  
+`git clone git@github.com:proximitybbdo/vim.git ~/.vim # if you have access to the repository`  
+`git clone git://github.com/proximitybbdo/vim.git ~/.vim # for public use`
+
 `./install`  
 `ln -s ~/.vim/gvimrc ~/.gvimrc`  
 
