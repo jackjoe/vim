@@ -45,6 +45,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'itspriddle/vim-lesscss'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Townk/vim-autoclose'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
@@ -231,7 +232,20 @@ nmap <leader>l :set list!<cr>
 :nnoremap <CR> :nohlsearch<cr>
 
 " Clean whitespace
-command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
+command! KillWhitespace :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
 
 " Clean whitespace
 map <leader>W  :%s/s+$//<cr>:let @/=''<CR>
