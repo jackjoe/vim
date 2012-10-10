@@ -42,7 +42,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'mileszs/ack.vim'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
-Bundle 'itspriddle/vim-lesscss'
+Bundle 'groenewege/vim-less'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -55,7 +55,7 @@ Bundle 'kien/ctrlp.vim'
 " Install dependencies:
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "snipmate-snippets"
+Bundle "honza/snipmate-snippets"
 
 " Install snipmate:
 Bundle "garbas/vim-snipmate"
@@ -117,7 +117,9 @@ set nofoldenable        "dont fold by default
 
 " ================ Completion =======================
 
-set wildmode=list:longest
+set completeopt=menu,preview
+set complete=.,b,u,]
+set wildmode=longest,list:longest
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 set wildignore+=*vim/backups*
@@ -256,7 +258,6 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e $MYVIMRC<cr>
 
 " Fuck you, help key, seriously
-set fuoptions=maxvert,maxhorz
 noremap  <F1> :set invfullscreen<CR>
 inoremap <F1> <ESC>:set invfullscreen<CR>
 
