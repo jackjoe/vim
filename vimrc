@@ -285,8 +285,10 @@ nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-set autochdir
-let NERDTreeChDirMode=2
+" set autochdir
+let NERDTreeChDirMode = 1
+let NERDChristmasTree = 1
+let nerdtree_tabs_open_on_console_startup = 1
 
 " Zencoding ******************************************************************
 imap <c-e> <c-y>,
