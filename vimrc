@@ -258,6 +258,10 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e $MYVIMRC<cr>
 
 " Fuck you, help key, seriously
+if has("gui_running")
+  set fuoptions=maxvert,maxhorz
+endif
+
 noremap  <F1> :set invfullscreen<CR>
 inoremap <F1> <ESC>:set invfullscreen<CR>
 

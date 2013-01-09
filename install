@@ -6,6 +6,8 @@ COL_GREEN="\x1b[32;01m"
 COL_RESET="\x1b[39;49;00m"
 COL_RED="\x1b[31;01m"
 
+VIM_DIR=$HOME/.vim
+
 # Helper functions
 _print() {
   printf $COL_BLUE"\n$1\n"$COL_RESET
@@ -51,10 +53,10 @@ _install() {
 
   # Vundle
   _print "Installing Vundle"
-  if [ -d "./bundle/vundle" ] ; then
+  if [ -d "$VIM_DIR/bundle/vundle" ] ; then
     _success "Vundle is already installed"
   else
-    git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    git clone http://github.com/gmarik/vundle.git $VIM_DIR/bundle/vundle
   fi
 
   curdir=$(pwd)
