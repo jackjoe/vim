@@ -67,7 +67,8 @@ _install() {
   fi
 
   # Symlink new vimrc
-  ln -s $curdir/vimrc ~/.vimrc
+  ln -s $VIM_DIR/vimrc ~/.vimrc
+
   _print "Spin Vim for a setup run"
 
   vim . -c 'BundleInstall' -c 'qa'
