@@ -130,7 +130,6 @@ colorscheme default
 
 set encoding=utf8
 set ffs=unix,mac,dos	            " Support all three, in this order
-set shell=/bin/bash
 
 " ---------------------------------------------------------------------------
 "  F I L E  T Y P E S 
