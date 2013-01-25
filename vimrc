@@ -51,7 +51,14 @@ Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
 
 " XDebug
-" Bundle 'garyaj/vim-dbgpclient'
+" $ sudo pecl install xdebug
+" php.ini file
+"   zend_extension=PATH_GIVEN
+"   xdebug.remote_enable=1
+"   xdebug.remote_handler=dbgp
+"   xdebug.remote_host=localhost
+"   xdebug.remote_port=9000
+"   xdebug.remote_autostart=1
 Bundle 'joonty/vdebug.git'
 
 " Snipmate specific ~ start
