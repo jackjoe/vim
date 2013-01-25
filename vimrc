@@ -37,7 +37,6 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nvie/vim-pyflakes'
 Bundle 'nvie/vim-pep8'
-Bundle 'mattn/zencoding-vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'mileszs/ack.vim'
 Bundle 'ervandew/supertab'
@@ -50,6 +49,10 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
+
+" XDebug
+" Bundle 'garyaj/vim-dbgpclient'
+Bundle 'joonty/vdebug.git'
 
 " Snipmate specific ~ start
 " Install dependencies:
