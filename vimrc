@@ -147,6 +147,9 @@ au BufRead,BufNewFile *.ru        set filetype=ruby
 au BufRead,BufNewFile *.pde       set filetype=arduino
 au BufRead,BufNewFile *.ino       set filetype=arduino
 
+" Extra syntax highlighting
+au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+
 " Search improvements *******************************************************
 set hlsearch                      " Highlight search things
 set incsearch                     " Make search act like search in modern browsers
@@ -272,6 +275,13 @@ function! <SID>StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
+
+" Clean windows weird characters
+command! CleanWindowsShit :call CleanWindowsShit()<CR>
+
+function! CleanWindowsShit()
+  :%s///g
+endf
 
 " Clean whitespace
 map <leader>W  :%s/s+$//<cr>:let @/=''<CR>
