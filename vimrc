@@ -51,6 +51,8 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tclem/vim-arduino'
+Bundle 'EasyMotion'
+Bundle "nono/vim-handlebars"
 
 Bundle 'vim-scripts/DBGPavim'
 
@@ -72,6 +74,9 @@ Bundle 'Align'
 " ---------------------------------------------------------------------------
 " G E N E R A L
 " ---------------------------------------------------------------------------
+
+" map : to ; for qwerty
+noremap ; :
 
 " Disable arrow keys *******************************************************
 
@@ -358,6 +363,9 @@ endfunction
 au BufNewFile,BufRead *.less setlocal filetype=less
 au BufNewFile,BufRead *.less set ft=css.less
 " }}}
+
+" Handlebars
+au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
 
 " ---------------------------------------------------------------------------
 " |                           Host specific                                 |
