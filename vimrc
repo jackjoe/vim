@@ -21,8 +21,8 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
-"
-"" Original repos on github
+
+" Original repos on github
 Bundle 'jeroenbourgois/vim-actionscript'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-haml'
@@ -36,9 +36,9 @@ Bundle 'ingydotnet/yaml-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nvie/vim-pyflakes'
-Bundle 'nvie/vim-pep8'
-Bundle 'mattn/zencoding-vim'
+Bundle 'nvie/vim-flake8'
 Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/powerline'
 Bundle 'mileszs/ack.vim'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
@@ -50,6 +50,9 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tclem/vim-arduino'
+
+Bundle 'vim-scripts/DBGPavim'
 
 " Snipmate specific ~ start
 " Install dependencies:
@@ -140,6 +143,8 @@ au BufRead,BufNewFile *.inc       set filetype=php
 au BufRead,BufNewFile *.install   set filetype=php
 au BufRead,BufNewFile *.module    set filetype=php
 au BufRead,BufNewFile *.ru        set filetype=ruby
+au BufRead,BufNewFile *.pde       set filetype=arduino
+au BufRead,BufNewFile *.ino       set filetype=arduino
 
 " Search improvements *******************************************************
 set hlsearch                      " Highlight search things
@@ -198,7 +203,26 @@ function! HasPaste()
   endif
 endfunction
 
+" XDebug ********************************************************************
+let g:dbgPavimPort = 9999
+
+" Powerline *****************************************************************
 let g:Powerline_symbols = 'fancy'
+" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
+
+" When you’re pressing Escape to leave insert mode in the terminal, it will by
+" default take a second or another keystroke to leave insert mode completely and
+" update the statusline. If you find this annoying, you can add the following
+" snippet to your vimrc to escape insert mode immediately:
+" if ! has('gui_running')
+"   set ttimeoutlen=10
+"   augroup FastEscape
+"     autocmd!
+"     au InsertEnter * set timeoutlen=0
+"     au InsertLeave * set timeoutlen=1000
+"   augroup END
+" endif
 
 " Source after saving *******************************************************
 if has("autocmd")
