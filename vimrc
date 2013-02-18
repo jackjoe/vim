@@ -21,8 +21,8 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
-"
-"" Original repos on github
+
+" Original repos on github
 Bundle 'jeroenbourgois/vim-actionscript'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-haml'
@@ -37,8 +37,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/zencoding-vim'
 Bundle 'nvie/vim-pyflakes'
 Bundle 'nvie/vim-flake8'
-" Bundle 'Lokaltog/powerline'
 Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/powerline'
 Bundle 'mileszs/ack.vim'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
@@ -52,16 +52,7 @@ Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tclem/vim-arduino'
 
-" XDebug
-" $ sudo pecl install xdebug
-" php.ini file
-"   zend_extension=PATH_GIVEN
-"   xdebug.remote_enable=1
-"   xdebug.remote_handler=dbgp
-"   xdebug.remote_host=localhost
-"   xdebug.remote_port=9000
-"   xdebug.remote_autostart=1
-Bundle 'joonty/vdebug.git'
+Bundle 'vim-scripts/DBGPavim'
 
 " Snipmate specific ~ start
 " Install dependencies:
@@ -212,6 +203,9 @@ function! HasPaste()
     return ''
   endif
 endfunction
+
+" XDebug ********************************************************************
+let g:dbgPavimPort = 9999
 
 " Powerline *****************************************************************
 let g:Powerline_symbols = 'fancy'
