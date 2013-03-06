@@ -23,37 +23,35 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Original repos on github
-Bundle 'jeroenbourgois/vim-actionscript'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-endwise'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/zencoding-vim'
+
 Bundle 'nvie/vim-pyflakes'
 Bundle 'nvie/vim-flake8'
 Bundle 'Lokaltog/vim-powerline'
 " Bundle 'Lokaltog/powerline'
+
 Bundle 'mileszs/ack.vim'
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'groenewege/vim-less'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Townk/vim-autoclose'
-Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'tclem/vim-arduino'
 Bundle 'EasyMotion'
 Bundle "nono/vim-handlebars"
+" Bundle 'tclem/vim-arduino'
 
+" XDebug
 Bundle 'vim-scripts/DBGPavim'
 
 " Snipmate specific ~ start
@@ -238,30 +236,17 @@ if has("autocmd")
 endif
 
 " ---------------------------------------------------------------------------
-" Custom functions and helpers 
-" ---------------------------------------------------------------------------
-
-function! FixNewLine()
-  :%s/\
-  /\r/
-  :%s/\s\+$//
-  :retab
-  :let @/=''
-endfunction
-:command! FEOL :call FixNewLine()
-
-" ---------------------------------------------------------------------------
 " Keyboard mapping
 " ---------------------------------------------------------------------------
 
-" Vim recommended ***********************************************************
-imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc'
+" Professor VIM says '87% of users prefer jj over esc'
+imap jj <Esc> 
 let mapleader = ","
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
 
-" clear the search buffer when hitting return
+" Clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
 " Clean whitespace
@@ -339,35 +324,6 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-
-" Rainbow Parentheses ********************************************************
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-map <leader>R :RainbowParenthesesToggle<CR>
-
-" Commands for vim-rails *****************************************************
-function! s:setRails()
-  map <buffer> <leader>rc :Rcontroller
-  map <buffer> <leader>vc :RVcontroller
-  map <buffer> <leader>sc :RScontroller
-  map <buffer> <leader>vf :RVfunctional
-  map <buffer> <leader>sf :RSfunctional
-  map <buffer> <leader>m :Rmodel
-  map <buffer> <leader>vm :RVmodel
-  map <buffer> <leader>sm :RSmodel
-  map <buffer> <leader>u :Runittest
-  map <buffer> <leader>vu :RVunittest
-  map <buffer> <leader>su :RSunittest
-  map <buffer> <leader>vv :RVview
-  map <buffer> <leader>sv :RSview
-  map <buffer> <leader>A  :A<cr>
-  map <buffer> <leader>av :AV<cr>
-  map <buffer> <leader>as :AS<cr>
-  map <buffer> <leader>aa :R<cr>
-endfunction
 
 " CSS and LessCSS {{{
 au BufNewFile,BufRead *.less setlocal filetype=less
