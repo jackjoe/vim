@@ -2,3 +2,4 @@
 *.local
 .DS_Store
 bundle/
+vimrc.symlink

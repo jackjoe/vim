@@ -1,19 +1,11 @@
-" ---------------------------------------------------------------------------
-" |                                                                         |
-" |                         Proximity goes Vim!                             |
-" |                                                                         |
-" ---------------------------------------------------------------------------
 
-" ---------------------------------------------------------------------------
+" ============================================================================
 " |                               Vundle                                    |
 " |                          Must be on top
-" ---------------------------------------------------------------------------
-filetype on   " first on, to avoid vim exiting with status code 1!
-filetype off  " required!
+" ============================================================================
 
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" filetype on   " first on, to avoid vim exiting with status code 1!
+filetype off  " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -38,7 +30,7 @@ Bundle 'Lokaltog/vim-powerline'
 " Bundle 'Lokaltog/powerline'
 
 Bundle 'mileszs/ack.vim'
-" Bundle 'ervandew/supertab'
+Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'groenewege/vim-less'
 Bundle 'vim-scripts/matchit.zip'
@@ -49,34 +41,25 @@ Bundle 'docunext/closetag.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'EasyMotion'
 Bundle "nono/vim-handlebars"
+Bundle "SirVer/ultisnips"
 " Bundle 'tclem/vim-arduino'
 
 " XDebug
 Bundle 'vim-scripts/DBGPavim'
-
-" Snipmate specific ~ start
-" Install dependencies:
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
-
-" Install snipmate:
-Bundle "garbas/vim-snipmate"
-" Snipmate specific ~ end
 
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
 Bundle 'Align'
 
-" ---------------------------------------------------------------------------
-" G E N E R A L
-" ---------------------------------------------------------------------------
+" ============================================================================
+" General
+" ============================================================================
 
 " map : to ; for qwerty
-noremap ; :
+noremap; :
 
-" Disable arrow keys *******************************************************
+" == Disable arrow keys ======================================================
 
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -87,60 +70,128 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-filetype plugin indent on
-
-" ================ General Config ====================
-"
-set laststatus=2   " Always show the statusline
-
-syntax on         " Enable syntax highlighting
-syntax enable 		" Enable syntax hl
-
-set number        " Line number
-set hidden
-
-set ruler                         " show the cursor position all the time
-set showcmd                       " display incomplete commands
-set showmatch                     " Show matching bracets when text indicator is over them
-set autoread                      " Set to auto read when a file is changed from the outside
-set clipboard=unnamed             " Yank everything to the system clipboard
-
-" Invisible character colors
-
-highlight NonText guifg=#7A7A90
-highlight SpecialKey guifg=#7A7A90
-
-set history=1000                  " keep 1000 lines of command line history
-set undolevels=200                " Undo history
-set ttyfast                       " Yes, we have a fast terminal
-set noerrorbells                  " Disable error bells.
-
-" ================ Folds ============================
-
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
-
-" ================ Completion =======================
-
-set completeopt=menu,preview
-set complete=.,b,u,]
-set wildmode=longest,list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-
-" =============== Color + font ======================
-
-colorscheme default
+" == Bootstrap ================================================================
 
 set encoding=utf8
-set ffs=unix,mac,dos	            " Support all three, in this order
+set laststatus=2        " Always show the statusline
+set nocompatible        " the future is now, use vim defaults instead of vi ones
 
-" ---------------------------------------------------------------------------
-"  F I L E  T Y P E S 
-" ---------------------------------------------------------------------------
-"
+syntax on               " Enable syntax highlighting
+syntax enable 		      " Enable syntax hl
+
+filetype on             " /!\ doesn't play well with compatible mode
+filetype plugin on      " trigger file type specific plugins
+filetype indent on      " indent based on file type syntax
+
+set number              " Line number
+set hidden
+
+set ruler               " show the cursor position all the time
+set showcmd             " display incomplete commands
+set cmdheight=1         " height of the command line
+set showmatch           " Show matching bracets when text indicator is over them
+set clipboard=unnamed   " Yank everything to the system clipboard
+
+highlight NonText guifg=#7A7A90   " Invisible character colors
+highlight SpecialKey guifg=#7A7A90
+
+set history=1000        " keep 1000 lines of command line history
+set undolevels=200      " Undo history
+set ttyfast             " Yes, we have a fast terminal
+set title               " change the terminal title
+set lazyredraw          " do not redraw when executing macros
+set report=0            " always report changes
+
+" == Editing ==================================================================
+
+set nowrap        " don't wrap lines
+set nojoinspaces  " insert only one space after '.', '?', '!' when joining lines
+set showmatch     " briefly jumps the cursor to the matching brace on insert
+set matchtime=4   " blink matching braces for 0.4s
+set backspace=indent,eol,start " allow backspacing over everything
+
+set softtabstop=2
+set shiftwidth=2  " indent with 2 spaces
+set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set tabstop=2
+set expandtab
+set wrap                          " set linewrap
+
+set lbr
+set tw=500
+set autoindent
+set smartindent
+set copyindent                    " Take indentation from previous line
+
+set list                          " Show invisible characters
+set backspace=indent,eol,start    " backspace through everything in insert mode
+set listchars=""                  " Reset the listchars
+set listchars=tab:»·,trail:·,eol:¬,nbsp:_
+
+" reselect last selection after indent / un-indent in visual and select modes
+vnoremap < <gv
+vnoremap > >gv
+vmap <Tab> >
+vmap <S-Tab> <
+
+" == Buffers ==================================================================
+
+set autoread         " Set to auto read when a file is changed from the outside
+set nobomb           " don't clutter files with Unicode BOMs
+set hidden           " enable switching between buffers without saving
+set switchbuf=usetab " switch to existing tab then window when switching buffer
+set autoread         " auto read files changed only from the outside of ViM
+set fsync            " sync after write
+set confirm          " ask whether to save changed files
+
+if has("autocmd")
+  augroup trailing_spaces
+    autocmd!
+    "autocmd BufWritePre * :%s/\s\+$//e " remove trailing spaces before saving
+  augroup END
+  augroup restore_cursor
+    " restore cursor position to last position upon file reopen
+    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
+  augroup END
+endif
+
+" == Folding ==================================================================
+
+if has("folding")
+  set foldenable
+  set foldmethod=syntax   " fold based on indent
+  set foldlevelstart=99   " start editing with all folds open
+  set foldnestmax=3       " deepest fold is 3 levels
+  set nofoldenable        " dont fold by default
+endif
+
+" == Completion ===============================================================
+
+" set completeopt=menu,preview
+set completeopt=longest,menuone,preview " better completion
+set complete=.,b,u,]
+set wildmode=longest,list:longest
+set wildmenu                " enable ctrl-n and ctrl-p to scroll thru matches
+set wildmode=longest:full,full  " complete till longest common string, then full
+set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+set wildignore+=.git            " ignore the .git directory
+set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
+if exists ("&wildignorecase")
+  set wildignorecase
+endif
+
+" == Color + font =============================================================
+
+colorscheme default
+set ffs=unix,mac,dos	  " Support all three, in this order
+
+" == Git/SVN Errors ===========================================================
+
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" == Filetypes ================================================================
+
 au BufRead,BufNewFile *.module    set filetype=php
 au BufRead,BufNewFile *.inc       set filetype=php
 au BufRead,BufNewFile *.install   set filetype=php
@@ -148,41 +199,35 @@ au BufRead,BufNewFile *.module    set filetype=php
 au BufRead,BufNewFile *.ru        set filetype=ruby
 au BufRead,BufNewFile *.pde       set filetype=arduino
 au BufRead,BufNewFile *.ino       set filetype=arduino
+au BufRead,BufNewFile *.less      set filetype=css
+
+" Handlebars
+au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
 
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
-" Search improvements *******************************************************
+" == Search improvements ======================================================
+
 set hlsearch                      " Highlight search things
 set incsearch                     " Make search act like search in modern browsers
 set ignorecase                    " Case insensitive matching...
 set smartcase                     " ... unless they contain at least one capital letter
 
-" Text settings / tabbing / indenting ***************************************
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
-set expandtab
-set wrap                          " set linewrap
+" == Files/backup =============================================================
 
-set lbr
-set tw=500
-set ai                            " Auto indent
-set si                            " Smart indent
-set copyindent                    " Take indentation from previous line
-
-" List chars
-set list                          " Show invisible characters
-set backspace=indent,eol,start    " backspace through everything in insert mode
-set listchars=""                  " Reset the listchars
-set listchars=tab:»·,trail:·,eol:¬,nbsp:_
-
-" Files/backup **************************************************************
 set nobackup                " do not keep a backup file, use versions instead
 set nowb
 set noswapfile
 
-" Syntastic *****************************************************************
+" == Visualbell ===============================================================
+
+set visualbell    " shut up
+set noerrorbells  " shut up
+set mousehide     " hide mouse pointer when typing
+
+" == Syntastic ================================================================
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -193,7 +238,8 @@ let g:syntastic_quiet_warnings=1  " warnings suck
 let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': [], 'passive_filetypes': []}
 nmap <F3> :SyntasticCheck<CR>     " do check
 
-" Format the statusline *****************************************************
+" == Statusline ===============================================================
+
 " set statusline+=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
 
 function! CurDir()
@@ -209,35 +255,23 @@ function! HasPaste()
   endif
 endfunction
 
-" XDebug ********************************************************************
+" == XDebug ===================================================================
+
 let g:dbgPavimPort = 9999
 
-" Powerline *****************************************************************
+" == Powerline ================================================================
+
 let g:Powerline_symbols = 'fancy'
 " set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 " set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 
-" When you’re pressing Escape to leave insert mode in the terminal, it will by
-" default take a second or another keystroke to leave insert mode completely and
-" update the statusline. If you find this annoying, you can add the following
-" snippet to your vimrc to escape insert mode immediately:
-" if ! has('gui_running')
-"   set ttimeoutlen=10
-"   augroup FastEscape
-"     autocmd!
-"     au InsertEnter * set timeoutlen=0
-"     au InsertLeave * set timeoutlen=1000
-"   augroup END
-" endif
+" == Source after saving ======================================================
 
-" Source after saving *******************************************************
 if has("autocmd")
   autocmd! bufwritepost .vimrc source $MYVIMRC
 endif
 
-" ---------------------------------------------------------------------------
-" Keyboard mapping
-" ---------------------------------------------------------------------------
+" == Keyboard mapping =========================================================
 
 " Professor VIM says '87% of users prefer jj over esc'
 imap jj <Esc> 
@@ -280,29 +314,50 @@ cmap w!! w !sudo tee % >/dev/null
 
 nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e $MYVIMRC<cr>
 
-" Fuck you, help key, seriously
-if has("gui_running")
+if has("gui_running") " Fuck you, help key, seriously
   set fuoptions=maxvert,maxhorz
 endif
 
 noremap  <F1> :set invfullscreen<CR>
 inoremap <F1> <ESC>:set invfullscreen<CR>
 
-" Paste mode  ****************************************************************
-" Enable F2 key for toggling pastemode
-nnoremap <F2> :set invpaste paste?<CR>
+" switch between last two files
+nnoremap <leader><Tab> <c-^>
+
+" move to the position where the last change was made
+noremap gI `.
+
+" split line and preserve cursor position
+nnoremap S mzi<CR><ESC>`z
+
+" preserve cursor position when joining lines
+nnoremap J mzJ`z
+
+" == Paste mode ===============================================================
+
+nnoremap <F2> :set invpaste paste?<CR> " Enable F2 key for toggling pastemode
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 
-" Coffeescript  **************************************************************
+" == Coffeescript =============================================================
+
 vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
 map <leader>c :CoffeeCompile<CR>
 
-" Mappings specific for html *************************************************
+" == HTML =====================================================================
+
 :vmap <leader>b <S-S><strong>
 :vmap <leader>i <S-S><em>
 
-" NERDTree *******************************************************************
+" == Ultisnips ================================================================
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+
+" == Nerdtree =================================================================
+
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
 let NERDTreeMinimalUI = 1
@@ -312,31 +367,34 @@ let NERDTreeDirArrows = 1
 let NERDTreeChDirMode = 1
 let NERDChristmasTree = 1
 
-" Zencoding ******************************************************************
+" == Zencoding ================================================================
+
 imap <c-e> <c-y>,
 
-" Switch files  **************************************************************
+" == Switch files =============================================================
+
 nmap <c-h> <ESC>:bp<CR>
 nmap <c-l> <ESC>:bn<CR>
 
-" easier navigation between split windows
+" == Navigation ===============================================================
+
+" move to first non-whitespace character of line (when not using mac keyboard)
+noremap H ^
+" move to end of line (when not using mac keyboard)
+noremap L g_
+
+" == Split windows ============================================================
+
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
-" CSS and LessCSS {{{
-au BufNewFile,BufRead *.less setlocal filetype=less
-au BufNewFile,BufRead *.less set ft=css.less
-" }}}
+" switch between windows by hitting <Tab> twice
+nmap <silent> <Tab><Tab> <C-w>w
 
-" Handlebars
-au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
+" == User defined ============================================================
 
-" ---------------------------------------------------------------------------
-" |                           Host specific                                 |
-" ---------------------------------------------------------------------------
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
