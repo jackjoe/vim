@@ -377,8 +377,6 @@ nmap <c-l> <ESC>:bn<CR>
 
 " move to first non-whitespace character of line (when not using mac keyboard)
 noremap H ^
-" move to end of line (when not using mac keyboard)
-noremap L g_
 
 " == Split windows ============================================================
 
