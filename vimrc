@@ -330,9 +330,6 @@ noremap gI `.
 " split line and preserve cursor position
 nnoremap S mzi<CR><ESC>`z
 
-" preserve cursor position when joining lines
-nnoremap J mzJ`z
-
 " == Paste mode ===============================================================
 
 nnoremap <F2> :set invpaste paste?<CR> " Enable F2 key for toggling pastemode
