@@ -372,11 +372,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ }  "
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|node_modules\|DS_Store\|git'
 
 " == Zencoding ================================================================
 
