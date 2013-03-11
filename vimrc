@@ -57,7 +57,7 @@ Bundle 'Align'
 " ============================================================================
 
 " map : to ; for qwerty
-noremap; :
+noremap ; :
 
 " == Disable arrow keys ======================================================
 
@@ -177,6 +177,7 @@ set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=.git            " ignore the .git directory
 set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
+
 if exists ("&wildignorecase")
   set wildignorecase
 endif
@@ -288,15 +289,15 @@ command! KillWhitespace :call <SID>StripTrailingWhitespaces()<CR>
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
 function! <SID>StripTrailingWhitespaces()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  %s/\s\+$//e
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
 endfunction
 
 " Clean windows weird characters
@@ -376,7 +377,9 @@ let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|node_modules\|DS_Store\|git'
 
 " == Zencoding ================================================================
 
-imap <c-e> <c-y>,
+" imap <c-e> <c-y>,
+let g:user_zen_expandabbr_key = '<c-e>'
+let g:use_zen_complete_tag = 1
 
 " == Switch files =============================================================
 
