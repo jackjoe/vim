@@ -169,8 +169,7 @@ endif
 
 " set completeopt=menu,preview
 set completeopt=longest,menuone,preview " better completion
-set complete=.,b,u,]
-set wildmode=longest,list:longest
+set wildmode=longest:full,list:longest
 set wildmenu                " enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=longest:full,full  " complete till longest common string, then full
 set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
@@ -364,6 +363,10 @@ let NERDTreeDirArrows = 1
 " set autochdir
 let NERDTreeChDirMode = 1
 let NERDChristmasTree = 1
+
+" == Supertab =================================================================
+
+let g:SuperTabDefaultCompletionType = 'context'
 
 " == CtrlP ====================================================================
 
