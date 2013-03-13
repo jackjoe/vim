@@ -389,11 +389,6 @@ let g:use_zen_complete_tag = 1
 nmap <c-h> <ESC>:bp<CR>
 nmap <c-l> <ESC>:bn<CR>
 
-" == Navigation ===============================================================
-
-" move to first non-whitespace character of line (when not using mac keyboard)
-noremap H ^
-
 " == Split windows ============================================================
 
 nnoremap <c-j> <c-w>j
