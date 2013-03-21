@@ -146,8 +146,8 @@ set confirm          " ask whether to save changed files
 
 if has("autocmd")
   augroup trailing_spaces
-    autocmd!
-    "autocmd BufWritePre * :%s/\s\+$//e " remove trailing spaces before saving
+    " autocmd!
+    autocmd BufWritePre * :%s/\s\+$//e " remove trailing spaces before saving
   augroup END
   augroup restore_cursor
     " restore cursor position to last position upon file reopen
@@ -285,7 +285,7 @@ nmap <leader>l :set list!<cr>
 
 " Clean whitespace
 command! KillWhitespace :call <SID>StripTrailingWhitespaces()<CR>
-nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <leader>W :call <SID>StripTrailingWhitespaces()<CR>
 
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
@@ -305,9 +305,6 @@ command! CleanWindowsShit :call CleanWindowsShit()<CR>
 function! CleanWindowsShit()
   :%s///g
 endf
-
-" Clean whitespace
-map <leader>W  :%s/s+$//<cr>:let @/=''<CR>
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
