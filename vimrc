@@ -42,7 +42,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'EasyMotion'
 Bundle "nono/vim-handlebars"
 Bundle "SirVer/ultisnips"
-" Bundle 'tclem/vim-arduino'
 
 " XDebug
 Bundle 'vim-scripts/DBGPavim'
@@ -149,10 +148,10 @@ if has("autocmd")
     " autocmd!
     autocmd BufWritePre * :%s/\s\+$//e " remove trailing spaces before saving
   augroup END
-  augroup restore_cursor
-    " restore cursor position to last position upon file reopen
-    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
-  augroup END
+  " augroup restore_cursor
+  "   " restore cursor position to last position upon file reopen
+  "   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
+  " augroup END
 endif
 
 " == Folding ==================================================================
@@ -167,11 +166,9 @@ endif
 
 " == Completion ===============================================================
 
-" set completeopt=menu,preview
 set completeopt=longest,menuone,preview " better completion
-set wildmode=longest:full,list:longest
 set wildmenu                " enable ctrl-n and ctrl-p to scroll thru matches
-set wildmode=longest:full,full  " complete till longest common string, then full
+set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=.git            " ignore the .git directory
@@ -197,8 +194,6 @@ au BufRead,BufNewFile *.inc       set filetype=php
 au BufRead,BufNewFile *.install   set filetype=php
 au BufRead,BufNewFile *.module    set filetype=php
 au BufRead,BufNewFile *.ru        set filetype=ruby
-au BufRead,BufNewFile *.pde       set filetype=arduino
-au BufRead,BufNewFile *.ino       set filetype=arduino
 au BufRead,BufNewFile *.less      set filetype=css
 
 " Handlebars
@@ -263,7 +258,7 @@ let g:dbgPavimPort = 9999
 
 let g:Powerline_symbols = 'fancy'
 " set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-" set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 
 " == Source after saving ======================================================
 
@@ -274,7 +269,7 @@ endif
 " == Keyboard mapping =========================================================
 
 " Professor VIM says '87% of users prefer jj over esc'
-imap jj <Esc> 
+imap jj <Esc>
 let mapleader = ","
 
 " Show/hide hidden characters
