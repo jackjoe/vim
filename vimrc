@@ -42,6 +42,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'EasyMotion'
 Bundle "nono/vim-handlebars"
 Bundle "SirVer/ultisnips"
+Bundle "Shougo/neocomplete.vim"
 
 " XDebug
 Bundle 'vim-scripts/DBGPavim'
@@ -177,6 +178,11 @@ set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
 if exists ("&wildignorecase")
   set wildignorecase
 endif
+
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " == Color + font =============================================================
 
