@@ -42,7 +42,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'EasyMotion'
 Bundle "nono/vim-handlebars"
 Bundle "SirVer/ultisnips"
-Bundle "Shougo/neocomplete.vim"
 
 " XDebug
 Bundle 'vim-scripts/DBGPavim'
@@ -123,8 +122,7 @@ set autoindent
 set smartindent
 set copyindent                    " Take indentation from previous line
 
-set list                          " Show invisible characters
-set backspace=indent,eol,start    " backspace through everything in insert mode
+" set list                          " Show invisible characters
 set listchars=""                  " Reset the listchars
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_
 
@@ -178,11 +176,6 @@ set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
 if exists ("&wildignorecase")
   set wildignorecase
 endif
-
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " == Color + font =============================================================
 
@@ -374,7 +367,7 @@ let g:ctrlp_working_path_mode = 'ra'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
 
-let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend)$|node_modules\|DS_Store\|git'
 
 " == Zencoding ================================================================
 
