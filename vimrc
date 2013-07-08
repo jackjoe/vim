@@ -27,10 +27,9 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'nvie/vim-pyflakes'
 Bundle 'nvie/vim-flake8'
 Bundle 'Lokaltog/vim-powerline'
-" Bundle 'Lokaltog/powerline'
 
 Bundle 'mileszs/ack.vim'
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'groenewege/vim-less'
 Bundle 'vim-scripts/matchit.zip'
@@ -357,7 +356,7 @@ let NERDChristmasTree = 1
 
 " == Supertab =================================================================
 
-let g:SuperTabDefaultCompletionType = 'context'
+" let g:SuperTabDefaultCompletionType = 'context'
 
 " == CtrlP ====================================================================
 
