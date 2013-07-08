@@ -369,6 +369,8 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
 
 let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend)$|node_modules\|DS_Store\|git'
 
+map <leader>cp :CtrlPClearCache<CR>
+
 " == Zencoding ================================================================
 
 " imap <c-e> <c-y>,
