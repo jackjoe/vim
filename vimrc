@@ -24,12 +24,7 @@ Bundle 'ingydotnet/yaml-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'mattn/zencoding-vim'
 
-Bundle 'nvie/vim-pyflakes'
-Bundle 'nvie/vim-flake8'
-Bundle 'Lokaltog/vim-powerline'
-
 Bundle 'mileszs/ack.vim'
-" Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'groenewege/vim-less'
 Bundle 'vim-scripts/matchit.zip'
@@ -172,7 +167,7 @@ set wildignore+=*vim/backups*
 set wildignore+=.git            " ignore the .git directory
 set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
 
-if exists ("&wildignorecase")
+if exists("&wildignorecase")
   set wildignorecase
 endif
 
@@ -233,8 +228,6 @@ nmap <F3> :SyntasticCheck<CR>     " do check
 
 " == Statusline ===============================================================
 
-" set statusline+=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{CurDir()}%h\ \ \ Line:\ %l/%L:%c
-
 function! CurDir()
   let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
   return curdir
@@ -251,12 +244,6 @@ endfunction
 " == XDebug ===================================================================
 
 let g:dbgPavimPort = 9999
-
-" == Powerline ================================================================
-
-let g:Powerline_symbols = 'fancy'
-" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 
 " == Source after saving ======================================================
 
@@ -328,8 +315,8 @@ set pastetoggle=<F2>
 
 " == Coffeescript =============================================================
 
-vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
-map <leader>c :CoffeeCompile<CR>
+" vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
+" map <leader>c :CoffeeCompile<CR>
 
 " == HTML =====================================================================
 
@@ -390,6 +377,9 @@ nnoremap <c-l> <c-w>l
 
 " switch between windows by hitting <Tab> twice
 nmap <silent> <Tab><Tab> <C-w>w
+
+map + 3<c-w>>
+map - 3<c-w><
 
 " == User defined ============================================================
 
