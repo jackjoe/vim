@@ -22,8 +22,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'mattn/zencoding-vim'
-
+Bundle 'mattn/emmet-vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'groenewege/vim-less'
@@ -358,16 +357,20 @@ let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend)$|n
 
 map <leader>cp :CtrlPClearCache<CR>
 
-" == Zencoding ================================================================
+" == Emmet (previously Zencoding ===============================================
 
 " imap <c-e> <c-y>,
-let g:user_zen_expandabbr_key = '<c-e>'
-let g:use_zen_complete_tag = 1
+let g:use_emmet_complete_tag = 1
+let g:user_emmet_leader_key = '<c-e>'
 
 " == Switch files =============================================================
 
 nmap <c-h> <ESC>:bp<CR>
 nmap <c-l> <ESC>:bn<CR>
+
+" == EasyMotion ===============================================================
+
+let g:EasyMotion_leader_key = '<Leader>'
 
 " == Split windows ============================================================
 
