@@ -38,7 +38,7 @@ Bundle "nono/vim-handlebars"
 Bundle "SirVer/ultisnips"
 
 " XDebug
-Bundle 'vim-scripts/DBGPavim'
+" Bundle 'vim-scripts/DBGPavim'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -166,6 +166,7 @@ set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=.git            " ignore the .git directory
 set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
 
 if exists("&wildignorecase")
   set wildignorecase
@@ -223,7 +224,9 @@ set statusline+=%*
 let g:syntastic_enable_signs=1    " show signs in bar
 let g:syntastic_quiet_warnings=1  " warnings suck
 
-let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': [], 'passive_filetypes': []}
+let g:syntastic_mode_map = {  'mode': 'active',
+                            \ 'active_filetypes': [],
+                            \ 'passive_filetypes': ['sass', 'scss']}
 nmap <F3> :SyntasticCheck<CR>     " do check
 
 " == Statusline ===============================================================
@@ -280,9 +283,9 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 " Clean windows weird characters
-command! CleanWindowsShit :call CleanWindowsShit()<CR>
+command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
 
-function! CleanWindowsShit()
+function! CleanWindowsCharacters()
   :%s///g
 endf
 
@@ -350,8 +353,6 @@ let NERDChristmasTree = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
 
 let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend)$|node_modules\|DS_Store\|git'
 
