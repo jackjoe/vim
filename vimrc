@@ -35,6 +35,9 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'EasyMotion'
 Bundle "nono/vim-handlebars"
 Bundle "SirVer/ultisnips"
+Bundle 'honza/vim-snippets'
+Bundle 'shawncplus/phpcomplete.vim'
+Bundle 'ervandew/supertab'
 
 " XDebug
 " Bundle 'vim-scripts/DBGPavim'
@@ -250,7 +253,7 @@ let g:dbgPavimPort = 9999
 " == Source after saving ======================================================
 
 if has("autocmd")
-  autocmd! bufwritepost .vimrc source $MYVIMRC
+  autocmd! BufWritePost .vimrc nested source $MYVIMRC | echo "source $MYVIMRC"
 endif
 
 " == Keyboard mapping =========================================================
@@ -322,15 +325,8 @@ set pastetoggle=<F2>
 
 " == HTML =====================================================================
 
-:vmap <leader>b <S-S><strong>
-:vmap <leader>i <S-S><em>
-
-" == Ultisnips ================================================================
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
+:vmap <leader><leader>b <S-S><strong>
+:vmap <leader><leader>i <S-S><em>
 
 " == Nerdtree =================================================================
 
@@ -342,10 +338,6 @@ let NERDTreeDirArrows = 1
 " set autochdir
 let NERDTreeChDirMode = 1
 let NERDChristmasTree = 1
-
-" == Supertab =================================================================
-
-" let g:SuperTabDefaultCompletionType = 'context'
 
 " == CtrlP ====================================================================
 
@@ -372,6 +364,11 @@ nmap <c-l> <ESC>:bn<CR>
 
 let g:EasyMotion_leader_key = '<Leader>'
 
+" == SuperTab =================================================================
+
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
+
 " == Split windows ============================================================
 
 nnoremap <c-j> <c-w>j
@@ -390,3 +387,4 @@ map - 3<c-w><
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
