@@ -36,6 +36,9 @@ Bundle 'EasyMotion'
 Bundle "nono/vim-handlebars"
 Bundle "SirVer/ultisnips"
 
+Bundle "tpope/vim-fugitive"
+Bundle "gregsexton/gitv"
+
 " XDebug
 " Bundle 'vim-scripts/DBGPavim'
 
