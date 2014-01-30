@@ -224,7 +224,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_enable_signs=1    " show signs in bar
-let g:syntastic_quiet_warnings=1  " warnings suck
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 let g:syntastic_mode_map = {  'mode': 'active',
                             \ 'active_filetypes': [],
