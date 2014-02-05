@@ -38,6 +38,7 @@ Bundle "SirVer/ultisnips"
 Bundle 'honza/vim-snippets'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ervandew/supertab'
+Bundle 'airblade/vim-gitgutte'
 
 " XDebug
 " Bundle 'vim-scripts/DBGPavim'
@@ -327,6 +328,20 @@ set pastetoggle=<F2>
 
 :vmap <leader><leader>b <S-S><strong>
 :vmap <leader><leader>i <S-S><em>
+
+" == Fugitive =================================================================
+
+nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <silent> <leader>gl :Glog<CR>
+nnoremap <silent> <leader>gp :Git push<CR>
+nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
+nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
+nnoremap <silent> <leader>ge :Gedit<CR>
+nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+
 
 " == Nerdtree =================================================================
 
