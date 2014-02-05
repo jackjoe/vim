@@ -18,7 +18,6 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'kchmck/vim-coffee-script'
@@ -38,10 +37,10 @@ Bundle "SirVer/ultisnips"
 Bundle 'honza/vim-snippets'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ervandew/supertab'
-Bundle 'airblade/vim-gitgutte'
 
-Bundle "tpope/vim-fugitive"
-Bundle "gregsexton/gitv"
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'gregsexton/gitv'
 
 " XDebug
 " Bundle 'vim-scripts/DBGPavim'
