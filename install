@@ -21,24 +21,24 @@ _success() {
   printf $COL_GREEN"\n\t$1\n"$COL_RESET
 }
 
-_usage() {                 
-  _print "  Usage:            install [-ah] 
+_usage() {
+  _print "  Usage:            install [-ah]
 
-  Options: 
+  Options:
 
-  -h                Show this message 
+  -h                Show this message
   -m                Install MacVim through homebrew first, then setup vim config
 
   Important:
 
-  There is one catch: to install Command-T successfully, you *need* a Vim that 
-  comes with Ruby support AND the Ruby version used to built Command-T ad hoc, 
+  There is one catch: to install Command-T successfully, you *need* a Vim that
+  comes with Ruby support AND the Ruby version used to built Command-T ad hoc,
   has to match the ruby version of that Vim! You can install MacVim in one go
   by passing -h. Some ruby versions might causes errors, let us know!
-  " 
+  "
 
-  exit 0 
-} 
+  exit 0
+}
 
 #############################################################################
 
@@ -63,7 +63,7 @@ _install() {
 
   # Backup vimrc if exists
   if [ -f "$HOME/.vimrc" ] || [ -L "$HOME/.vimrc" ] ; then
-    mv "$HOME/.vimrc" "$HOME/.vimrc.backup" 
+    mv "$HOME/.vimrc" "$HOME/.vimrc.backup"
   fi
 
   # Symlink new vimrc
@@ -72,10 +72,12 @@ _install() {
   _print "Spin Vim for a setup run"
 
   vim . -c 'BundleInstall' -c 'qa'
-  
+
   _success  "Ready to rock!"
 
   _print    "* Reload your shell for maximum effect *"
+
+  echo 1 > '.vim-insalled'
 }
 
 #############################################################################
@@ -88,19 +90,19 @@ fi
 #############################################################################
 
 # parse arguments
-while getopts :hma opt; do  
-  case $opt in 
+while getopts :hma opt; do
+  case $opt in
     m)
     _install_macvim
     _install
     ;;
-    h) 
-    _usage 
-    ;; 
-    *) 
-    _error "Invalid option received" 
-    _usage 
+    h)
+    _usage
+    ;;
+    *)
+    _error "Invalid option received"
+    _usage
     exit 0
     ;;
-  esac 
+  esac
 done

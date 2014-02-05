@@ -40,6 +40,9 @@ Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ervandew/supertab'
 Bundle 'airblade/vim-gitgutte'
 
+Bundle "tpope/vim-fugitive"
+Bundle "gregsexton/gitv"
+
 " XDebug
 " Bundle 'vim-scripts/DBGPavim'
 
