@@ -38,6 +38,9 @@ Bundle 'honza/vim-snippets'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ervandew/supertab'
 
+Bundle 'bling/vim-airline'
+Bundle 'paranoida/vim-airlineish'
+
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gregsexton/gitv'
@@ -130,6 +133,20 @@ vnoremap < <gv
 vnoremap > >gv
 vmap <Tab> >
 vmap <S-Tab> <
+
+" Syntax coloring lines that are too long just slows down the world
+set synmaxcol=256
+
+" allow multiple pastes of the same content when pasting in visual mode.
+vnoremap p pgvy
+
+" == Silver Searche ===========================================================
+
+" Ag
+" brew install the_silver_searcher
+" pacman -S the_silver_searcher
+" apt-get install silversearcher-ag
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " == Buffers ==================================================================
 
@@ -248,6 +265,21 @@ function! HasPaste()
     return ''
   endif
 endfunction
+
+" == Mouse ==================================================================
+
+" Enable mouse in all modes. -> https://bitheap.org/mouseterm/
+set mouse=a
+
+" Set mouse type to xterm.
+set ttymouse=xterm
+
+" == Airline ==================================================================
+
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
+let g:airline_powerline_fonts=1
+set ttimeoutlen=50
+let g:airline_theme = 'airlineish'
 
 " == XDebug ===================================================================
 
