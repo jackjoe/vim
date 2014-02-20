@@ -436,6 +436,19 @@ nmap <silent> <Tab><Tab> <C-w>w
 map + 3<c-w>>
 map - 3<c-w><
 
+" == Search ============================================================
+
+" show number of matches after a search
+nmap <leader>c :%s///gn<cr>
+
+" Highlight words to avoid in production
+highlight TechWordsToAvoid ctermbg=red ctermfg=white
+match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+autocmd BufWinLeave * call clearmatches()
+
 " == User defined ============================================================
 
 if filereadable(expand("~/.vimrc.local"))
