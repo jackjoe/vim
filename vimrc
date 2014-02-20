@@ -16,11 +16,9 @@ Bundle 'gmarik/vundle'
 
 " Original repos on github
 Bundle 'EasyMotion'
-Bundle 'SirVer/ultisnips'
 Bundle 'Townk/vim-autoclose'
 Bundle 'docunext/closetag.vim'
 Bundle 'ervandew/supertab'
-" Bundle 'honza/vim-snippets'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'jnwhiteh/vim-golang'
