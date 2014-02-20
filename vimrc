@@ -140,7 +140,7 @@ set synmaxcol=256
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
 
-" == Silver Searche ===========================================================
+" == Silver Searcher ===========================================================
 
 " Ag
 " brew install the_silver_searcher
