@@ -37,6 +37,7 @@ Bundle "SirVer/ultisnips"
 Bundle 'honza/vim-snippets'
 Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'ervandew/supertab'
+Bundle 'jnwhiteh/vim-golang'
 
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
@@ -211,9 +212,12 @@ au BufRead,BufNewFile *.install   set filetype=php
 au BufRead,BufNewFile *.module    set filetype=php
 au BufRead,BufNewFile *.ru        set filetype=ruby
 au BufRead,BufNewFile *.less      set filetype=css
-
-" Handlebars
+au BufRead,BufNewFile *.json      set filetype=javascript
 au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
+
+autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
@@ -437,4 +441,3 @@ map - 3<c-w><
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
