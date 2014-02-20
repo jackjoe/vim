@@ -4,7 +4,7 @@
 " |                          Must be on top
 " ============================================================================
 
-" filetype on   " first on, to avoid vim exiting with status code 1!
+filetype on   " first on, to avoid vim exiting with status code 1!
 filetype off  " required!
 
 set rtp+=~/.vim/bundle/vundle/
@@ -151,7 +151,6 @@ set autoread         " Set to auto read when a file is changed from the outside
 set nobomb           " don't clutter files with Unicode BOMs
 set hidden           " enable switching between buffers without saving
 set switchbuf=usetab " switch to existing tab then window when switching buffer
-set autoread         " auto read files changed only from the outside of ViM
 set fsync            " sync after write
 set confirm          " ask whether to save changed files
 
