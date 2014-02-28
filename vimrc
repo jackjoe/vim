@@ -145,6 +145,8 @@ vnoremap p pgvy
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
+" Allow lowercase ack in case of misspelling
+cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
 
 " == Buffers ==================================================================
 
@@ -211,6 +213,7 @@ au BufRead,BufNewFile *.ru        set filetype=ruby
 au BufRead,BufNewFile *.less      set filetype=css
 au BufRead,BufNewFile *.json      set filetype=javascript
 au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
+au BufRead,BufNewFile *.go        set filetype=go
 
 autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
@@ -221,10 +224,10 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc
 
 " == Search improvements ======================================================
 
-set hlsearch                      " Highlight search things
-set incsearch                     " Make search act like search in modern browsers
-set ignorecase                    " Case insensitive matching...
-set smartcase                     " ... unless they contain at least one capital letter
+set hlsearch                " Highlight search things
+set incsearch               " Make search act like search in modern browsers
+set ignorecase              " Case insensitive matching...
+set smartcase               " ... unless they contain at least one capital letter
 
 " == Files/backup =============================================================
 
@@ -234,9 +237,9 @@ set noswapfile
 
 " == Visualbell ===============================================================
 
-set visualbell    " shut up
-set noerrorbells  " shut up
-set mousehide     " hide mouse pointer when typing
+set visualbell              " shut up
+set noerrorbells            " shut up
+set mousehide               " hide mouse pointer when typing
 
 " == Syntastic ================================================================
 
@@ -284,7 +287,7 @@ let g:airline_theme = 'airlineish'
 
 " == XDebug ===================================================================
 
-let g:dbgPavimPort = 9999
+" let g:dbgPavimPort = 9999
 
 " == Source after saving ======================================================
 
@@ -354,11 +357,6 @@ nnoremap <F2> :set invpaste paste?<CR> " Enable F2 key for toggling pastemode
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 
-" == Coffeescript =============================================================
-
-" vmap <leader>c <esc>:'<,'>:CoffeeCompile<CR>
-" map <leader>c :CoffeeCompile<CR>
-
 " == HTML =====================================================================
 
 :vmap <leader><leader>b <S-S><strong>
@@ -396,7 +394,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend)$|node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend)$\|node_modules\|DS_Store\|git'
 
 map <leader>cp :CtrlPClearCache<CR>
 
@@ -438,16 +436,29 @@ map - 3<c-w><
 " show number of matches after a search
 nmap <leader>c :%s///gn<cr>
 
+" == User defined ============================================================
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
+
+" == Golang ==================================================================
+
+" Clear filetype flags before changing runtimepath to force Vim to reload them.
+filetype off
+filetype plugin indent off
+
+set runtimepath+=$GOROOT/misc/vim
+
+filetype plugin indent on
+syntax on
+
+" == Highlight ==================================================================
 " Highlight words to avoid in production
+
 highlight TechWordsToAvoid ctermbg=red ctermfg=white
 match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
 autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
 autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
 autocmd BufWinLeave * call clearmatches()
-
-" == User defined ============================================================
-
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
