@@ -204,22 +204,30 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " == Filetypes ================================================================
 
-au BufRead,BufNewFile *.module    set filetype=php
-au BufRead,BufNewFile *.inc       set filetype=php
-au BufRead,BufNewFile *.install   set filetype=php
-au BufRead,BufNewFile *.module    set filetype=php
-au BufRead,BufNewFile *.ru        set filetype=ruby
-au BufRead,BufNewFile *.less      set filetype=css
-au BufRead,BufNewFile *.json      set filetype=javascript
-au BufRead,BufNewFile *.handlebars,*.hbs set ft=handlebars
-au BufRead,BufNewFile *.go        set filetype=go
+au BufRead,BufNewFile *.module            set filetype=php
+au BufRead,BufNewFile *.inc               set filetype=php
+au BufRead,BufNewFile *.install           set filetype=php
+au BufRead,BufNewFile *.module            set filetype=php
+au BufRead,BufNewFile *.ru                set filetype=ruby
+au BufRead,BufNewFile *.less              set filetype=css
+au BufRead,BufNewFile *.json              set filetype=javascript
+au BufRead,BufNewFile *.handlebars,*.hbs  set ft=handlebars
+au BufRead,BufNewFile *.go                set filetype=go
 
-autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+autocmd BufNewFile,BufRead *.html.twig    set filetype=html.twig
+
+" Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
+
+" Golang
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+
+" Spell check certain filetypes (eg Markdown)
+autocmd BufRead,BufNewFile *.md   setlocal spell
+autocmd BufRead,BufNewFile *.txt  setlocal spell
 
 " == Search improvements ======================================================
 
