@@ -29,7 +29,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'nono/vim-handlebars'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-" Bundle 'shawncplus/phpcomplete.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
@@ -42,13 +41,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gregsexton/gitv'
 
-" XDebug
-" Bundle 'vim-scripts/DBGPavim'
-
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
-" Bundle 'Align'
 
 " ============================================================================
 " General
