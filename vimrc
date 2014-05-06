@@ -1,8 +1,8 @@
 
-" ============================================================================
+" =========================================
 " |                               Vundle                                    |
 " |                          Must be on top
-" ============================================================================
+" =======================================
 
 filetype on   " first on, to avoid vim exiting with status code 1!
 filetype off  " required!
@@ -21,7 +21,8 @@ Bundle 'docunext/closetag.vim'
 Bundle 'ervandew/supertab'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'jnwhiteh/vim-golang'
+" Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
@@ -30,6 +31,7 @@ Bundle 'nono/vim-handlebars'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-markdown'
+Bundle 'cespare/vim-toml'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/matchit.zip'
@@ -45,14 +47,14 @@ Bundle 'gregsexton/gitv'
 Bundle 'L9'
 Bundle 'tComment'
 
-" ============================================================================
+" ===========================================
 " General
-" ============================================================================
+" ===========================================
 
 " map : to ; for qwerty
 noremap ; :
 
-" == Disable arrow keys ======================================================
+" == Disable arrow keys =============================
 
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
@@ -63,7 +65,7 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" == Bootstrap ================================================================
+" == Bootstrap ======================================
 
 set encoding=utf8
 set laststatus=2        " Always show the statusline
@@ -95,7 +97,7 @@ set title               " change the terminal title
 set lazyredraw          " do not redraw when executing macros
 set report=0            " always report changes
 
-" == Editing ==================================================================
+" == Editing =====================================
 
 set nowrap        " don't wrap lines
 set nojoinspaces  " insert only one space after '.', '?', '!' when joining lines
@@ -132,7 +134,7 @@ set synmaxcol=256
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
 
-" == Silver Searcher ===========================================================
+" == Silver Searcher ===========================
 
 " Ag
 " brew install the_silver_searcher
@@ -142,7 +144,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
 
-" == Buffers ==================================================================
+" == Buffers ==================================
 
 set autoread         " Set to auto read when a file is changed from the outside
 set nobomb           " don't clutter files with Unicode BOMs
@@ -162,7 +164,7 @@ if has("autocmd")
   " augroup END
 endif
 
-" == Folding ==================================================================
+" == Folding =======================================
 
 if has("folding")
   set foldenable
@@ -172,7 +174,7 @@ if has("folding")
   set nofoldenable        " dont fold by default
 endif
 
-" == Completion ===============================================================
+" == Completion ==================================
 
 set completeopt=longest,menuone,preview " better completion
 set wildmenu                " enable ctrl-n and ctrl-p to scroll thru matches
@@ -187,16 +189,16 @@ if exists("&wildignorecase")
   set wildignorecase
 endif
 
-" == Color + font =============================================================
+" == Color + font ===================================
 
 colorscheme default
 set ffs=unix,mac,dos	  " Support all three, in this order
 
-" == Git/SVN Errors ===========================================================
+" == Git/SVN Errors =====================================
 
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
-" == Filetypes ================================================================
+" == Filetypes =======================================
 
 au BufRead,BufNewFile *.module            set filetype=php
 au BufRead,BufNewFile *.inc               set filetype=php
@@ -207,6 +209,7 @@ au BufRead,BufNewFile *.less              set filetype=css
 au BufRead,BufNewFile *.json              set filetype=javascript
 au BufRead,BufNewFile *.handlebars,*.hbs  set filetype=handlebars
 au BufRead,BufNewFile *.go                set filetype=go
+au BufRead,BufNewFile *.tmpl              set filetype=html
 
 autocmd BufNewFile,BufRead *.html.twig    set filetype=html.twig
 
@@ -214,7 +217,7 @@ autocmd BufNewFile,BufRead *.html.twig    set filetype=html.twig
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Golang
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
@@ -223,26 +226,26 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc
 autocmd BufRead,BufNewFile *.md   setlocal spell
 autocmd BufRead,BufNewFile *.txt  setlocal spell
 
-" == Search improvements ======================================================
+" == Search improvements =======================
 
 set hlsearch                " Highlight search things
 set incsearch               " Make search act like search in modern browsers
 set ignorecase              " Case insensitive matching...
 set smartcase               " ... unless they contain at least one capital letter
 
-" == Files/backup =============================================================
+" == Files/backup ==================================
 
 set nobackup                " do not keep a backup file, use versions instead
 set nowb
 set noswapfile
 
-" == Visualbell ===============================================================
+" == Visualbell ===================================
 
 set visualbell              " shut up
 set noerrorbells            " shut up
 set mousehide               " hide mouse pointer when typing
 
-" == Syntastic ================================================================
+" == Syntastic =========================
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -256,7 +259,7 @@ let g:syntastic_mode_map = {  'mode': 'active',
                             \ 'passive_filetypes': ['sass', 'scss']}
 nmap <F3> :SyntasticCheck<CR>     " do check
 
-" == Statusline ===============================================================
+" == Statusline =========================
 
 function! CurDir()
   let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
@@ -271,7 +274,7 @@ function! HasPaste()
   endif
 endfunction
 
-" == Mouse ==================================================================
+" == Mouse =============================
 
 " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set mouse=a
@@ -279,24 +282,24 @@ set mouse=a
 " Set mouse type to xterm.
 set ttymouse=xterm
 
-" == Airline ==================================================================
+" == Airline =========================
 
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 let g:airline_powerline_fonts=1
 set ttimeoutlen=50
 let g:airline_theme = 'airlineish'
 
-" == XDebug ===================================================================
+" == XDebug ======================
 
 " let g:dbgPavimPort = 9999
 
-" == Source after saving ======================================================
+" == Source after saving ================
 
 if has("autocmd")
   autocmd! BufWritePost .vimrc nested source $MYVIMRC | echo "source $MYVIMRC"
 endif
 
-" == Keyboard mapping =========================================================
+" == Keyboard mapping ==================
 
 " Professor VIM says '87% of users prefer jj over esc'
 imap jj <Esc>
@@ -352,18 +355,18 @@ noremap gI `.
 " split line and preserve cursor position
 nnoremap S mzi<CR><ESC>`z
 
-" == Paste mode ===============================================================
+" == Paste mode ===============================
 
 nnoremap <F2> :set invpaste paste?<CR> " Enable F2 key for toggling pastemode
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 
-" == HTML =====================================================================
+" == HTML ===============================
 
 :vmap <leader><leader>b <S-S><strong>
 :vmap <leader><leader>i <S-S><em>
 
-" == Fugitive =================================================================
+" == Fugitive ===========================
 
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -378,7 +381,7 @@ nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
 nnoremap <silent> <leader>ge :Gedit<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 
-" == Nerdtree =================================================================
+" == Nerdtree ================================
 
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
@@ -389,37 +392,37 @@ let NERDTreeDirArrows = 1
 let NERDTreeChDirMode = 1
 let NERDChristmasTree = 1
 
-" == CtrlP ====================================================================
+" == CtrlP ==================================
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend)$\|node_modules\|DS_Store\|git'
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|DS_Store\|git'
 
 map <leader>cp :CtrlPClearCache<CR>
 
-" == Emmet (previously Zencoding ===============================================
+" == Emmet (previously Zencoding ===========
 
 " imap <c-e> <c-y>,
 let g:use_emmet_complete_tag = 1
 let g:user_emmet_leader_key = '<c-e>'
 
-" == Switch files =============================================================
+" == Switch files ========================
 
 nmap <c-h> <ESC>:bp<CR>
 nmap <c-l> <ESC>:bn<CR>
 
-" == EasyMotion ===============================================================
+" == EasyMotion =========================
 
 let g:EasyMotion_leader_key = '<Leader>'
 
-" == SuperTab =================================================================
+" == SuperTab ==========================
 
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
-" == Split windows ============================================================
+" == Split windows ====================
 
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -432,18 +435,18 @@ nmap <silent> <Tab><Tab> <C-w>w
 map + 3<c-w>>
 map - 3<c-w><
 
-" == Search ============================================================
+" == Search ==========================
 
 " show number of matches after a search
 nmap <leader>c :%s///gn<cr>
 
-" == User defined ============================================================
+" == User defined =====================
 
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
 
-" == Golang ==================================================================
+" == Golang ============================
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
 filetype off
@@ -454,12 +457,12 @@ set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 
-" == Highlight ==================================================================
+" == Highlight =========================
 " Highlight words to avoid in production
 
 highlight TechWordsToAvoid ctermbg=red ctermfg=white
-match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
+autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
+autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
+autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
