@@ -205,7 +205,7 @@ au BufRead,BufNewFile *.module            set filetype=php
 au BufRead,BufNewFile *.ru                set filetype=ruby
 au BufRead,BufNewFile *.less              set filetype=css
 au BufRead,BufNewFile *.json              set filetype=javascript
-au BufRead,BufNewFile *.handlebars,*.hbs  set ft=handlebars
+au BufRead,BufNewFile *.handlebars,*.hbs  set filetype=handlebars
 au BufRead,BufNewFile *.go                set filetype=go
 
 autocmd BufNewFile,BufRead *.html.twig    set filetype=html.twig
