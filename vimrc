@@ -21,7 +21,8 @@ Bundle 'docunext/closetag.vim'
 Bundle 'ervandew/supertab'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'jnwhiteh/vim-golang'
+" Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
@@ -222,7 +223,7 @@ autocmd BufNewFile,BufRead *.html.twig    set filetype=html.twig
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 
 " Golang
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+" autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
@@ -466,8 +467,8 @@ syntax on
 " Highlight words to avoid in production
 
 highlight TechWordsToAvoid ctermbg=red ctermfg=white
-match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
-autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r/
+match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
+autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
+autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
+autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
