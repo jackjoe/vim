@@ -28,13 +28,6 @@ _usage() {
 
   -h                Show this message
   -m                Install MacVim through homebrew first, then setup vim config
-
-  Important:
-
-  There is one catch: to install Command-T successfully, you *need* a Vim that
-  comes with Ruby support AND the Ruby version used to built Command-T ad hoc,
-  has to match the ruby version of that Vim! You can install MacVim in one go
-  by passing -h. Some ruby versions might causes errors, let us know!
   "
 
   exit 0
