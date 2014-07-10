@@ -19,23 +19,32 @@ Bundle 'EasyMotion'
 Bundle 'Townk/vim-autoclose'
 Bundle 'docunext/closetag.vim'
 Bundle 'ervandew/supertab'
-Bundle 'ingydotnet/yaml-vim'
 Bundle 'jistr/vim-nerdtree-tabs'
-" Bundle 'jnwhiteh/vim-golang'
-Bundle 'fatih/vim-go'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'nono/vim-handlebars'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-" Bundle 'shawncplus/phpcomplete.vim'
-Bundle 'tpope/vim-markdown'
-Bundle 'cespare/vim-toml'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/matchit.zip'
+
+" Coffeescript
+Bundle 'kchmck/vim-coffee-script'
+
+" Haskell
+" Install stylish-haskell via cabal
+Bundle 'nbouscal/vim-stylish-haskell'
+Bundle 'lukerandall/haskellmode-vim'
+
+" Go
+Bundle 'fatih/vim-go'
+
+" Formats
+Bundle 'tpope/vim-markdown'
+Bundle 'cespare/vim-toml'
+Bundle 'nono/vim-handlebars'
+Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
@@ -44,13 +53,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gregsexton/gitv'
 
-" XDebug
-" Bundle 'vim-scripts/DBGPavim'
-
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
-" Bundle 'Align'
 
 " ===========================================
 " General
@@ -146,6 +151,7 @@ vnoremap p pgvy
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
 
@@ -221,9 +227,7 @@ autocmd BufNewFile,BufRead *.html.twig    set filetype=html.twig
 
 " Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
-
-" Golang
-" autocmd FileType go autocmd BufWritePre <buffer> Fmt
+au Bufenter *.hs,*.lhs compiler ghc
 
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
