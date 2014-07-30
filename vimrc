@@ -466,6 +466,8 @@ set runtimepath+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
 
+let g:go_bin_path = expand("$HOME/.vim-go/")
+
 " == Highlight =========================
 " Highlight words to avoid in production
 
