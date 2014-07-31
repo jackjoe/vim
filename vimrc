@@ -18,7 +18,7 @@ Bundle 'gmarik/vundle'
 Bundle 'EasyMotion'
 Bundle 'Townk/vim-autoclose'
 Bundle 'docunext/closetag.vim'
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 Bundle 'ingydotnet/yaml-vim'
 Bundle 'jistr/vim-nerdtree-tabs'
 " Bundle 'jnwhiteh/vim-golang'
@@ -39,9 +39,24 @@ Bundle 'vim-scripts/matchit.zip'
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
 
+Bundle 'neochrome/todo.vim'
+
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gregsexton/gitv'
+
+" == Snippets ==================================================================
+
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "garbas/vim-snipmate"
+" clone of garbas, with fix for supertab
+" Bundle "ervandew/snipmate.vim"
+
+
+" Optional:
+Bundle "honza/vim-snippets"
+Bundle "firegoby/SASS-Snippets"
 
 " vim-scripts repos
 Bundle 'L9'
@@ -419,8 +434,8 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 " == SuperTab ==========================
 
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " == Split windows ====================
 
