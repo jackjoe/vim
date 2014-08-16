@@ -42,6 +42,7 @@ Bundle 'fatih/vim-go'
 
 " Formats
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-haml'
 Bundle 'cespare/vim-toml'
 Bundle 'nono/vim-handlebars'
 Bundle 'ingydotnet/yaml-vim'
