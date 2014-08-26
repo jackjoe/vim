@@ -18,7 +18,7 @@ Bundle 'gmarik/vundle'
 Bundle 'EasyMotion'
 Bundle 'Townk/vim-autoclose'
 Bundle 'docunext/closetag.vim'
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
@@ -42,12 +42,15 @@ Bundle 'fatih/vim-go'
 
 " Formats
 Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-haml'
 Bundle 'cespare/vim-toml'
 Bundle 'nono/vim-handlebars'
 Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
+
+Bundle 'neochrome/todo.vim'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
@@ -347,7 +350,7 @@ endfunction
 command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
 
 function! CleanWindowsCharacters()
-  :%s///g
+  :%s/\\//g
 endf
 
 " Sudo to write
@@ -435,8 +438,8 @@ let g:EasyMotion_leader_key = '<Leader>'
 
 " == SuperTab ==========================
 
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " == Split windows ====================
 
