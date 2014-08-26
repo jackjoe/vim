@@ -28,6 +28,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/matchit.zip'
+Bundle 'neochrome/todo.vim'
 
 " Coffeescript
 Bundle 'kchmck/vim-coffee-script'
@@ -55,8 +56,6 @@ Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
-
-Bundle 'neochrome/todo.vim'
 
 Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
@@ -474,8 +473,10 @@ set runtimepath+=$GOROOT/misc/vim
 
 filetype plugin indent on
 syntax on
+syntax enable
 
 let g:go_bin_path = expand("$HOME/.vim-go/")
+let g:go_disable_autoinstall = 0
 
 " == YCM/Ultisnip TAB ==================
 
