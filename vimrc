@@ -53,6 +53,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gregsexton/gitv'
 
+" neocomplete
+Bundle "shougo/neocomplete"
+
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
@@ -143,6 +146,10 @@ set synmaxcol=256
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
+
+" == Neocomplete ===============================
+
+let g:neocomplete#enable_at_startup = 1
 
 " == Silver Searcher ===========================
 
@@ -465,8 +472,10 @@ set runtimepath+=$GOROOT/misc/vim
 
 filetype plugin indent on
 syntax on
+syntax enable
 
 let g:go_bin_path = expand("$HOME/.vim-go/")
+let g:go_disable_autoinstall = 0
 
 " == Highlight =========================
 " Highlight words to avoid in production
