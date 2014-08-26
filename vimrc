@@ -55,9 +55,6 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gregsexton/gitv'
 
-" neocomplete
-Bundle "shougo/neocomplete"
-
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
@@ -148,10 +145,6 @@ set synmaxcol=256
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
-
-" == Neocomplete ===============================
-
-let g:neocomplete#enable_at_startup = 1
 
 " == Silver Searcher ===========================
 
