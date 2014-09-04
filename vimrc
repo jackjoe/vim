@@ -33,12 +33,6 @@ Bundle 'neochrome/todo.vim'
 " Coffeescript
 Bundle 'kchmck/vim-coffee-script'
 
-" YCM/Ultisnip TAB
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'rstacruz/vim-ultisnips-css'
-
 " Haskell
 " Install stylish-haskell via cabal
 Bundle 'nbouscal/vim-stylish-haskell'
@@ -330,7 +324,7 @@ nmap <leader>l :set list!<cr>
 
 " Clean whitespace
 command! KillWhitespace :call <SID>StripTrailingWhitespaces()<CR>
-nnoremap <silent> <leader>W :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
@@ -477,44 +471,6 @@ syntax enable
 
 let g:go_bin_path = expand("$HOME/.vim-go/")
 let g:go_disable_autoinstall = 0
-
-" == YCM/Ultisnip TAB ==================
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
-" " Where are the snippets?
-" let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-"
-" function! g:UltiSnips_Complete()
-"     call UltiSnips#ExpandSnippet()
-"     if g:ulti_expand_res == 0
-"         if pumvisible()
-"             return "\<C-n>"
-"         else
-"             call UltiSnips#JumpForwards()
-"             if g:ulti_jump_forwards_res == 0
-"                return "\<TAB>"
-"             endif
-"         endif
-"     endif
-"     return ""
-" endfunction
-
-" au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-" let g:UltiSnipsJumpForwardTrigger="<tab>"
-" let g:UltiSnipsListSnippets="<c-e>"
-" " this mapping Enter key to <C-y> to chose the current highlight item
-" " and close the selection list, same as other IDEs.
-" " CONFLICT with some plugins like tpope/Endwise
-" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " == Highlight =========================
 " Highlight words to avoid in production
