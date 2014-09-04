@@ -377,6 +377,9 @@ set pastetoggle=<F2>
 :vmap <leader><leader>b <S-S><strong>
 :vmap <leader><leader>i <S-S><em>
 
+" convert list of lines to <li>
+map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:nohl<CR>
+
 " == Fugitive ===========================
 
 nnoremap <silent> <leader>gs :Gstatus<CR>
