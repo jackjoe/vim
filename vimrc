@@ -454,12 +454,6 @@ map - 3<c-w><
 " show number of matches after a search
 nmap <leader>c :%s///gn<cr>
 
-" == User defined =====================
-
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
 " == Golang ============================
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
@@ -484,3 +478,9 @@ autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|aler
 autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
+
+" == User defined =====================
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
