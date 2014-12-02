@@ -19,7 +19,7 @@ Bundle 'gmarik/vundle'
 " Original repos on github
 Bundle 'Townk/vim-autoclose'
 Bundle 'docunext/closetag.vim'
-" Bundle 'ervandew/supertab'
+Bundle 'ervandew/supertab'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
@@ -331,7 +331,7 @@ nmap <leader>l :set list!<cr>
 
 " Clean whitespace
 command! KillWhitespace :call <SID>StripTrailingWhitespaces()<CR>
-nnoremap <silent> <leader>W :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
@@ -383,6 +383,9 @@ set pastetoggle=<F2>
 
 :vmap <leader><leader>b <S-S><strong>
 :vmap <leader><leader>i <S-S><em>
+
+" convert list of lines to <li>
+map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:nohl<CR>
 
 " == Fugitive ===========================
 
@@ -458,12 +461,6 @@ map - 3<c-w><
 " show number of matches after a search
 nmap <leader>c :%s///gn<cr>
 
-" == User defined =====================
-
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
-
 " == Golang ============================
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
@@ -491,3 +488,9 @@ autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|aler
 autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
+
+" == User defined =====================
+
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
