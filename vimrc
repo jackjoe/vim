@@ -10,12 +10,13 @@ filetype off  " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" We might implement https://github.com/junegunn/vim-plug/
+
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
 
 " Original repos on github
-Bundle 'EasyMotion'
 Bundle 'Townk/vim-autoclose'
 Bundle 'docunext/closetag.vim'
 " Bundle 'ervandew/supertab'
@@ -29,6 +30,9 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'neochrome/todo.vim'
+
+" Y U No Commit
+Bundle 'esneider/YUNOcommit.vim'
 
 " Coffeescript
 Bundle 'kchmck/vim-coffee-script'
@@ -58,6 +62,7 @@ Bundle 'gregsexton/gitv'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
+Bundle 'EasyMotion'
 
 " ===========================================
 " General
@@ -270,6 +275,8 @@ let g:syntastic_mode_map = {  'mode': 'active',
                             \ 'passive_filetypes': ['sass', 'scss']}
 nmap <F3> :SyntasticCheck<CR>     " do check
 
+autocmd BufEnter * :syntax sync fromstart
+
 " == Statusline =========================
 
 function! CurDir()
@@ -471,6 +478,9 @@ syntax enable
 
 let g:go_bin_path = expand("$HOME/.vim-go/")
 let g:go_disable_autoinstall = 0
+
+" == Y U No Commit  ====================
+let g:YUNOcommit_after = 20
 
 " == Highlight =========================
 " Highlight words to avoid in production
