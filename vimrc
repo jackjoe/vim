@@ -299,6 +299,7 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 let g:airline_powerline_fonts=1
 set ttimeoutlen=50
 let g:airline_theme = 'airlineish'
+" let g:airline_theme = 'luna'
 
 " == XDebug ======================
 
