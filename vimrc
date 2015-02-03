@@ -36,6 +36,9 @@ Bundle 'esneider/YUNOcommit.vim'
 " Coffeescript
 Bundle 'kchmck/vim-coffee-script'
 
+" Javascript
+Bundle "pangloss/vim-javascript"
+
 " Haskell
 " Install stylish-haskell via cabal
 Bundle 'nbouscal/vim-stylish-haskell'
@@ -115,27 +118,27 @@ set report=0            " always report changes
 
 " == Editing =====================================
 
-set nowrap        " don't wrap lines
-set nojoinspaces  " insert only one space after '.', '?', '!' when joining lines
-set showmatch     " briefly jumps the cursor to the matching brace on insert
-set matchtime=4   " blink matching braces for 0.4s
-set backspace=indent,eol,start " allow backspacing over everything
+set nowrap                      " don't wrap lines
+set nojoinspaces                " insert only one space after '.', '?', '!' when joining lines
+set showmatch                   " briefly jumps the cursor to the matching brace on insert
+set matchtime=4                 " blink matching braces for 0.4s
+set backspace=indent,eol,start  " allow backspacing over everything
 
 set softtabstop=2
-set shiftwidth=2  " indent with 2 spaces
-set shiftround    " use multiple of shiftwidth when indenting with '<' and '>'
+set shiftwidth=2                " indent with 2 spaces
+set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
 set tabstop=2
 set expandtab
-set wrap                          " set linewrap
+set wrap                        " set linewrap
 
 set lbr
 set tw=500
 set autoindent
 set smartindent
-set copyindent                    " Take indentation from previous line
+set copyindent                  " Take indentation from previous line
 
-" set list                          " Show invisible characters
-set listchars=""                  " Reset the listchars
+" set list                      " Show invisible characters
+set listchars=""                " Reset the listchars
 set listchars=tab:»·,trail:·,eol:¬,nbsp:_
 
 " reselect last selection after indent / un-indent in visual and select modes
@@ -193,13 +196,13 @@ endif
 
 " == Completion ==================================
 
-set completeopt=longest,menuone,preview " better completion
-set wildmenu                " enable ctrl-n and ctrl-p to scroll thru matches
+set completeopt=longest,menuone,preview             " better completion
+set wildmenu                                        " enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=longest:full,list:longest
-set wildignore=*.o,*.obj,*~ " stuff to ignore when tab completing
+set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
 set wildignore+=*vim/backups*
-set wildignore+=.git            " ignore the .git directory
-set wildignore+=*.DS_Store      " ignore Mac finder/spotlight crap
+set wildignore+=.git                                " ignore the .git directory
+set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
 
 if exists("&wildignorecase")
@@ -220,15 +223,14 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 au BufRead,BufNewFile *.module            set filetype=php
 au BufRead,BufNewFile *.inc               set filetype=php
 au BufRead,BufNewFile *.install           set filetype=php
-au BufRead,BufNewFile *.module            set filetype=php
-au BufRead,BufNewFile *.ru                set filetype=ruby
+
 au BufRead,BufNewFile *.less              set filetype=css
 au BufRead,BufNewFile *.json              set filetype=javascript
 au BufRead,BufNewFile *.handlebars,*.hbs  set filetype=handlebars
-au BufRead,BufNewFile *.go                set filetype=go
 au BufRead,BufNewFile *.tmpl              set filetype=html
 
-autocmd BufNewFile,BufRead *.html.twig    set filetype=html.twig
+au BufRead,BufNewFile *.go                set filetype=go
+au BufRead,BufNewFile *.ru                set filetype=ruby
 
 " Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
@@ -306,10 +308,6 @@ let g:airline_powerline_fonts=1
 set ttimeoutlen=50
 let g:airline_theme = 'airlineish'
 
-" == XDebug ======================
-
-" let g:dbgPavimPort = 9999
-
 " == Source after saving ================
 
 if has("autocmd")
@@ -353,8 +351,6 @@ endf
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
-
-nnoremap <leader>ev <C-w>s<C-w>j<C-w>L:e $MYVIMRC<cr>
 
 if has("gui_running") " Fuck you, help key, seriously
   set fuoptions=maxvert,maxhorz
@@ -452,6 +448,7 @@ nnoremap <c-l> <c-w>l
 " switch between windows by hitting <Tab> twice
 nmap <silent> <Tab><Tab> <C-w>w
 
+" enlarge splits
 map + 3<c-w>>
 map - 3<c-w><
 
