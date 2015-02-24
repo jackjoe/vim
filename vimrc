@@ -123,6 +123,7 @@ set nojoinspaces                " insert only one space after '.', '?', '!' when
 set showmatch                   " briefly jumps the cursor to the matching brace on insert
 set matchtime=4                 " blink matching braces for 0.4s
 set backspace=indent,eol,start  " allow backspacing over everything
+fixdel
 
 set softtabstop=2
 set shiftwidth=2                " indent with 2 spaces
