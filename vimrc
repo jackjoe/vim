@@ -48,8 +48,9 @@ Bundle 'lukerandall/haskellmode-vim'
 Bundle 'fatih/vim-go'
 
 " Formats
+Plugin 'godlygeek/tabular' " needed for markdown
 Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-haml'
+" Bundle 'tpope/vim-haml'
 Bundle 'cespare/vim-toml'
 Bundle 'nono/vim-handlebars'
 Bundle 'ingydotnet/yaml-vim'
@@ -57,9 +58,9 @@ Bundle 'ingydotnet/yaml-vim'
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
 
-Bundle 'tpope/vim-fugitive'
+" Bundle 'tpope/vim-fugitive'
+" Bundle 'gregsexton/gitv'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'gregsexton/gitv'
 
 " vim-scripts repos
 Bundle 'L9'
