@@ -54,7 +54,6 @@ Bundle 'tpope/vim-markdown'
 Bundle 'cespare/vim-toml'
 Bundle 'nono/vim-handlebars'
 Bundle 'ingydotnet/yaml-vim'
-Bundle 'php.vim-html-enhanced'
 
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
