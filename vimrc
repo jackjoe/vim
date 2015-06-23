@@ -34,7 +34,7 @@ Bundle 'vim-scripts/matchit.zip'
 Bundle 'esneider/YUNOcommit.vim'
 
 " Coffeescript
-Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-coffee-script'
 
 " Javascript
 Bundle "pangloss/vim-javascript"
@@ -52,7 +52,7 @@ Plugin 'godlygeek/tabular' " needed for markdown
 Bundle 'tpope/vim-markdown'
 " Bundle 'tpope/vim-haml'
 Bundle 'cespare/vim-toml'
-Bundle 'nono/vim-handlebars'
+Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
