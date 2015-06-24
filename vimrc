@@ -4,6 +4,11 @@
 " |                          Must be on top
 " =======================================
 
+" Vim needs a POSIX-Compliant shell. Fish is not.
+if $SHELL =~ 'bin/fish'
+  set shell=/bin/sh
+endif
+
 filetype on   " first on, to avoid vim exiting with status code 1!
 filetype off  " required!
 
@@ -15,11 +20,11 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
-
-" Original repos on github
+"
+" " Original repos on github
 Bundle 'Townk/vim-autoclose'
 Bundle 'docunext/closetag.vim'
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
@@ -28,12 +33,12 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/matchit.zip'
+" Bundle 'vim-scripts/matchit.zip'
 
 " Y U No Commit
 Bundle 'esneider/YUNOcommit.vim'
 
-" Coffeescript
+" " Coffeescript
 Bundle 'kchmck/vim-coffee-script'
 
 " Javascript
@@ -41,8 +46,8 @@ Bundle "pangloss/vim-javascript"
 
 " Haskell
 " Install stylish-haskell via cabal
-Bundle 'nbouscal/vim-stylish-haskell'
-Bundle 'lukerandall/haskellmode-vim'
+" Bundle 'nbouscal/vim-stylish-haskell'
+" Bundle 'lukerandall/haskellmode-vim'
 
 " Go
 Bundle 'fatih/vim-go'
@@ -50,9 +55,9 @@ Bundle 'fatih/vim-go'
 " Formats
 Plugin 'godlygeek/tabular' " needed for markdown
 Bundle 'tpope/vim-markdown'
-" Bundle 'tpope/vim-haml'
+" " Bundle 'tpope/vim-haml'
 Bundle 'cespare/vim-toml'
-Bundle 'nono/vim-handlebars'
+" Bundle 'nono/vim-handlebars'
 Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
@@ -60,13 +65,13 @@ Bundle 'paranoida/vim-airlineish'
 
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'gregsexton/gitv'
-Bundle 'airblade/vim-gitgutter'
-
-" vim-scripts repos
+" Bundle 'airblade/vim-gitgutter'
+"
+" " vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
-Bundle 'EasyMotion'
-
+" Bundle 'EasyMotion'
+"
 " ===========================================
 " General
 " ===========================================
@@ -385,21 +390,6 @@ set pastetoggle=<F2>
 " convert list of lines to <li>
 map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:nohl<CR>
 
-" == Fugitive ===========================
-
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Git pull<CR>
-nnoremap <silent> <leader>glod :Git pull origin develop<CR>
-nnoremap <silent> <leader>glom :Git pull origin master<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
-nnoremap <silent> <leader>ge :Gedit<CR>
-nnoremap <silent> <leader>gg :GitGutterToggle<CR>
-
 " == Nerdtree ================================
 
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
@@ -463,17 +453,17 @@ nmap <leader>c :%s///gn<cr>
 " == Golang ============================
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
-filetype off
-filetype plugin indent off
+"filetype off
+"filetype plugin indent off
+"
+"set runtimepath+=$GOROOT/misc/vim
+"
+"filetype plugin indent on
+"syntax on
+"syntax enable
 
-set runtimepath+=$GOROOT/misc/vim
-
-filetype plugin indent on
-syntax on
-syntax enable
-
-let g:go_bin_path = expand("$HOME/.vim-go/")
-let g:go_disable_autoinstall = 0
+"let g:go_bin_path = expand("$HOME/.vim-go/")
+"let g:go_disable_autoinstall = 0
 
 " == Y U No Commit  ====================
 let g:YUNOcommit_after = 20
