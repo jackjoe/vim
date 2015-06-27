@@ -38,8 +38,8 @@ Bundle 'tpope/vim-surround'
 " Y U No Commit
 Bundle 'esneider/YUNOcommit.vim'
 
-" " Coffeescript
-Bundle 'kchmck/vim-coffee-script'
+" Coffeescript
+" Bundle 'kchmck/vim-coffee-script'
 
 " Javascript
 Bundle "pangloss/vim-javascript"
@@ -57,7 +57,9 @@ Plugin 'godlygeek/tabular' " needed for markdown
 Bundle 'tpope/vim-markdown'
 " " Bundle 'tpope/vim-haml'
 Bundle 'cespare/vim-toml'
+"
 " Bundle 'nono/vim-handlebars'
+Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
@@ -464,6 +466,14 @@ nmap <leader>c :%s///gn<cr>
 
 "let g:go_bin_path = expand("$HOME/.vim-go/")
 "let g:go_disable_autoinstall = 0
+
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = "goimports"
 
 " == Y U No Commit  ====================
 let g:YUNOcommit_after = 20
