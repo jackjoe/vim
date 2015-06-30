@@ -68,7 +68,7 @@ if &background == 'light'
 	hi WarningMsg guifg=#ea6042 ctermfg=166
 	hi WildMenu guifg=#2e2e2e guibg=#f0f0e5 gui=none ctermfg=234 ctermbg=255 cterm=none
 else
-	hi Normal guifg=#dadad5 guibg=#121713 gui=none ctermfg=255 ctermbg=234 cterm=none
+	hi Normal guifg=#dadad5 guibg=#121713 gui=none ctermfg=255 ctermbg=233 cterm=none
 	hi ColorColumn guibg=#262f21 ctermbg=235
 	hi Comment guifg=#707073 ctermfg=241
 	hi Conceal guifg=#91b5d4 guibg=#121713 gui=none ctermfg=109 ctermbg=233
