@@ -34,7 +34,7 @@ Bundle 'vim-scripts/matchit.zip'
 Bundle 'esneider/YUNOcommit.vim'
 
 " Coffeescript
-" Bundle 'kchmck/vim-coffee-script'
+Bundle 'kchmck/vim-coffee-script'
 
 " Javascript
 Bundle "pangloss/vim-javascript"
@@ -106,6 +106,7 @@ set showcmd             " display incomplete commands
 set cmdheight=1         " height of the command line
 set showmatch           " Show matching bracets when text indicator is over them
 set clipboard=unnamed   " Yank everything to the system clipboard
+set scrolloff=1         " Always show at least one line above/below the cursor.
 
 highlight NonText guifg=#7A7A90   " Invisible character colors
 highlight SpecialKey guifg=#7A7A90
