@@ -17,11 +17,12 @@ call vundle#rc()
 
 " We might implement https://github.com/junegunn/vim-plug/
 
+" Bundles {{{
 " let Vundle manage Vundle
 " required!
 Bundle 'gmarik/vundle'
-"
-" " Original repos on github
+
+" Original repos on github
 Bundle 'Townk/vim-autoclose'
 Bundle 'docunext/closetag.vim'
 " Bundle 'ervandew/supertab'
@@ -34,14 +35,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 " Bundle 'vim-scripts/matchit.zip'
-
-" Y U No Commit
 Bundle 'esneider/YUNOcommit.vim'
-
-" Coffeescript
 Bundle 'kchmck/vim-coffee-script'
-
-" Javascript
 Bundle "pangloss/vim-javascript"
 
 " Haskell
@@ -49,16 +44,13 @@ Bundle "pangloss/vim-javascript"
 " Bundle 'nbouscal/vim-stylish-haskell'
 " Bundle 'lukerandall/haskellmode-vim'
 
-" Go
 Bundle 'fatih/vim-go'
 
 " Formats
 Plugin 'godlygeek/tabular' " needed for markdown
 Bundle 'tpope/vim-markdown'
-" " Bundle 'tpope/vim-haml'
 Bundle 'cespare/vim-toml'
-"
-" Bundle 'nono/vim-handlebars'
+
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'ingydotnet/yaml-vim'
 
@@ -68,12 +60,13 @@ Bundle 'paranoida/vim-airlineish'
 " Bundle 'tpope/vim-fugitive'
 " Bundle 'gregsexton/gitv'
 " Bundle 'airblade/vim-gitgutter'
-"
-" " vim-scripts repos
+
+" vim-scripts repos
 Bundle 'L9'
 Bundle 'tComment'
 " Bundle 'EasyMotion'
-"
+" }}}
+
 " ===========================================
 " General
 " ===========================================
@@ -92,7 +85,7 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" == Bootstrap ======================================
+" {{{ Bootstrap
 
 set encoding=utf8
 set laststatus=2        " Always show the statusline
@@ -125,7 +118,9 @@ set title               " change the terminal title
 set lazyredraw          " do not redraw when executing macros
 set report=0            " always report changes
 
-" == Editing =====================================
+" }}}
+
+" {{{ Editing
 
 set nowrap                      " don't wrap lines
 set nojoinspaces                " insert only one space after '.', '?', '!' when joining lines
@@ -162,6 +157,7 @@ set synmaxcol=256
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
+}}}
 
 " == Silver Searcher ===========================
 
