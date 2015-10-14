@@ -1,9 +1,11 @@
+" Jack + Joe do vim, since 2012
+"
+" Last major reworkupdated reflecting
+" http://dougblack.io/words/a-good-vimrc.html
+"
+" Vundle must be first
 
-" =========================================
-" |                               Vundle                                    |
-" |                          Must be on top
-" =======================================
-
+" Vundle {{{
 " Vim needs a POSIX-Compliant shell. Fish is not.
 if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
@@ -16,6 +18,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " We might implement https://github.com/junegunn/vim-plug/
+" }}}
 
 " Bundles {{{
 " let Vundle manage Vundle
@@ -67,35 +70,20 @@ Bundle 'tComment'
 " Bundle 'EasyMotion'
 " }}}
 
-" ===========================================
-" General
-" ===========================================
-
+" General {{{
 " map : to ; for qwerty
 noremap ; :
-
-" {{{ Bootstrap
 
 set encoding=utf8
 set laststatus=2        " Always show the statusline
 set nocompatible        " the future is now, use vim defaults instead of vi ones
 
-syntax on               " Enable syntax highlighting
-syntax enable 		      " Enable syntax hl
-
+syntax enable 		      " Enable syntax highlighting
 filetype on             " /!\ doesn't play well with compatible mode
 filetype plugin on      " trigger file type specific plugins
 filetype indent on      " indent based on file type syntax
 
-set number              " Line number
-set hidden
-
-set ruler               " show the cursor position all the time
-set showcmd             " display incomplete commands
-set cmdheight=1         " height of the command line
-set showmatch           " Show matching bracets when text indicator is over them
 set clipboard=unnamed   " Yank everything to the system clipboard
-set scrolloff=1         " Always show at least one line above/below the cursor.
 
 highlight NonText guifg=#7A7A90   " Invisible character colors
 highlight SpecialKey guifg=#7A7A90
@@ -107,6 +95,19 @@ set title               " change the terminal title
 set lazyredraw          " do not redraw when executing macros
 set report=0            " always report changes
 
+" }}}
+
+" UI Layout {{{
+set cmdheight=1         " height of the command line
+set number              " show line numbers
+set hidden
+set ruler               " show the cursor position all the time
+set showcmd             " show command in bottom bar
+set scrolloff=1         " Always show at least one line above/below the cursor.
+set nocursorline        " highlight current line
+set wildmenu
+" set lazyredraw          " do not redraw when executing macros
+set showmatch           " higlight matching parenthesis
 " }}}
 
 " {{{ Editing
@@ -146,7 +147,7 @@ set synmaxcol=256
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
-}}}
+" }}}
 
 " == Silver Searcher ===========================
 
@@ -179,15 +180,16 @@ if has("autocmd")
   " augroup END
 endif
 
-" == Folding =======================================
-
+" Folding {{{
 if has("folding")
   set foldenable
-  set foldmethod=syntax   " fold based on indent
+  set foldmethod=indent   " fold based on indent
   set foldlevelstart=99   " start editing with all folds open
-  set foldnestmax=3       " deepest fold is 3 levels
+  set foldnestmax=10      " deepest fold is 3 levels
   set nofoldenable        " dont fold by default
+  nnoremap <space> za
 endif
+" }}}
 
 " == Completion ==================================
 
@@ -238,27 +240,26 @@ au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc
 autocmd BufRead,BufNewFile *.md   setlocal spell
 autocmd BufRead,BufNewFile *.txt  setlocal spell
 
-" == Search improvements =======================
-
+" Searching {{{
 set hlsearch                " Highlight search things
 set incsearch               " Make search act like search in modern browsers
 set ignorecase              " Case insensitive matching...
 set smartcase               " ... unless they contain at least one capital letter
+" }}}
 
-" == Files/backup ==================================
-
+" Files/Backup {{{
 set nobackup                " do not keep a backup file, use versions instead
 set nowb
 set noswapfile
+" }}}
 
-" == Visualbell ===================================
-
+" Visualbell {{{
 set visualbell              " shut up
 set noerrorbells            " shut up
 set mousehide               " hide mouse pointer when typing
+" }}}
 
-" == Syntastic =========================
-
+" Syntastic {{{
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -272,6 +273,7 @@ let g:syntastic_mode_map = {  'mode': 'active',
 nmap <F3> :SyntasticCheck<CR>     " do check
 
 autocmd BufEnter * :syntax sync fromstart
+" }}}
 
 " == Statusline =========================
 
@@ -310,10 +312,8 @@ if has("autocmd")
   autocmd! BufWritePost .vimrc nested source $MYVIMRC | echo "source $MYVIMRC"
 endif
 
-" == Keyboard mapping ==================
-
-" Professor VIM says '87% of users prefer jj over esc'
-imap jj <Esc>
+" Keyboard {{{
+imap jk <Esc>
 let mapleader = ","
 
 " Show/hide hidden characters
@@ -325,6 +325,13 @@ nmap <leader>l :set list!<cr>
 " Clean whitespace
 command! KillWhitespace :call <SID>StripTrailingWhitespaces()<CR>
 nnoremap <silent> <leader>w :call <SID>StripTrailingWhitespaces()<CR>
+" }}}
+
+" Line Shortcuts {{{
+nnoremap j gj
+nnoremap k gk
+nnoremap gV `[v`]
+" }}}
 
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
@@ -389,30 +396,19 @@ let NERDTreeDirArrows = 1
 let NERDTreeChDirMode = 1
 let NERDChristmasTree = 1
 
-" == CtrlP ==================================
-
+" CtrlP {{{
+let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-
-let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|DS_Store\|git\|min'
-
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|vendor\|DS_Store\|git\|min'
 map <leader>cp :CtrlPClearCache<CR>
+" }}}
 
-" == Emmet (previously Zencoding ===========
-
-" imap <c-e> <c-y>,
+" Emmet {{{
 let g:use_emmet_complete_tag = 1
 let g:user_emmet_leader_key = '<c-e>'
-
-" == Switch files ========================
-
-nmap <c-h> <ESC>:bp<CR>
-nmap <c-l> <ESC>:bn<CR>
-
-" == EasyMotion =========================
-
-let g:EasyMotion_leader_key = '<Leader>'
+" }}}
 
 " == SuperTab ==========================
 
@@ -461,8 +457,9 @@ let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
 
-" == Y U No Commit  ====================
+"Y U No Commit {{{
 let g:YUNOcommit_after = 20
+" }}}
 
 " == Highlight =========================
 " Highlight words to avoid in production
