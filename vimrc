@@ -401,10 +401,16 @@ let NERDChristmasTree = 1
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_switch_buffer = 0 " always open in new buffer
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|vendor\|DS_Store\|git\|min'
 map <leader>cp :CtrlPClearCache<CR>
 " }}}
+
+" Silver Searcher in ctrlp
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+" == Emmet (previously Zencoding ===========
 
 " Emmet {{{
 let g:use_emmet_complete_tag = 1
