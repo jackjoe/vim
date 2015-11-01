@@ -26,7 +26,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Original repos on github
-Bundle 'Townk/vim-autoclose'
+
+Bundle 'jiangmiao/auto-pairs'
 Bundle 'docunext/closetag.vim'
 " Bundle 'ervandew/supertab'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -39,7 +40,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 " Bundle 'vim-scripts/matchit.zip'
 Bundle 'esneider/YUNOcommit.vim'
-Bundle 'kchmck/vim-coffee-script'
+" Bundle 'kchmck/vim-coffee-script'
 Bundle "pangloss/vim-javascript"
 
 " Haskell
@@ -313,7 +314,7 @@ if has("autocmd")
 endif
 
 " Keyboard {{{
-imap jk <Esc>
+imap hh <Esc>
 let mapleader = ","
 
 " Show/hide hidden characters
