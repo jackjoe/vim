@@ -313,7 +313,6 @@ if has("autocmd")
 endif
 
 " Keyboard {{{
-imap jk <Esc>
 let mapleader = ","
 
 " Show/hide hidden characters
@@ -397,7 +396,7 @@ let NERDTreeChDirMode = 1
 let NERDChristmasTree = 1
 
 " CtrlP {{{
-let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_match_window = 'bottom,order:btt'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_switch_buffer = 0 " always open in new buffer
