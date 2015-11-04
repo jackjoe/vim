@@ -39,6 +39,8 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'esneider/YUNOcommit.vim'
 Bundle "pangloss/vim-javascript"
+" needed for airline
+Bundle "tpope/vim-fugitive"
 
 " Haskell
 " Install stylish-haskell via cabal
