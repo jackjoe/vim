@@ -29,7 +29,6 @@ Bundle 'gmarik/vundle'
 
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'docunext/closetag.vim'
-" Bundle 'ervandew/supertab'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mattn/emmet-vim'
@@ -38,9 +37,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
-" Bundle 'vim-scripts/matchit.zip'
 Bundle 'esneider/YUNOcommit.vim'
-" Bundle 'kchmck/vim-coffee-script'
 Bundle "pangloss/vim-javascript"
 
 " Haskell
@@ -60,10 +57,6 @@ Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
 Bundle 'paranoida/vim-airlineish'
-
-" Bundle 'tpope/vim-fugitive'
-" Bundle 'gregsexton/gitv'
-" Bundle 'airblade/vim-gitgutter'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -235,7 +228,7 @@ autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 au Bufenter *.hs,*.lhs compiler ghc
 
 " Extra syntax highlighting
-au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 
 " Spell check certain filetypes (eg Markdown)
 autocmd BufRead,BufNewFile *.md   setlocal spell
@@ -314,7 +307,6 @@ if has("autocmd")
 endif
 
 " Keyboard {{{
-imap hh <Esc>
 let mapleader = ","
 
 " Show/hide hidden characters
@@ -398,7 +390,7 @@ let NERDTreeChDirMode = 1
 let NERDChristmasTree = 1
 
 " CtrlP {{{
-let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_match_window = 'bottom,order:btt'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_switch_buffer = 0 " always open in new buffer
@@ -463,6 +455,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
+
+" == YUNO ============================
 
 "Y U No Commit {{{
 let g:YUNOcommit_after = 20
