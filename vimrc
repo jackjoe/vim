@@ -151,7 +151,7 @@ vnoremap p pgvy
 " brew install the_silver_searcher
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
-let g:ackprg = 'ag --nogroup --nocolor --column'
+let g:ackprg = 'ag --nogroup --nocolor --column --ignore=*.min.js'
 
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
@@ -397,7 +397,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_switch_buffer = 0 " always open in new buffer
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|vendor\|DS_Store\|git\|min'
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|documentation\|vendor\|DS_Store\|git\|min'
 map <leader>cp :CtrlPClearCache<CR>
 " }}}
 
