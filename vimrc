@@ -151,7 +151,7 @@ vnoremap p pgvy
 " brew install the_silver_searcher
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
-let g:ackprg = 'ag --nogroup --nocolor --column --ignore=*.min.js'
+let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.min.js"'
 
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
@@ -204,7 +204,7 @@ endif
 
 " == Color + font ===================================
 
-colorscheme default
+colorscheme hemisu
 set ffs=unix,mac,dos	  " Support all three, in this order
 
 " == Git/SVN Errors =====================================
