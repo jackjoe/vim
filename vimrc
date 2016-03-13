@@ -38,15 +38,20 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'esneider/YUNOcommit.vim'
-Bundle "pangloss/vim-javascript"
-" needed for airline
+
+" Needed for airline
 Bundle "tpope/vim-fugitive"
+
+" Javascript
+Bundle "pangloss/vim-javascript"
+Bundle 'kchmck/vim-coffee-script'
 
 " Haskell
 " Install stylish-haskell via cabal
-" Bundle 'nbouscal/vim-stylish-haskell'
-" Bundle 'lukerandall/haskellmode-vim'
+Bundle 'nbouscal/vim-stylish-haskell'
+Bundle 'lukerandall/haskellmode-vim'
 
+" Golang
 Bundle 'fatih/vim-go'
 
 " Formats
@@ -58,7 +63,7 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
-Bundle 'paranoida/vim-airlineish'
+" Bundle 'paranoida/vim-airlineish'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -217,13 +222,13 @@ au BufRead,BufNewFile *.module            set filetype=php
 au BufRead,BufNewFile *.inc               set filetype=php
 au BufRead,BufNewFile *.install           set filetype=php
 
-au BufRead,BufNewFile *.less              set filetype=css
+au BufRead,BufNewFile *.less,*.scss       set filetype=css
 au BufRead,BufNewFile *.json              set filetype=javascript
 au BufRead,BufNewFile *.handlebars,*.hbs  set filetype=handlebars
 au BufRead,BufNewFile *.tmpl              set filetype=html
 
 au BufRead,BufNewFile *.go                set filetype=go
-au BufRead,BufNewFile *.ru                set filetype=ruby
+au BufRead,BufNewFile *.ru,*.rb           set filetype=ruby
 
 " Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
@@ -299,8 +304,13 @@ set ttymouse=xterm
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 let g:airline_powerline_fonts=1
 set ttimeoutlen=50
-let g:airline_theme = 'airlineish'
-" let g:airline_theme = 'luna'
+" let g:airline_theme = 'airlineish'
+
+" == Configure browser for haskell_doc.vim ================
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+let g:haskell_indent_case=2
 
 " == Source after saving ================
 
