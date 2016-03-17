@@ -45,7 +45,9 @@ Bundle "tpope/vim-fugitive"
 " Haskell
 " Install stylish-haskell via cabal
 " Bundle 'nbouscal/vim-stylish-haskell'
-" Bundle 'lukerandall/haskellmode-vim'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'lukerandall/haskellmode-vim'
+Bundle 'bitc/vim-hdevtools'
 
 Bundle 'fatih/vim-go'
 
@@ -228,6 +230,9 @@ au BufRead,BufNewFile *.ru                set filetype=ruby
 " Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 au Bufenter *.hs,*.lhs compiler ghc
+" Configure browser for haskell_doc.vim
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
 
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,.caprc,.irbrc,irb_tempfile*} set ft=ruby
