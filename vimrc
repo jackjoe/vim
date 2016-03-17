@@ -232,6 +232,8 @@ au BufRead,BufNewFile *.tmpl              set filetype=html
 au BufRead,BufNewFile *.go                set filetype=go
 au BufRead,BufNewFile *.ru,*.rb           set filetype=ruby
 
+au BufRead,BufNewFile *.js                set filetype=javascript.jsx
+
 " Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 au Bufenter *.hs,*.lhs compiler ghc
