@@ -44,7 +44,6 @@ Bundle "tpope/vim-fugitive"
 
 " Javascript
 Bundle "pangloss/vim-javascript"
-Bundle 'kchmck/vim-coffee-script'
 
 " Haskell
 " Install stylish-haskell via cabal
