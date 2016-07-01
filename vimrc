@@ -320,12 +320,16 @@ let g:haskell_indent_case=2
 
 " == Source after saving ================
 
-if has("autocmd")
-  autocmd! BufWritePost .vimrc nested source $MYVIMRC | echo "source $MYVIMRC"
-endif
+" Pieter commented this: I haven't seen this working
+" if has("autocmd")
+"   autocmd! BufWritePost .vimrc nested source $MYVIMRC | echo "source $MYVIMRC"
+" endif
 
 " Keyboard {{{
 let mapleader = ","
+" let mapleader = "\<Space>"
+
+nnoremap <leader>w :w<CR>
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
@@ -333,18 +337,15 @@ nmap <leader>l :set list!<cr>
 " Clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
-" Clean whitespace
-command! KillWhitespace :call <SID>StripTrailingWhitespaces()<CR>
-nnoremap <silent> <leader>w :call <SID>StripTrailingWhitespaces()<CR>
-" }}}
-
 " Line Shortcuts {{{
 nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
 " }}}
 
-function! <SID>StripTrailingWhitespaces()
+command! KillWhitespace :call StripTrailingWhitespaces()<CR>
+
+function! StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
@@ -415,6 +416,7 @@ let g:ctrlp_switch_buffer = 0 " always open in new buffer
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|documentation\|vendor\|DS_Store\|git\|min'
 map <leader>cp :CtrlPClearCache<CR>
+map <leader>o :CtrlP<CR>
 " }}}
 
 " Silver Searcher in ctrlp
