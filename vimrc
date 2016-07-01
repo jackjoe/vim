@@ -44,7 +44,7 @@ Bundle "tpope/vim-fugitive"
 
 " Javascript
 Bundle "pangloss/vim-javascript"
-" Bundle "flowtype/vim-flow"
+Bundle "facebook/vim-flow"
 
 " Haskell
 " Install stylish-haskell via cabal
@@ -65,7 +65,6 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'ingydotnet/yaml-vim'
 
 Bundle 'bling/vim-airline'
-" Bundle 'paranoida/vim-airlineish'
 
 " vim-scripts repos
 Bundle 'L9'
@@ -88,8 +87,8 @@ filetype indent on      " indent based on file type syntax
 
 set clipboard=unnamed   " Yank everything to the system clipboard
 
-highlight NonText guifg=#7A7A90   " Invisible character colors
-highlight SpecialKey guifg=#7A7A90
+" highlight NonText guifg=#7A7A90   " Invisible character colors
+" highlight SpecialKey guifg=#7A7A90
 
 set history=1000        " keep 1000 lines of command line history
 set undolevels=200      " Undo history
@@ -203,7 +202,7 @@ set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab c
 set wildignore+=*vim/backups*
 set wildignore+=.git                                " ignore the .git directory
 set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store,*.min.css,*.min.js
 
 if exists("&wildignorecase")
   set wildignorecase
@@ -311,9 +310,9 @@ set ttymouse=xterm
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 let g:airline_powerline_fonts=1
 set ttimeoutlen=50
-" let g:airline_theme = 'airlineish'
 
 " == Configure browser for haskell_doc.vim ================
+
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
 let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
@@ -321,12 +320,16 @@ let g:haskell_indent_case=2
 
 " == Source after saving ================
 
-if has("autocmd")
-  autocmd! BufWritePost .vimrc nested source $MYVIMRC | echo "source $MYVIMRC"
-endif
+" Pieter commented this: I haven't seen this working
+" if has("autocmd")
+"   autocmd! BufWritePost .vimrc nested source $MYVIMRC | echo "source $MYVIMRC"
+" endif
 
 " Keyboard {{{
 let mapleader = ","
+" let mapleader = "\<Space>"
+
+nnoremap <leader>w :w<CR>
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
@@ -334,18 +337,15 @@ nmap <leader>l :set list!<cr>
 " Clear the search buffer when hitting return
 :nnoremap <CR> :nohlsearch<cr>
 
-" Clean whitespace
-command! KillWhitespace :call <SID>StripTrailingWhitespaces()<CR>
-nnoremap <silent> <leader>w :call <SID>StripTrailingWhitespaces()<CR>
-" }}}
-
 " Line Shortcuts {{{
 nnoremap j gj
 nnoremap k gk
 nnoremap gV `[v`]
 " }}}
 
-function! <SID>StripTrailingWhitespaces()
+command! KillWhitespace :call StripTrailingWhitespaces()<CR>
+
+function! StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
@@ -416,6 +416,7 @@ let g:ctrlp_switch_buffer = 0 " always open in new buffer
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|documentation\|vendor\|DS_Store\|git\|min'
 map <leader>cp :CtrlPClearCache<CR>
+map <leader>o :CtrlP<CR>
 " }}}
 
 " Silver Searcher in ctrlp
@@ -455,17 +456,6 @@ nmap <leader>c :%s///gn<cr>
 " == Golang ============================
 
 " Clear filetype flags before changing runtimepath to force Vim to reload them.
-"filetype off
-"filetype plugin indent off
-"
-"set runtimepath+=$GOROOT/misc/vim
-"
-"filetype plugin indent on
-"syntax on
-"syntax enable
-
-"let g:go_bin_path = expand("$HOME/.vim-go/")
-"let g:go_disable_autoinstall = 0
 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
