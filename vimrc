@@ -326,8 +326,8 @@ let g:haskell_indent_case=2
 " endif
 
 " Keyboard {{{
-let mapleader = ","
-" let mapleader = "\<Space>"
+" let mapleader = ","
+let mapleader = "\<Space>"
 
 nnoremap <leader>w :w<CR>
 
