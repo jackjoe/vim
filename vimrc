@@ -45,6 +45,7 @@ Bundle "tpope/vim-fugitive"
 " Javascript
 Bundle "pangloss/vim-javascript"
 Bundle "facebook/vim-flow"
+Bundle 'mxw/vim-jsx'
 
 " Haskell
 " Install stylish-haskell via cabal
