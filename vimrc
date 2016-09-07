@@ -211,7 +211,6 @@ endif
 
 " == Color + font ===================================
 
-" colorscheme hemisu
 set ffs=unix,mac,dos	  " Support all three, in this order
 
 " == Git/SVN Errors =====================================
