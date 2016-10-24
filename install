@@ -49,7 +49,7 @@ _install() {
   if [ -d "$VIM_DIR/bundle/vundle" ] ; then
     _success "Vundle is already installed"
   else
-    git clone http://github.com/gmarik/vundle.git $VIM_DIR/bundle/vundle
+    git clone https://github.com/VundleVim/Vundle.vim.git $VIM_DIR/bundle/Vundle.vim
   fi
 
   curdir=$(pwd)
@@ -64,7 +64,7 @@ _install() {
 
   _print "Spin Vim for a setup run"
 
-  vim . -c 'set shell=/bin/bash' -c 'BundleInstall' -c 'qa'
+  vim . -c 'set shell=/bin/bash' -c 'PluginInstall' -c 'qa'
 
   _success  "Ready to rock!"
 
