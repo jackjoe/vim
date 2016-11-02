@@ -26,7 +26,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Original repos on github
-
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'docunext/closetag.vim'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -44,7 +43,6 @@ Bundle "tpope/vim-fugitive"
 
 " Javascript
 Bundle "pangloss/vim-javascript"
-Bundle "facebook/vim-flow"
 Bundle 'mxw/vim-jsx'
 
 " Haskell
