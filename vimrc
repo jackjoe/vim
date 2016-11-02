@@ -2,73 +2,78 @@
 "
 " Last major reworkupdated reflecting
 " http://dougblack.io/words/a-good-vimrc.html
-"
-" Vundle must be first
 
-" Vundle {{{
+
 " Vim needs a POSIX-Compliant shell. Fish is not.
 if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
 endif
 
+" Vundle must be first
+" Vundle {{{
 filetype on   " first on, to avoid vim exiting with status code 1!
 filetype off  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " We might implement https://github.com/junegunn/vim-plug/
 " }}}
 
-" Bundles {{{
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+" Plugins {{{
+Plugin 'VundleVim/Vundle.vim'
 
-" Original repos on github
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'docunext/closetag.vim'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mattn/emmet-vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'esneider/YUNOcommit.vim'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'docunext/closetag.vim'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'mattn/emmet-vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'esneider/YUNOcommit.vim'
+
+Plugin 'bling/vim-airline'
 
 " Needed for airline
-Bundle "tpope/vim-fugitive"
+Plugin 'tpope/vim-fugitive'
 
 " Javascript
-Bundle "pangloss/vim-javascript"
-Bundle 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+" Plugin 'facebook/vim-flow'
+Plugin 'mxw/vim-jsx'
 
 " Haskell
 " Install stylish-haskell via cabal
-" Bundle 'nbouscal/vim-stylish-haskell'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'lukerandall/haskellmode-vim'
-Bundle 'bitc/vim-hdevtools'
+" Plugin 'nbouscal/vim-stylish-haskell'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'lukerandall/haskellmode-vim'
+Plugin 'bitc/vim-hdevtools'
+
+" Elixir
+Plugin 'elixir-lang/vim-elixir'
 
 " Golang
-Bundle 'fatih/vim-go'
+Plugin 'fatih/vim-go'
 
 " Formats
 Plugin 'godlygeek/tabular' " needed for markdown
-Bundle 'tpope/vim-markdown'
-Bundle 'cespare/vim-toml'
+Plugin 'tpope/vim-markdown'
+Plugin 'cespare/vim-toml'
 
-Bundle 'mustache/vim-mustache-handlebars'
-Bundle 'ingydotnet/yaml-vim'
-
-Bundle 'bling/vim-airline'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'ingydotnet/yaml-vim'
 
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'tComment'
-" Bundle 'EasyMotion'
+Plugin 'L9'
+Plugin 'tComment'
+" Plugin 'EasyMotion'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 " }}}
 
 " General {{{
