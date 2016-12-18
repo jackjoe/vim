@@ -1,8 +1,7 @@
 " Jack + Joe do vim, since 2012
 "
-" Last major reworkupdated reflecting
+" Last major rework updated reflecting
 " http://dougblack.io/words/a-good-vimrc.html
-
 
 " Vim needs a POSIX-Compliant shell. Fish is not.
 if $SHELL =~ 'bin/fish'
@@ -43,15 +42,14 @@ Plugin 'tpope/vim-fugitive'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
-" Plugin 'facebook/vim-flow'
 Plugin 'mxw/vim-jsx'
 
 " Haskell
 " Install stylish-haskell via cabal
 " Plugin 'nbouscal/vim-stylish-haskell'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'lukerandall/haskellmode-vim'
-Plugin 'bitc/vim-hdevtools'
+" Plugin 'Shougo/vimproc.vim'
+" Plugin 'lukerandall/haskellmode-vim'
+" Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
@@ -64,13 +62,12 @@ Plugin 'godlygeek/tabular' " needed for markdown
 Plugin 'tpope/vim-markdown'
 Plugin 'cespare/vim-toml'
 
-Plugin 'mustache/vim-mustache-handlebars'
+" Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ingydotnet/yaml-vim'
 
 " vim-scripts repos
 Plugin 'L9'
 Plugin 'tComment'
-" Plugin 'EasyMotion'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,9 +89,6 @@ filetype indent on      " indent based on file type syntax
 
 set clipboard=unnamed   " Yank everything to the system clipboard
 
-" highlight NonText guifg=#7A7A90   " Invisible character colors
-" highlight SpecialKey guifg=#7A7A90
-
 set history=1000        " keep 1000 lines of command line history
 set undolevels=200      " Undo history
 set ttyfast             " Yes, we have a fast terminal
@@ -113,7 +107,6 @@ set showcmd             " show command in bottom bar
 set scrolloff=1         " Always show at least one line above/below the cursor.
 set nocursorline        " highlight current line
 set wildmenu
-" set lazyredraw          " do not redraw when executing macros
 set showmatch           " higlight matching parenthesis
 " }}}
 
@@ -150,7 +143,7 @@ vmap <Tab> >
 vmap <S-Tab> <
 
 " Syntax coloring lines that are too long just slows down the world
-set synmaxcol=256
+set synmaxcol=250
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
@@ -163,7 +156,6 @@ vnoremap p pgvy
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
 let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.min.js"'
-
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
 
@@ -181,10 +173,6 @@ if has("autocmd")
     " autocmd!
     autocmd BufWritePre * :%s/\s\+$//e " remove trailing spaces before saving
   augroup END
-  " augroup restore_cursor
-  "   " restore cursor position to last position upon file reopen
-  "   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
-  " augroup END
 endif
 
 " Folding {{{
@@ -226,27 +214,18 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 au BufRead,BufNewFile *.module            set filetype=php
 au BufRead,BufNewFile *.inc               set filetype=php
 au BufRead,BufNewFile *.install           set filetype=php
-
 au BufRead,BufNewFile *.less,*.scss       set filetype=css
 au BufRead,BufNewFile *.json              set filetype=javascript
 au BufRead,BufNewFile *.handlebars,*.hbs  set filetype=handlebars
 au BufRead,BufNewFile *.tmpl              set filetype=html
-
 au BufRead,BufNewFile *.go                set filetype=go
 au BufRead,BufNewFile *.ru,*.rb           set filetype=ruby
-
 au BufRead,BufNewFile *.js                set filetype=javascript.jsx
-
 " Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 au Bufenter *.hs,*.lhs compiler ghc
-" Configure browser for haskell_doc.vim
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
-
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,.caprc,.irbrc,irb_tempfile*} set ft=ruby
-
 " Spell check certain filetypes (eg Markdown)
 autocmd BufRead,BufNewFile *.md   setlocal spell
 autocmd BufRead,BufNewFile *.txt  setlocal spell
@@ -277,7 +256,6 @@ set statusline+=%*
 
 let g:syntastic_enable_signs=1    " show signs in bar
 let g:syntastic_quiet_messages = {'level': 'warnings'}
-
 let g:syntastic_mode_map = {  'mode': 'active',
                             \ 'active_filetypes': [],
                             \ 'passive_filetypes': ['sass', 'scss']}
@@ -305,7 +283,6 @@ endfunction
 
 " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set mouse=a
-
 " Set mouse type to xterm.
 set ttymouse=xterm
 
@@ -314,20 +291,21 @@ set ttymouse=xterm
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
 let g:airline_powerline_fonts=1
 set ttimeoutlen=50
+" Smarter tab line
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = '|'
 
 " == Configure browser for haskell_doc.vim ================
 
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
-let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
-let g:haskell_indent_case=2
+" let g:haddock_browser = "open"
+" let g:haddock_browser_callformat = "%s %s"
+" let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+" let g:haskell_indent_case=2
 
 " == Source after saving ================
-
-" Pieter commented this: I haven't seen this working
-" if has("autocmd")
-"   autocmd! BufWritePost .vimrc nested source $MYVIMRC | echo "source $MYVIMRC"
-" endif
 
 " Keyboard {{{
 " let mapleader = ","
@@ -412,6 +390,8 @@ let NERDTreeDirArrows = 1
 let NERDTreeChDirMode = 1
 let NERDChristmasTree = 1
 
+" == CtrlP ================================
+
 " CtrlP {{{
 let g:ctrlp_match_window = 'bottom,order:btt'
 let g:ctrlp_map = '<c-p>'
@@ -432,11 +412,6 @@ let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:use_emmet_complete_tag = 1
 let g:user_emmet_leader_key = '<c-e>'
 " }}}
-
-" == SuperTab ==========================
-
-" let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " == Split windows ====================
 
