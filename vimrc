@@ -19,7 +19,6 @@ call vundle#begin()
 " We might implement https://github.com/junegunn/vim-plug/
 " }}}
 
-" Original repos on github
 " Plugins {{{
 Plugin 'VundleVim/Vundle.vim'
 
@@ -33,6 +32,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-obsession'
 Plugin 'esneider/YUNOcommit.vim'
 
 Plugin 'bling/vim-airline'
