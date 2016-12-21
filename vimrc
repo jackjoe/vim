@@ -9,6 +9,8 @@ if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
 endif
 
+let base16colorspace=256  " Access colors present in 256 colorspace
+
 " Vundle must be first
 " Vundle {{{
 filetype on   " first on, to avoid vim exiting with status code 1!
