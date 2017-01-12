@@ -36,6 +36,10 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
 Plugin 'esneider/YUNOcommit.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'rstacruz/vim-ultisnips-css'
+Plugin 'ervandew/supertab'
 
 Plugin 'bling/vim-airline'
 
@@ -452,11 +456,26 @@ let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
 
+" == VIM JSX =======================================================
+
+let g:jsx_ext_required = 0
+
 " == YUNO ============================
 
 "Y U No Commit {{{
 let g:YUNOcommit_after = 20
 " }}}
+
+" == UltiSnips =================================================================
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+" let g:UltiSnipsListSnippets="<c-tab>"
+
+" Do not interfere with vim mapping
+inoremap <c-x><c-k> <c-x><c-k>
 
 " == Highlight =========================
 " Highlight words to avoid in production
