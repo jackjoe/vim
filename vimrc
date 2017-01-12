@@ -414,6 +414,13 @@ let g:use_emmet_complete_tag = 1
 let g:user_emmet_leader_key = '<c-e>'
 " }}}
 
+" JSX
+let g:user_emmet_settings = {
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
 " == Split windows ====================
 
 nnoremap <c-j> <c-w>j
