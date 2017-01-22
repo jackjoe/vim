@@ -40,6 +40,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
+Plugin 'kana/vim-textobj-user'
+Plugin 'kana/vim-textobj-entire'
 
 Plugin 'bling/vim-airline'
 
@@ -227,7 +229,7 @@ au BufRead,BufNewFile *.handlebars,*.hbs  set filetype=handlebars
 au BufRead,BufNewFile *.tmpl              set filetype=html
 au BufRead,BufNewFile *.go                set filetype=go
 au BufRead,BufNewFile *.ru,*.rb           set filetype=ruby
-au BufRead,BufNewFile *.js                set filetype=javascript.jsx
+au BufRead,BufNewFile *.js                set filetype=jsx
 " Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 au Bufenter *.hs,*.lhs compiler ghc
@@ -420,8 +422,8 @@ let g:user_emmet_leader_key = '<c-e>'
 
 " JSX
 let g:user_emmet_settings = {
-\  'javascript.jsx' : {
-\      'extends' : 'jsx',
+\  'javascript' : {
+\      'extends' : 'js',
 \  },
 \}
 
@@ -486,6 +488,8 @@ autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|aler
 autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
+
+let g:jsx_ext_required = 0
 
 " == User defined =====================
 
