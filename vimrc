@@ -395,7 +395,6 @@ let NERDTreeDirArrows = 1
 
 " set autochdir
 let NERDTreeChDirMode = 1
-let NERDChristmasTree = 1
 
 " == CtrlP ================================
 
