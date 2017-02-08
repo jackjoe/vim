@@ -313,9 +313,9 @@ set ttimeoutlen=50
 " == Source after saving ================
 
 " Keyboard {{{
-" let mapleader = ","
-let mapleader = "\<Space>"
+let mapleader = ","
 
+" Save
 nnoremap <leader>w :w<CR>
 
 " Show/hide hidden characters
@@ -344,9 +344,11 @@ function! StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
+" Run ctags
+map <leader>ct :!ctags -R -f ./.git/tags --exclude=.git --exclude=storage --exclude=node_modules --exclude=tests --exclude=public --exclude=vendor<CR>
+
 " Clean windows weird characters
 command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
-
 function! CleanWindowsCharacters()
   :%s/\\//g
 endf
