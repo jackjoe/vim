@@ -345,7 +345,7 @@ function! StripTrailingWhitespaces()
 endfunction
 
 " Run ctags
-map <leader>ct :!ctags -R -f ./.git/tags --exclude=.git --exclude=storage --exclude=node_modules --exclude=tests --exclude=public --exclude=vendor<CR>
+map <leader>ct :!ctags --tag-relative=yes -R -f ./.git/tags --exclude=.git --exclude=storage --exclude=node_modules --exclude=tests --exclude=public --exclude=vendor<CR>
 
 " Clean windows weird characters
 command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
