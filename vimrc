@@ -264,7 +264,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_php_checkers = ['php', 'phpmd']
-let g:syntastic_php_phpmd_post_args = "unusedcode,cleancode,codesize"
+let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
 let g:syntastic_enable_signs=1    " show signs in bar
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_mode_map = {  'mode': 'active',
