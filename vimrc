@@ -265,16 +265,15 @@ set statusline+=%*
 let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
 let g:syntastic_javascript_checkers = ['flow', 'eslint']
 
-let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs', 'phplint']
+let g:syntastic_php_checkers = ['php', 'phpmd']
 let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
-let g:syntastic_php_phpcs_args = "--tab-width=2 --standard=~/.terminator/phpcs_ruleset.xml"
+" let g:syntastic_php_phpcs_args = "--tab-width=2 --standard=~/.terminator/phpcs_ruleset.xml"
 let g:syntastic_enable_signs=1    " show signs in bar
 let g:syntastic_check_on_open=0
 let g:syntastic_quiet_messages = {'level': 'warnings'}
 let g:syntastic_mode_map = {  'mode': 'active',
                             \ 'active_filetypes': [],
                             \ 'passive_filetypes': ['scss']}
-nmap <F3> :SyntasticCheck<CR>     " do check
 
 autocmd BufEnter * :syntax sync fromstart
 " }}}

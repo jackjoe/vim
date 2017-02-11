@@ -9,11 +9,3 @@ Installation
 `ln -s ~/.vim/gvimrc ~/.gvimrc`
 
 For your local settings, just create a *vimrc.local* file
-
-Vundle
------
-Vundle allows you to install bundles.
-You can run it by calling ':BundleInstall' from within vim.
-
-If you have troubles executing the command, you probably need to fetch vundle first:
-`git clone http://github.com/gmarik/vundle.git ~/.vim/vundle.git`
