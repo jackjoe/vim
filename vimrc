@@ -266,9 +266,9 @@ set mousehide               " hide mouse pointer when typing
 let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
 let g:syntastic_javascript_checkers = ['flow', 'eslint']
 
-let g:syntastic_php_checkers = ['php', 'phpmd']
+let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
 let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
-" let g:syntastic_php_phpcs_args = "--tab-width=2 --standard=~/.terminator/phpcs_ruleset.xml"
+let g:syntastic_php_phpcs_args = "--tab-width=2 --standard=~/.terminator/phpcs_ruleset.xml"
 let g:syntastic_enable_signs=1    " show signs in bar
 let g:syntastic_check_on_open=0
 let g:syntastic_quiet_messages = {'level': 'warnings'}
