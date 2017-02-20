@@ -42,6 +42,8 @@ Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'majutsushi/tagbar'
 
 Plugin 'bling/vim-airline'
 
