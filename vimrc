@@ -42,6 +42,8 @@ Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
+Plugin 'slashmili/alchemist.vim'
+Plugin 'majutsushi/tagbar'
 
 Plugin 'bling/vim-airline'
 
@@ -185,14 +187,14 @@ if has("autocmd")
 endif
 
 " Folding {{{
-if has("folding")
-  set foldenable
-  set foldmethod=indent   " fold based on indent
-  set foldlevelstart=99   " start editing with all folds open
-  set foldnestmax=10      " deepest fold is 3 levels
-  set nofoldenable        " dont fold by default
-  nnoremap <space> za
-endif
+" if has("folding")
+"   set foldenable
+"   set foldmethod=indent   " fold based on indent
+"   set foldlevelstart=99   " start editing with all folds open
+"   set foldnestmax=10      " deepest fold is 3 levels
+"   set nofoldenable        " dont fold by default
+"   nnoremap <space> za
+" endif
 " }}}
 
 " == Completion ==================================
@@ -258,10 +260,30 @@ set noerrorbells            " shut up
 set mousehide               " hide mouse pointer when typing
 " }}}
 
+" CTags {{{
+let g:tagbar_type_elixir = {
+    \ 'ctagstype' : 'elixir',
+    \ 'kinds' : [
+        \ 'f:functions',
+        \ 'functions:functions',
+        \ 'c:callbacks',
+        \ 'd:delegates',
+        \ 'e:exceptions',
+        \ 'i:implementations',
+        \ 'a:macros',
+        \ 'o:operators',
+        \ 'm:modules',
+        \ 'p:protocols',
+        \ 'r:records'
+    \ ]
+\ }
+nmap <F8> :TagbarToggle<CR>
+" }}}
+
 " Syntastic {{{
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
 let g:syntastic_javascript_checkers = ['flow', 'eslint']
