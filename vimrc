@@ -199,9 +199,9 @@ endif
 
 " == Completion ==================================
 
-set completeopt=longest,menuone,preview             " better completion
+" set completeopt=longest,menuone,preview             " better completion
 set wildmenu                                        " enable ctrl-n and ctrl-p to scroll thru matches
-set wildmode=longest:full,list:longest
+" set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=.git                                " ignore the .git directory
@@ -278,6 +278,10 @@ let g:syntastic_mode_map = {  'mode': 'active',
                             \ 'passive_filetypes': ['scss']}
 
 autocmd BufEnter * :syntax sync fromstart
+" }}}
+
+" Supertab {{{
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
 
 " == Statusline =========================
