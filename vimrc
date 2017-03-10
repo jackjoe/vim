@@ -199,9 +199,9 @@ endif
 
 " == Completion ==================================
 
-set completeopt=longest,menuone,preview             " better completion
+" set completeopt=longest,menuone,preview             " better completion
 set wildmenu                                        " enable ctrl-n and ctrl-p to scroll thru matches
-set wildmode=longest:full,list:longest
+" set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=.git                                " ignore the .git directory
@@ -231,7 +231,6 @@ au BufRead,BufNewFile *.handlebars,*.hbs  set filetype=handlebars
 au BufRead,BufNewFile *.tmpl              set filetype=html
 au BufRead,BufNewFile *.go                set filetype=go
 au BufRead,BufNewFile *.ru,*.rb           set filetype=ruby
-au BufRead,BufNewFile *.js                set filetype=jsx
 " Haskell
 autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 au Bufenter *.hs,*.lhs compiler ghc
@@ -299,6 +298,10 @@ let g:syntastic_mode_map = {  'mode': 'active',
                             \ 'passive_filetypes': ['scss']}
 
 autocmd BufEnter * :syntax sync fromstart
+" }}}
+
+" Supertab {{{
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
 
 " == Statusline =========================
