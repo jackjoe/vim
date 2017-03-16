@@ -73,7 +73,6 @@ Plugin 'godlygeek/tabular' " needed for markdown
 Plugin 'tpope/vim-markdown'
 Plugin 'cespare/vim-toml'
 
-" Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ingydotnet/yaml-vim'
 
 " vim-scripts repos
@@ -199,9 +198,9 @@ endif
 
 " == Completion ==================================
 
-" set completeopt=longest,menuone,preview             " better completion
+set completeopt=longest,menuone,preview             " better completion
 set wildmenu                                        " enable ctrl-n and ctrl-p to scroll thru matches
-" set wildmode=longest:full,list:longest
+set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=.git                                " ignore the .git directory
@@ -507,6 +506,7 @@ let g:YUNOcommit_after = 20
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsUsePythonVersion = 2
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
