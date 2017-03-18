@@ -185,17 +185,6 @@ if has("autocmd")
   augroup END
 endif
 
-" Folding {{{
-" if has("folding")
-"   set foldenable
-"   set foldmethod=indent   " fold based on indent
-"   set foldlevelstart=99   " start editing with all folds open
-"   set foldnestmax=10      " deepest fold is 3 levels
-"   set nofoldenable        " dont fold by default
-"   nnoremap <space> za
-" endif
-" }}}
-
 " == Completion ==================================
 
 set completeopt=longest,menuone,preview             " better completion
@@ -300,7 +289,7 @@ autocmd BufEnter * :syntax sync fromstart
 " }}}
 
 " Supertab {{{
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
 
 " == Statusline =========================
@@ -507,6 +496,7 @@ let g:YUNOcommit_after = 20
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " let g:UltiSnipsListSnippets="<c-tab>"
 " let g:UltiSnipsUsePythonVersion = 2
+
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
