@@ -289,7 +289,7 @@ autocmd BufEnter * :syntax sync fromstart
 " }}}
 
 " Supertab {{{
-" let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
 
 " == Statusline =========================
@@ -496,7 +496,6 @@ let g:YUNOcommit_after = 20
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " let g:UltiSnipsListSnippets="<c-tab>"
 " let g:UltiSnipsUsePythonVersion = 2
-
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
