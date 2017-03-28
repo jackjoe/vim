@@ -73,7 +73,6 @@ Plugin 'godlygeek/tabular' " needed for markdown
 Plugin 'tpope/vim-markdown'
 Plugin 'cespare/vim-toml'
 
-" Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'ingydotnet/yaml-vim'
 
 " vim-scripts repos
