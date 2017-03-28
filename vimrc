@@ -186,14 +186,14 @@ if has("autocmd")
 endif
 
 " Folding {{{
-if has("folding")
-  set foldenable
-  set foldmethod=indent   " fold based on indent
-  set foldlevelstart=99   " start editing with all folds open
-  set foldnestmax=10      " deepest fold is 3 levels
-  set nofoldenable        " dont fold by default
-  nnoremap <space> za
-endif
+" if has("folding")
+"   set foldenable
+"   set foldmethod=indent   " fold based on indent
+"   set foldlevelstart=99   " start editing with all folds open
+"   set foldnestmax=10      " deepest fold is 3 levels
+"   set nofoldenable        " dont fold by default
+"   nnoremap <space> za
+" endif
 " }}}
 
 " == Completion ==================================
@@ -256,6 +256,26 @@ set noswapfile
 set visualbell              " shut up
 set noerrorbells            " shut up
 set mousehide               " hide mouse pointer when typing
+" }}}
+
+" CTags {{{
+let g:tagbar_type_elixir = {
+    \ 'ctagstype' : 'elixir',
+    \ 'kinds' : [
+        \ 'f:functions',
+        \ 'functions:functions',
+        \ 'c:callbacks',
+        \ 'd:delegates',
+        \ 'e:exceptions',
+        \ 'i:implementations',
+        \ 'a:macros',
+        \ 'o:operators',
+        \ 'm:modules',
+        \ 'p:protocols',
+        \ 'r:records'
+    \ ]
+\ }
+nmap <F8> :TagbarToggle<CR>
 " }}}
 
 " Syntastic {{{
