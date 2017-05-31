@@ -136,6 +136,12 @@ set tabstop=2
 set expandtab
 set wrap                        " set linewrap
 
+function! Tab4Losers()
+  set softtabstop=4
+  set shiftwidth=4
+  set tabstop=4
+endfunction
+
 set lbr
 set tw=500
 set autoindent
