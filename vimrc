@@ -136,6 +136,12 @@ set tabstop=2
 set expandtab
 set wrap                        " set linewrap
 
+function! Tab4Losers()
+  set softtabstop=4
+  set shiftwidth=4
+  set tabstop=4
+endfunction
+
 set lbr
 set tw=500
 set autoindent
@@ -185,22 +191,11 @@ if has("autocmd")
   augroup END
 endif
 
-" Folding {{{
-" if has("folding")
-"   set foldenable
-"   set foldmethod=indent   " fold based on indent
-"   set foldlevelstart=99   " start editing with all folds open
-"   set foldnestmax=10      " deepest fold is 3 levels
-"   set nofoldenable        " dont fold by default
-"   nnoremap <space> za
-" endif
-" }}}
-
 " == Completion ==================================
 
-" set completeopt=longest,menuone,preview             " better completion
+set completeopt=longest,menuone,preview             " better completion
 set wildmenu                                        " enable ctrl-n and ctrl-p to scroll thru matches
-" set wildmode=longest:full,list:longest
+set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
 set wildignore+=*vim/backups*
 set wildignore+=.git                                " ignore the .git directory
@@ -221,23 +216,20 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " == Filetypes =======================================
 
-au BufRead,BufNewFile *.module            set filetype=php
-au BufRead,BufNewFile *.inc               set filetype=php
-au BufRead,BufNewFile *.install           set filetype=php
-au BufRead,BufNewFile *.less,*.scss       set filetype=css
-au BufRead,BufNewFile *.json              set filetype=javascript
-au BufRead,BufNewFile *.handlebars,*.hbs  set filetype=handlebars
-au BufRead,BufNewFile *.tmpl              set filetype=html
-au BufRead,BufNewFile *.go                set filetype=go
-au BufRead,BufNewFile *.ru,*.rb           set filetype=ruby
+au BufRead,BufNewFile *.module,*.inc,*.install    set filetype=php
+au BufRead,BufNewFile *.less,*.scss               set filetype=css
+au BufRead,BufNewFile *.json                      set filetype=javascript
+au BufRead,BufNewFile *.handlebars,*.hbs          set filetype=handlebars
+au BufRead,BufNewFile *.tmpl,*.vue                set filetype=html
+au BufRead,BufNewFile *.go                        set filetype=go
+au BufRead,BufNewFile *.ru,*.rb                   set filetype=ruby
 " Haskell
-autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType haskell                          setlocal expandtab shiftwidth=2 softtabstop=2
 au Bufenter *.hs,*.lhs compiler ghc
 " Extra syntax highlighting
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 " Spell check certain filetypes (eg Markdown)
-autocmd BufRead,BufNewFile *.md   setlocal spell
-autocmd BufRead,BufNewFile *.txt  setlocal spell
+autocmd BufRead,BufNewFile *.md,*.txt             setlocal spell
 
 " Searching {{{
 set hlsearch                " Highlight search things
@@ -359,7 +351,6 @@ nnoremap gV `[v`]
 " }}}
 
 command! KillWhitespace :call StripTrailingWhitespaces()<CR>
-
 function! StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
   let _s=@/
@@ -436,7 +427,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_switch_buffer = 0 " always open in new buffer
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|documentation\|vendor\|DS_Store\|git\|min'
+let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|_build\|documentation\|vendor\|DS_Store\|git\|min'
 map <leader>cp :CtrlPClearCache<CR>
 map <leader>o :CtrlP<CR>
 " }}}
@@ -506,6 +497,7 @@ let g:YUNOcommit_after = 20
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 " let g:UltiSnipsListSnippets="<c-tab>"
+" let g:UltiSnipsUsePythonVersion = 2
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
@@ -519,8 +511,6 @@ autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|aler
 autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
-
-let g:jsx_ext_required = 0
 
 " == User defined =====================
 
