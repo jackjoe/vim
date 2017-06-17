@@ -276,7 +276,8 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
-let g:syntastic_javascript_checkers = ['flow', 'eslint']
+" let g:syntastic_javascript_checkers = ['flow', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 
 let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
 let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
