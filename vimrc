@@ -1,9 +1,7 @@
 " Jack + Joe do vim, since 2012
 "
 " Last major rework updated reflecting
-" http://dougblack.io/words/a-good-vimrc.html
-
-" Vim needs a POSIX-Compliant shell. Fish is not.
+" http://dougblack.io/words/a-good-vimrc.html " Vim needs a POSIX-Compliant shell. Fish is not.
 if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
 endif
@@ -277,13 +275,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
-<<<<<<< HEAD
-" let g:syntastic_javascript_checkers = ['flow', 'eslint']
 let g:syntastic_javascript_checkers = ['eslint']
-=======
-let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_checkers = ['flow', 'eslint']
->>>>>>> e8481eee80b2e85af3814b1163313038b5786dbd
 
 let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
 let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
@@ -519,9 +511,10 @@ autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|aler
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
 
-" == Highlight =========================
+" == Prettier =========================
 
 let g:prettier#autoformat = 0
+let g:prettier#config#semi = 'false'
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
 
 " == User defined =====================
