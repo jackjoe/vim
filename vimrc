@@ -54,6 +54,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Haskell
 " Install stylish-haskell via cabal
@@ -276,7 +277,13 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
-let g:syntastic_javascript_checkers = ['flow', 'eslint']
+<<<<<<< HEAD
+" let g:syntastic_javascript_checkers = ['flow', 'eslint']
+let g:syntastic_javascript_checkers = ['eslint']
+=======
+let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['flow', 'eslint']
+>>>>>>> e8481eee80b2e85af3814b1163313038b5786dbd
 
 let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
 let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
@@ -407,7 +414,7 @@ map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:
 
 " == Javascript =============================
 
-let g:javascript_plugin_flow = 1
+" let g:javascript_plugin_flow = 1
 
 " == Nerdtree ================================
 
@@ -511,6 +518,11 @@ autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|aler
 autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
+
+" == Highlight =========================
+
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
 
 " == User defined =====================
 
