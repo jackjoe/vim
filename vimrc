@@ -72,7 +72,7 @@ Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular' " needed for markdown
 Plugin 'tpope/vim-markdown'
 Plugin 'cespare/vim-toml'
-
+Plugin 'ekalinin/dockerfile.vim'
 Plugin 'ingydotnet/yaml-vim'
 
 " vim-scripts repos
