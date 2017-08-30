@@ -490,10 +490,10 @@ let g:neoformat_elixir_exfmt = {
 
 let g:neoformat_enabled_elixir = ['exfmt']
 
-" augroup fmt
-"   autocmd!
-"   autocmd BufWritePre * undojoin | Neoformat
-" augroup END
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 " == VIM JSX =======================================================
 
