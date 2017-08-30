@@ -1,9 +1,7 @@
 " Jack + Joe do vim, since 2012
 "
 " Last major rework updated reflecting
-" http://dougblack.io/words/a-good-vimrc.html
-
-" Vim needs a POSIX-Compliant shell. Fish is not.
+" http://dougblack.io/words/a-good-vimrc.html " Vim needs a POSIX-Compliant shell. Fish is not.
 if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
 endif
@@ -54,6 +52,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Haskell
 " Install stylish-haskell via cabal
@@ -64,6 +63,7 @@ Plugin 'mxw/vim-jsx'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'sbdchd/neoformat'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -277,7 +277,6 @@ set statusline+=%*
 
 let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
 let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_checkers = ['flow', 'eslint']
 
 let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
 let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
@@ -481,6 +480,21 @@ let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
 
+" == exfmt / neoformat =============================================
+
+let g:neoformat_elixir_exfmt = {
+  \ 'exe': 'mix',
+  \ 'args': ['exfmt', '--stdin'],
+  \ 'stdin': 1
+  \ }
+
+let g:neoformat_enabled_elixir = ['exfmt']
+
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * undojoin | Neoformat
+" augroup END
+
 " == VIM JSX =======================================================
 
 let g:jsx_ext_required = 0
@@ -512,6 +526,12 @@ autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|aler
 autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
+
+" == Prettier =========================
+
+let g:prettier#autoformat = 0
+let g:prettier#config#semi = 'false'
+autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
 
 " == User defined =====================
 
