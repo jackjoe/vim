@@ -63,6 +63,7 @@ Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'sbdchd/neoformat'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -478,6 +479,21 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
+
+" == exfmt / neoformat =============================================
+
+let g:neoformat_elixir_exfmt = {
+  \ 'exe': 'mix',
+  \ 'args': ['exfmt', '--stdin'],
+  \ 'stdin': 1
+  \ }
+
+let g:neoformat_enabled_elixir = ['exfmt']
+
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre * undojoin | Neoformat
+" augroup END
 
 " == VIM JSX =======================================================
 
