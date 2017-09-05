@@ -41,7 +41,6 @@ Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'slashmili/alchemist.vim'
-Plugin 'majutsushi/tagbar'
 
 Plugin 'bling/vim-airline'
 
@@ -56,10 +55,10 @@ Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Haskell
 " Install stylish-haskell via cabal
-" Plugin 'nbouscal/vim-stylish-haskell'
-" Plugin 'Shougo/vimproc.vim'
-" Plugin 'lukerandall/haskellmode-vim'
-" Plugin 'bitc/vim-hdevtools'
+Plugin 'nbouscal/vim-stylish-haskell'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'lukerandall/haskellmode-vim'
+Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
@@ -250,26 +249,6 @@ set noerrorbells            " shut up
 set mousehide               " hide mouse pointer when typing
 " }}}
 
-" CTags {{{
-" let g:tagbar_type_elixir = {
-"     \ 'ctagstype' : 'elixir',
-"     \ 'kinds' : [
-"         \ 'f:functions',
-"         \ 'functions:functions',
-"         \ 'c:callbacks',
-"         \ 'd:delegates',
-"         \ 'e:exceptions',
-"         \ 'i:implementations',
-"         \ 'a:macros',
-"         \ 'o:operators',
-"         \ 'm:modules',
-"         \ 'p:protocols',
-"         \ 'r:records'
-"     \ ]
-" \ }
-" nmap <F8> :TagbarToggle<CR>
-" " }}}
-
 " Syntastic {{{
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -278,9 +257,9 @@ set statusline+=%*
 let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
 let g:syntastic_javascript_checkers = ['eslint']
 
-let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
-let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
-let g:syntastic_php_phpcs_args = "--tab-width=2 --standard=~/.terminator/phpcs_ruleset.xml"
+let g:syntastic_php_checkers = ['php']
+" let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
+" let g:syntastic_php_phpcs_args = "--tab-width=2 --standard=~/.terminator/phpcs_ruleset.xml"
 let g:syntastic_enable_signs=1    " show signs in bar
 let g:syntastic_check_on_open=0
 let g:syntastic_quiet_messages = {'level': 'warnings'}
@@ -288,7 +267,7 @@ let g:syntastic_mode_map = {  'mode': 'active',
                             \ 'active_filetypes': [],
                             \ 'passive_filetypes': ['scss']}
 
-autocmd BufEnter * :syntax sync fromstart
+" autocmd BufEnter * :syntax sync fromstart
 " }}}
 
 " Supertab {{{
@@ -325,10 +304,10 @@ set ttimeoutlen=50
 
 " == Configure browser for haskell_doc.vim ================
 
-" let g:haddock_browser = "open"
-" let g:haddock_browser_callformat = "%s %s"
-" let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
-" let g:haskell_indent_case=2
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+let g:haskell_indent_case=2
 
 " == Source after saving ================
 
@@ -363,13 +342,10 @@ function! StripTrailingWhitespaces()
   call cursor(l, c)
 endfunction
 
-" Run ctags
-map <leader>ct :!ctags --tag-relative=yes -R -f ./.git/tags --exclude=.git --exclude=storage --exclude=node_modules --exclude=tests --exclude=public --exclude=vendor<CR>
-
 " Clean windows weird characters
 command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
 function! CleanWindowsCharacters()
-  :%s/\\//g
+  :%s/\\\//g
 endf
 
 " Sudo to write
