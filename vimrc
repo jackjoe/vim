@@ -29,7 +29,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
@@ -250,22 +250,22 @@ set mousehide               " hide mouse pointer when typing
 " }}}
 
 " Syntastic {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
-let g:syntastic_javascript_checkers = ['eslint']
-
-let g:syntastic_php_checkers = ['php']
-" let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
-" let g:syntastic_php_phpcs_args = "--tab-width=2 --standard=~/.terminator/phpcs_ruleset.xml"
-let g:syntastic_enable_signs=1    " show signs in bar
-let g:syntastic_check_on_open=0
-let g:syntastic_quiet_messages = {'level': 'warnings'}
-let g:syntastic_mode_map = {  'mode': 'active',
-                            \ 'active_filetypes': [],
-                            \ 'passive_filetypes': ['scss']}
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+"
+" let g:syntastic_sass_checkers = ['sass', 'sass_lint', 'sassc']
+" let g:syntastic_javascript_checkers = ['eslint']
+"
+" let g:syntastic_php_checkers = ['php']
+" " let g:syntastic_php_phpmd_post_args = "unusedcode,design,codesize"
+" " let g:syntastic_php_phpcs_args = "--tab-width=2 --standard=~/.terminator/phpcs_ruleset.xml"
+" let g:syntastic_enable_signs=1    " show signs in bar
+" let g:syntastic_check_on_open=0
+" let g:syntastic_quiet_messages = {'level': 'warnings'}
+" let g:syntastic_mode_map = {  'mode': 'active',
+"                             \ 'active_filetypes': [],
+"                             \ 'passive_filetypes': ['scss']}
 
 " autocmd BufEnter * :syntax sync fromstart
 " }}}
