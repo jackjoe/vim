@@ -516,6 +516,7 @@ autocmd BufWinLeave * call clearmatches()
 
 let g:prettier#autoformat = 0
 let g:prettier#config#semi = 'false'
+let g:prettier#config#trailingComma = 'es5'
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
 
 " no save all, to prevent prettier errors
