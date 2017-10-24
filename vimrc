@@ -509,6 +509,14 @@ let g:prettier#autoformat = 0
 let g:prettier#config#semi = 'false'
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
 
+" no save all, to prevent prettier errors
+noremap :wq<cr> <nop>
+noremap :x<cr> <nop>
+nnoremap :wq<cr> <nop>
+nnoremap :x<cr> <nop>
+map :wq<cr> <nop>
+map :x<cr> <nop>
+
 " == User defined =====================
 
 if filereadable(expand("~/.vimrc.local"))
