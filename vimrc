@@ -512,6 +512,14 @@ autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|aler
 autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
 autocmd BufWinLeave * call clearmatches()
 
+" == UltiSnips =================================================================
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+let g:UltiSnipsUsePythonVersion = 3
+
 " == Prettier =========================
 
 let g:prettier#autoformat = 0
