@@ -43,6 +43,12 @@ _install_macvim() {
 }
 
 _install() {
+  # check for fzf
+  if ! [ -x "$(command -v git)" ]; then
+    _print "Installing fzf"
+    brew install fzf
+    exit 1
+  fi
 
   # Vundle
   _print "Installing Vundle"

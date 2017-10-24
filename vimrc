@@ -25,11 +25,13 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'docunext/closetag.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+Plugin 'w0rp/ale'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
@@ -40,7 +42,7 @@ Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
-Plugin 'slashmili/alchemist.vim'
+" Plugin 'slashmili/alchemist.vim'
 
 Plugin 'bling/vim-airline'
 
@@ -62,7 +64,7 @@ Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'sbdchd/neoformat'
+" Plugin 'sbdchd/neoformat'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -170,7 +172,7 @@ vnoremap p pgvy
 " brew install the_silver_searcher
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
-let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.min.js"'
+let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.min.js" --ignore node_modules'
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
 
@@ -196,6 +198,7 @@ set completeopt=longest,menuone,preview             " better completion
 set wildmenu                                        " enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
+set wildignore+=*node_modules*
 set wildignore+=*vim/backups*
 set wildignore+=.git                                " ignore the .git directory
 set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
@@ -398,15 +401,20 @@ let NERDTreeChDirMode = 1
 " == CtrlP ================================
 
 " CtrlP {{{
-let g:ctrlp_match_window = 'bottom,order:btt'
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_switch_buffer = 0 " always open in new buffer
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|_build\|documentation\|vendor\|DS_Store\|git\|min'
-map <leader>cp :CtrlPClearCache<CR>
-map <leader>o :CtrlP<CR>
+" let g:ctrlp_match_window = 'bottom,order:btt'
+" let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_switch_buffer = 0 " always open in new buffer
+" let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|_build\|documentation\|vendor\|DS_Store\|git\|min'
+" map <leader>cp :CtrlPClearCache<CR>
+" map <leader>o :CtrlP<CR>
 " }}}
+
+" fzf
+
+nmap <C-p> :Files<CR>
+nmap <C-t> :Tags<CR>
 
 " Silver Searcher in ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
@@ -466,6 +474,7 @@ let g:neoformat_elixir_exfmt = {
 
 let g:neoformat_enabled_elixir = ['exfmt']
 
+set foldmethod=manual
 " augroup fmt
 "   autocmd!
 "   autocmd BufWritePre *.ex undojoin | Neoformat
@@ -484,11 +493,11 @@ let g:YUNOcommit_after = 20
 " == UltiSnips =================================================================
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-" let g:UltiSnipsListSnippets="<c-tab>"
-" let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsUsePythonVersion = 2
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
