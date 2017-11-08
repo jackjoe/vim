@@ -508,7 +508,7 @@ let g:UltiSnipsUsePythonVersion = 3
 let g:prettier#autoformat = 0
 let g:prettier#config#semi = 'false'
 let g:prettier#config#trailingComma = 'es5'
-autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
+autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
 
 " no save all, to prevent prettier errors
 noremap :wq<cr> <nop>
