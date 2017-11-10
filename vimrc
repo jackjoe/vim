@@ -516,7 +516,8 @@ autocmd BufWinLeave * call clearmatches()
 
 let g:prettier#autoformat = 0
 let g:prettier#config#semi = 'false'
-autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql PrettierAsync
+let g:prettier#config#parser = 'babylon'
+autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier "Async
 
 " == User defined =====================
 
