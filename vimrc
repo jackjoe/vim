@@ -178,7 +178,7 @@ endif
 " brew install the_silver_searcher
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
-let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.min.js" --ignore node_modules'
+let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules'
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
 
@@ -208,7 +208,7 @@ set wildignore+=*node_modules*
 set wildignore+=*vim/backups*
 set wildignore+=.git                                " ignore the .git directory
 set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store,*.min.css,*.min.js
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store,*.min.css,*.min.js,&.map
 
 if exists("&wildignorecase")
   set wildignorecase
@@ -486,7 +486,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
