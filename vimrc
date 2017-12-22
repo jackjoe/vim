@@ -166,6 +166,12 @@ set synmaxcol=250
 vnoremap p pgvy
 " }}}
 
+" Better line joins
+
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j
+endif
+
 " == Silver Searcher ===========================
 
 " Ag
