@@ -25,7 +25,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'docunext/closetag.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
-" Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
@@ -36,13 +36,13 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
 Plugin 'esneider/YUNOcommit.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'rstacruz/vim-ultisnips-css'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
+" Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
-" Plugin 'slashmili/alchemist.vim'
+Plugin 'slashmili/alchemist.vim'
 
 Plugin 'bling/vim-airline'
 
@@ -499,7 +499,7 @@ autocmd BufWinLeave * call clearmatches()
 
 let g:prettier#autoformat = 0
 let g:prettier#config#semi = 'false'
-let g:prettier#config#trailingComma = 'es5'
+let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#config#parser = 'babylon'
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
 
