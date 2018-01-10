@@ -41,7 +41,7 @@ Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
-" Plugin 'slashmili/alchemist.vim'
+Plugin 'slashmili/alchemist.vim'
 
 Plugin 'bling/vim-airline'
 
@@ -385,9 +385,6 @@ let NERDTreeChDirMode = 1
 nmap <C-p> :Files<CR>
 nmap <C-t> :Tags<CR>
 
-" Silver Searcher in ctrlp
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
 " == Emmet (previously Zencoding ===========
 
 " Emmet {{{
@@ -481,7 +478,7 @@ autocmd BufWinLeave * call clearmatches()
 
 let g:prettier#autoformat = 0
 let g:prettier#config#semi = 'false'
-let g:prettier#config#trailingComma = 'es5'
+let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#config#parser = 'babylon'
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.md Prettier
 
