@@ -486,7 +486,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsUsePythonVersion = 2
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
