@@ -25,7 +25,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'docunext/closetag.vim'
 Plugin 'jistr/vim-nerdtree-tabs'
-" Plugin 'kien/ctrlp.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
@@ -42,7 +41,7 @@ Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
-" Plugin 'slashmili/alchemist.vim'
+Plugin 'slashmili/alchemist.vim'
 
 Plugin 'bling/vim-airline'
 
@@ -387,26 +386,10 @@ let NERDTreeDirArrows = 1
 " set autochdir
 let NERDTreeChDirMode = 1
 
-" == CtrlP ================================
-
-" CtrlP {{{
-" let g:ctrlp_match_window = 'bottom,order:btt'
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_switch_buffer = 0 " always open in new buffer
-" let g:ctrlp_working_path_mode = 'ra'
-" let g:ctrlp_custom_ignore = '\.(git|hg|svn)$\|\.(o|swp|pyc|wav|mp3|ogg|blend|jpg|png|gif|psd|ai|svg)$\|node_modules\|_build\|documentation\|vendor\|DS_Store\|git\|min'
-" map <leader>cp :CtrlPClearCache<CR>
-" map <leader>o :CtrlP<CR>
-" }}}
-
 " fzf
 
 nmap <C-p> :Files<CR>
 nmap <C-t> :Tags<CR>
-
-" Silver Searcher in ctrlp
-let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
 " == Emmet (previously Zencoding ===========
 
@@ -464,10 +447,6 @@ let g:neoformat_elixir_exfmt = {
 let g:neoformat_enabled_elixir = ['exfmt']
 
 set foldmethod=manual
-" augroup fmt
-"   autocmd!
-"   autocmd BufWritePre *.ex undojoin | Neoformat
-" augroup END
 
 " == VIM JSX =======================================================
 
@@ -495,19 +474,19 @@ inoremap <c-x><c-k> <c-x><c-k>
 " Highlight words to avoid in production
 
 highlight TechWordsToAvoid ctermbg=red ctermfg=white
-match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
-autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
-autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
-autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert/
+match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
+autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
+autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
+autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
 autocmd BufWinLeave * call clearmatches()
 
 " == Prettier =========================
 
 let g:prettier#autoformat = 0
 let g:prettier#config#semi = 'false'
-let g:prettier#config#trailingComma = 'es5'
+let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#config#parser = 'babylon'
-autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.md Prettier
 
 " no save all, to prevent prettier errors
 noremap :wq<cr> <nop>
