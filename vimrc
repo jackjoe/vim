@@ -171,6 +171,11 @@ if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
 
+" in makefiles, don't expand tabs to spaces, since actual tab characters are
+" needed, and have indentation at 8 chars to be sure that all indents are tabs
+" (despite the mappings later):
+autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+
 " == Silver Searcher ===========================
 
 " Ag
@@ -230,6 +235,8 @@ au BufRead,BufNewFile *.handlebars,*.hbs          set filetype=handlebars
 au BufRead,BufNewFile *.tmpl,*.vue                set filetype=html
 au BufRead,BufNewFile *.go                        set filetype=go
 au BufRead,BufNewFile *.ru,*.rb                   set filetype=ruby
+au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Scanfile,Gymfile,Matchfile,Deliverfile set filetype=ruby
+
 " Haskell
 autocmd FileType haskell                          setlocal expandtab shiftwidth=2 softtabstop=2
 au Bufenter *.hs,*.lhs compiler ghc
