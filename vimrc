@@ -42,6 +42,7 @@ Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'slashmili/alchemist.vim'
+Plugin 'jwalton512/vim-blade'
 
 Plugin 'bling/vim-airline'
 

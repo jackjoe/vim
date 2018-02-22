@@ -68,14 +68,13 @@ _install() {
   # Symlink new vimrc
   ln -s $VIM_DIR/vimrc ~/.vimrc
 
-  _print "Spin Vim for a setup run"
-
-  vim . -c 'set shell=/bin/bash' -c 'PluginInstall' -c 'qa'
+  _print "Install plugins"
+  vim +PluginInstall +qall
 
   _success  "Ready to rock!"
-
   _print    "* Reload your shell for maximum effect *"
 
+  # output something to see we installed vim
   echo 1 > '.vim-installed'
 }
 
