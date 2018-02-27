@@ -397,7 +397,7 @@ let NERDTreeChDirMode = 1
 " fzf
 
 nmap <C-p> :Files<CR>
-nmap <C-t> :Tags<CR>
+" nmap <C-t> :Tags<CR>
 
 " == Emmet (previously Zencoding ===========
 
