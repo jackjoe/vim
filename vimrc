@@ -65,7 +65,6 @@ Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
-" Plugin 'sbdchd/neoformat'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -445,18 +444,6 @@ let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
 
-" == exfmt / neoformat =============================================
-
-let g:neoformat_elixir_exfmt = {
-  \ 'exe': 'mix',
-  \ 'args': ['exfmt', '--stdin'],
-  \ 'stdin': 1
-  \ }
-
-let g:neoformat_enabled_elixir = ['exfmt']
-
-set foldmethod=manual
-
 " == VIM JSX =======================================================
 
 let g:jsx_ext_required = 0
@@ -474,7 +461,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
