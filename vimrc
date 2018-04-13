@@ -76,6 +76,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'cespare/vim-toml'
 Plugin 'ekalinin/dockerfile.vim'
 Plugin 'ingydotnet/yaml-vim'
+Plugin 'lumiliet/vim-twig'
 
 " vim-scripts repos
 Plugin 'L9'
