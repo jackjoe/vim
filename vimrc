@@ -65,6 +65,7 @@ Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'mhinz/vim-mix-format'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -491,6 +492,10 @@ nnoremap :wq<cr> <nop>
 nnoremap :x<cr> <nop>
 map :wq<cr> <nop>
 map :x<cr> <nop>
+
+" == Elixir format ====================
+
+let g:mix_format_on_save = 1
 
 " == User defined =====================
 
