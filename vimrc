@@ -269,6 +269,10 @@ set mousehide               " hide mouse pointer when typing
 
 " ALE {{{
 let g:ale_php_phpcs_standard = "--tab-width=2"
+" Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
+let g:ale_linters = {
+      \  'elixir': []
+      \}
 " }}}
 
 " Supertab {{{
