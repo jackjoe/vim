@@ -44,6 +44,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'slashmili/alchemist.vim'
 Plugin 'jwalton512/vim-blade'
+Plugin 'junegunn/vim-easy-align'
 
 Plugin 'bling/vim-airline'
 
@@ -272,6 +273,14 @@ let g:ale_php_phpcs_standard = "--tab-width=2"
 
 " Supertab {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
+" }}}
+
+" Easy Align {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 " }}}
 
 " == Statusline =========================
