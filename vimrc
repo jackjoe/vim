@@ -31,6 +31,7 @@ Plugin 'w0rp/ale'
 Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
@@ -64,7 +65,7 @@ Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
-" Plugin 'sbdchd/neoformat'
+Plugin 'mhinz/vim-mix-format'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -268,6 +269,10 @@ set mousehide               " hide mouse pointer when typing
 
 " ALE {{{
 let g:ale_php_phpcs_standard = "--tab-width=2"
+" Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
+let g:ale_linters = {
+      \  'elixir': []
+      \}
 " }}}
 
 " Supertab {{{
@@ -398,7 +403,7 @@ let NERDTreeChDirMode = 1
 " fzf
 
 nmap <C-p> :Files<CR>
-nmap <C-t> :Tags<CR>
+" nmap <C-t> :Tags<CR>
 
 " == Emmet (previously Zencoding ===========
 
@@ -444,18 +449,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 let g:go_fmt_command = "goimports"
-
-" == exfmt / neoformat =============================================
-
-let g:neoformat_elixir_exfmt = {
-  \ 'exe': 'mix',
-  \ 'args': ['exfmt', '--stdin'],
-  \ 'stdin': 1
-  \ }
-
-let g:neoformat_enabled_elixir = ['exfmt']
-
-set foldmethod=manual
 
 " == VIM JSX =======================================================
 
@@ -504,6 +497,10 @@ nnoremap :wq<cr> <nop>
 nnoremap :x<cr> <nop>
 map :wq<cr> <nop>
 map :x<cr> <nop>
+
+" == Elixir format ====================
+
+let g:mix_format_on_save = 1
 
 " == User defined =====================
 
