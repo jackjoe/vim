@@ -35,13 +35,13 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
 Plugin 'esneider/YUNOcommit.vim'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-" Plugin 'rstacruz/vim-ultisnips-css'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
-Plugin 'slashmili/alchemist.vim'
+" Plugin 'slashmili/alchemist.vim'
 Plugin 'jwalton512/vim-blade'
 
 Plugin 'bling/vim-airline'
@@ -75,6 +75,7 @@ Plugin 'tpope/vim-markdown'
 Plugin 'cespare/vim-toml'
 Plugin 'ekalinin/dockerfile.vim'
 Plugin 'ingydotnet/yaml-vim'
+Plugin 'lumiliet/vim-twig'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -175,7 +176,7 @@ endif
 " in makefiles, don't expand tabs to spaces, since actual tab characters are
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
 " (despite the mappings later):
-autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+" autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 " == Silver Searcher ===========================
 
@@ -473,7 +474,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsUsePythonVersion = 3
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
