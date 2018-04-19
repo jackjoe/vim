@@ -66,6 +66,7 @@ Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'mhinz/vim-mix-format'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -177,7 +178,7 @@ endif
 " in makefiles, don't expand tabs to spaces, since actual tab characters are
 " needed, and have indentation at 8 chars to be sure that all indents are tabs
 " (despite the mappings later):
-autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
+" autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
 " == Silver Searcher ===========================
 
@@ -269,6 +270,10 @@ set mousehide               " hide mouse pointer when typing
 
 " ALE {{{
 let g:ale_php_phpcs_standard = "--tab-width=2"
+" Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
+let g:ale_linters = {
+      \  'elixir': []
+      \}
 " }}}
 
 " Supertab {{{
@@ -501,6 +506,10 @@ nnoremap :wq<cr> <nop>
 nnoremap :x<cr> <nop>
 map :wq<cr> <nop>
 map :x<cr> <nop>
+
+" == Elixir format ====================
+
+let g:mix_format_on_save = 1
 
 " == User defined =====================
 
