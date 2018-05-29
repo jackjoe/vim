@@ -42,7 +42,7 @@ Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
-Plugin 'slashmili/alchemist.vim'
+Plugin 'kana/vim-textobj-line'
 Plugin 'jwalton512/vim-blade'
 Plugin 'junegunn/vim-easy-align'
 
@@ -67,6 +67,7 @@ Plugin 'bitc/vim-hdevtools'
 " Elixir
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'mhinz/vim-mix-format'
+Plugin 'slashmili/alchemist.vim'
 
 " Golang
 Plugin 'fatih/vim-go'
