@@ -356,6 +356,7 @@ endf
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
+command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 if has("gui_running") " Fuck you, help key, seriously
   set fuoptions=maxvert,maxhorz
