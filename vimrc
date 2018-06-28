@@ -64,9 +64,9 @@ Plugin 'lukerandall/haskellmode-vim'
 Plugin 'bitc/vim-hdevtools'
 
 " Elixir
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'mhinz/vim-mix-format'
-Plugin 'slashmili/alchemist.vim'
+" Plugin 'slashmili/alchemist.vim'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -416,8 +416,8 @@ let g:user_emmet_leader_key = '<c-e>'
 
 " JSX
 let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'js',
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
 \  },
 \}
 
