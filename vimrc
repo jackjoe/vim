@@ -65,9 +65,9 @@ Plugin 'lukerandall/haskellmode-vim'
 Plugin 'bitc/vim-hdevtools'
 
 " Elixir
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'mhinz/vim-mix-format'
-Plugin 'slashmili/alchemist.vim'
+" Plugin 'slashmili/alchemist.vim'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -365,6 +365,7 @@ endf
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
+command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 if has("gui_running") " Fuck you, help key, seriously
   set fuoptions=maxvert,maxhorz
@@ -424,8 +425,8 @@ let g:user_emmet_leader_key = '<c-e>'
 
 " JSX
 let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'js',
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
 \  },
 \}
 
