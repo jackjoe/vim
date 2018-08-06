@@ -28,7 +28,6 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
-Plugin 'mattn/emmet-vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ajh17/VimCompletesMe'
@@ -43,7 +42,6 @@ Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
-Plugin 'jwalton512/vim-blade'
 
 Plugin 'bling/vim-airline'
 
@@ -78,6 +76,8 @@ Plugin 'cespare/vim-toml'
 Plugin 'ekalinin/dockerfile.vim'
 Plugin 'ingydotnet/yaml-vim'
 Plugin 'lumiliet/vim-twig'
+Plugin 'mattn/emmet-vim'
+Plugin 'jwalton512/vim-blade'
 
 " vim-scripts repos
 Plugin 'L9'
