@@ -42,6 +42,8 @@ Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
+Plugin 'jwalton512/vim-blade'
+Plugin 'junegunn/vim-easy-align'
 
 Plugin 'bling/vim-airline'
 
@@ -62,9 +64,9 @@ Plugin 'lukerandall/haskellmode-vim'
 Plugin 'bitc/vim-hdevtools'
 
 " Elixir
-Plugin 'elixir-lang/vim-elixir'
+Plugin 'elixir-editors/vim-elixir'
 Plugin 'mhinz/vim-mix-format'
-Plugin 'slashmili/alchemist.vim'
+" Plugin 'slashmili/alchemist.vim'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -280,6 +282,14 @@ let g:ale_linters = {
 let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
 
+" Easy Align {{{
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+" }}}
+
 " == Statusline =========================
 
 function! CurDir()
@@ -356,6 +366,7 @@ endf
 
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
+command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 if has("gui_running") " Fuck you, help key, seriously
   set fuoptions=maxvert,maxhorz
@@ -415,8 +426,8 @@ let g:user_emmet_leader_key = '<c-e>'
 
 " JSX
 let g:user_emmet_settings = {
-\  'javascript' : {
-\      'extends' : 'js',
+\  'javascript.jsx' : {
+\      'extends' : 'jsx',
 \  },
 \}
 
