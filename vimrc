@@ -42,7 +42,6 @@ Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
-Plugin 'jwalton512/vim-blade'
 Plugin 'junegunn/vim-easy-align'
 
 Plugin 'bling/vim-airline'
