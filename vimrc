@@ -235,7 +235,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 au BufRead,BufNewFile *.module,*.inc,*.install    set filetype=php
 au BufRead,BufNewFile *.less,*.scss               set filetype=css
-au BufRead,BufNewFile *.json                      set filetype=javascript
+" au BufRead,BufNewFile *.json                      set filetype=javascript
 au BufRead,BufNewFile *.handlebars,*.hbs          set filetype=handlebars
 au BufRead,BufNewFile *.tmpl,*.vue                set filetype=html
 au BufRead,BufNewFile *.go                        set filetype=go
