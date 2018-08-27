@@ -1,11 +1,21 @@
+# Vim config
+
 Our main vim settings, using Vundle to manage various plugins
 
-Installation
-------------
-`git clone git@github.com:jackjoe/vim.git ~/.vim # if you have access to the repository`
-`git clone git://github.com/jackjoe/vim.git ~/.vim # for public use`
+## Installation
 
-`./install`
-`ln -s ~/.vim/gvimrc ~/.gvimrc`
+### Public use
 
-For your local settings, just create a *vimrc.local* file
+`git clone git://github.com/jackjoe/vim.git ~/.vim`
+
+### Private use
+
+`git clone git@github.com:jackjoe/vim.git ~/.vim`
+
+### Run
+
+```
+$ ./install
+```
+
+For your local settings, just create a _vimrc.local_ file

@@ -34,7 +34,6 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
-Plugin 'esneider/YUNOcommit.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rstacruz/vim-ultisnips-css'
@@ -47,7 +46,7 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'bling/vim-airline'
 
 " Needed for airline
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -57,10 +56,10 @@ Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Haskell
 " Install stylish-haskell via cabal
-Plugin 'nbouscal/vim-stylish-haskell'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'lukerandall/haskellmode-vim'
-Plugin 'bitc/vim-hdevtools'
+" Plugin 'nbouscal/vim-stylish-haskell'
+" Plugin 'Shougo/vimproc.vim'
+" Plugin 'lukerandall/haskellmode-vim'
+" Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
@@ -171,7 +170,6 @@ vnoremap p pgvy
 " }}}
 
 " Better line joins
-
 if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
@@ -215,7 +213,7 @@ set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
 set wildignore+=*node_modules*
 set wildignore+=*vim/backups*
-set wildignore+=.git                                " ignore the .git directory
+set wildignore+=.git,.yarn                          " ignore the .git directory
 set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store,*.min.css,*.min.js,&.map
 
@@ -243,12 +241,12 @@ au BufRead,BufNewFile *.ru,*.rb                   set filetype=ruby
 au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Scanfile,Gymfile,Matchfile,Deliverfile set filetype=ruby
 
 " Haskell
-autocmd FileType haskell                          setlocal expandtab shiftwidth=2 softtabstop=2
-au Bufenter *.hs,*.lhs compiler ghc
-" Extra syntax highlighting
-au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,.caprc,.irbrc,irb_tempfile*} set ft=ruby
-" Spell check certain filetypes (eg Markdown)
-autocmd BufRead,BufNewFile *.md,*.txt             setlocal spell
+" autocmd FileType haskell                          setlocal expandtab shiftwidth=2 softtabstop=2
+" au Bufenter *.hs,*.lhs compiler ghc
+" " Extra syntax highlighting
+" au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,.caprc,.irbrc,irb_tempfile*} set ft=ruby
+" " Spell check certain filetypes (eg Markdown)
+" autocmd BufRead,BufNewFile *.md,*.txt             setlocal spell
 
 " Searching {{{
 set hlsearch                " Highlight search things
@@ -317,12 +315,12 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 let g:airline_powerline_fonts=1
 set ttimeoutlen=50
 
-" == Configure browser for haskell_doc.vim ================
+" == Haskell, configure browser for haskell_doc.vim ================
 
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
-let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
-let g:haskell_indent_case=2
+" let g:haddock_browser = "open"
+" let g:haddock_browser_callformat = "%s %s"
+" let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+" let g:haskell_indent_case=2
 
 " == Source after saving ================
 
@@ -401,7 +399,7 @@ map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:
 
 " let g:javascript_plugin_flow = 1
 
-" == Nerdtree ================================
+" == Nerdtree ===============================
 
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
 
@@ -411,12 +409,15 @@ let NERDTreeDirArrows = 1
 " set autochdir
 let NERDTreeChDirMode = 1
 
-" fzf
+" close Nerdtree when only nerdtree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" == fzf ===================================
 
 nmap <C-p> :Files<CR>
 " nmap <C-t> :Tags<CR>
 
-" == Emmet (previously Zencoding ===========
+" == Emmet (previously Zencoding) ==========
 
 " Emmet {{{
 let g:use_emmet_complete_tag = 1
@@ -464,12 +465,6 @@ let g:go_fmt_command = "goimports"
 " == VIM JSX =======================================================
 
 let g:jsx_ext_required = 0
-
-" == YUNO ============================
-
-"Y U No Commit {{{
-let g:YUNOcommit_after = 20
-" }}}
 
 " == UltiSnips =================================================================
 
