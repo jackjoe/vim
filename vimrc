@@ -34,9 +34,6 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'rstacruz/vim-ultisnips-css'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
@@ -45,8 +42,15 @@ Plugin 'junegunn/vim-easy-align'
 
 Plugin 'bling/vim-airline'
 
-" Needed for airline
-" Plugin 'tpope/vim-fugitive'
+" Snippets
+if !has('nvim')
+  Plugin 'SirVer/ultisnips'
+  Plugin 'honza/vim-snippets'
+  Plugin 'rstacruz/vim-ultisnips-css'
+else
+  Plugin 'Shougo/neosnippet.vim'
+  Plugin 'Shougo/neosnippet-snippets'
+endif
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -131,7 +135,9 @@ set nojoinspaces                " insert only one space after '.', '?', '!' when
 set showmatch                   " briefly jumps the cursor to the matching brace on insert
 set matchtime=4                 " blink matching braces for 0.4s
 set backspace=indent,eol,start  " allow backspacing over everything
-fixdel
+if !has('nvim')
+  fixdel
+endif
 
 set softtabstop=2
 set shiftwidth=2                " indent with 2 spaces
@@ -186,6 +192,7 @@ endif
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
 let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules'
+
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
 
@@ -268,11 +275,16 @@ set mousehide               " hide mouse pointer when typing
 " }}}
 
 " ALE {{{
+let g:ale_completion_enabled = 1
+autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 let g:ale_php_phpcs_standard = "--tab-width=2"
+
 " Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
-let g:ale_linters = {
-      \  'elixir': []
-      \}
+let g:ale_linters = {}
+let g:ale_linters.elixir = []
+
+let g:ale_fixers = {}
+let g:ale_fixers.elixir = ['mix_format']
 " }}}
 
 " Supertab {{{
@@ -307,7 +319,9 @@ endfunction
 " Enable mouse in all modes. -> https://bitheap.org/mouseterm/
 set mouse=a
 " Set mouse type to xterm.
-set ttymouse=xterm
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 " == Airline =========================
 
@@ -466,14 +480,36 @@ let g:go_fmt_command = "goimports"
 
 let g:jsx_ext_required = 0
 
-" == UltiSnips =================================================================
+" == Snippets ======================================================
+if !has('nvim')
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsListSnippets="<c-tab>"
-let g:UltiSnipsUsePythonVersion = 3
+  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-j>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+  let g:UltiSnipsListSnippets="<c-tab>"
+  let g:UltiSnipsUsePythonVersion = 3
+else
+  " Plugin key-mappings.
+  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+  xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+  " SuperTab like snippets behavior.
+  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+  "imap <expr><TAB>
+  " \ pumvisible() ? "\<C-n>" :
+  " \ neosnippet#expandable_or_jumpable() ?
+  " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+  " For conceal markers.
+  if has('conceal')
+    set conceallevel=2 concealcursor=niv
+  endif
+endif
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
