@@ -40,6 +40,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'janko-m/vim-test'
 
 Plugin 'bling/vim-airline'
 
@@ -546,7 +547,13 @@ map :x<cr> <nop>
 
 let g:mix_format_on_save = 1
 
-" == Testing with vim-test ============
+" == vim test ========================================================
+
+if has('nvim')
+  let test#strategy = "neovim"
+  " escape insert mode in terminal easier
+  tmap <C-o> <C-\><C-n>
+endif
 
 nnoremap <leader>ts :TestSuite<CR>
 nnoremap <leader>tf :TestFile<CR>
