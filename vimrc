@@ -34,6 +34,7 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-fugitive'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
@@ -343,6 +344,7 @@ let mapleader = ","
 
 " Save
 nnoremap <leader>w :w<CR>
+nnoremap <C-s> :w<CR>
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
@@ -543,6 +545,11 @@ map :x<cr> <nop>
 " == Elixir format ====================
 
 let g:mix_format_on_save = 1
+
+" == Testing with vim-test ============
+
+nnoremap <leader>ts :TestSuite<CR>
+nnoremap <leader>tf :TestFile<CR>
 
 " == User defined =====================
 
