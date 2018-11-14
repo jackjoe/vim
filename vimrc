@@ -30,7 +30,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ajh17/VimCompletesMe'
+" Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
@@ -555,8 +555,8 @@ if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
 
-nnoremap <leader>ts :TestSuite<CR>
-nnoremap <leader>tf :TestFile<CR>
+nnoremap <leader>ts :TestSuite<CR> " test all
+nnoremap <leader>tf :TestFile<CR>  " test single
 
 " == User defined =====================
 
