@@ -30,7 +30,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'w0rp/ale'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
@@ -45,14 +44,31 @@ Plugin 'janko-m/vim-test'
 Plugin 'bling/vim-airline'
 
 " Snippets
-if !has('nvim')
+if has('nvim')
   Plugin 'SirVer/ultisnips'
   Plugin 'honza/vim-snippets'
   Plugin 'rstacruz/vim-ultisnips-css'
+
+  " deoplete
+  " Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  " Plugin 'roxma/nvim-yarp'
+  " Plugin 'roxma/vim-hug-neovim-rpc'
+  " let g:deoplete#enable_at_startup = 1
+  " " Pass a dictionary to set multiple options
+  " call deoplete#custom#option({'auto_complete': v:false})
+  " inoremap <silent><expr> <TAB>
+  "       \ pumvisible() ? "\<C-n>" :
+  "       \ <SID>check_back_space() ? "\<TAB>" :
+  "       \ deoplete#mappings#manual_complete()
+  " function! s:check_back_space() abort "{{{
+  "   let col = col('.') - 1
+  "   return !col || getline('.')[col - 1]  =~ '\s'
+  " endfunction"}}}
 else
-  Plugin 'Shougo/neosnippet.vim'
-  Plugin 'Shougo/neosnippet-snippets'
+  " Plugin 'Shougo/neosnippet.vim'
+  " Plugin 'Shougo/neosnippet-snippets'
 endif
+
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
