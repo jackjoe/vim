@@ -37,11 +37,13 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-fugitive'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'janko-m/vim-test'
 
 Plugin 'bling/vim-airline'
 
@@ -49,6 +51,7 @@ Plugin 'bling/vim-airline'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rstacruz/vim-ultisnips-css'
+
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -339,6 +342,7 @@ let mapleader = ","
 
 " Save
 nnoremap <leader>w :w<CR>
+nnoremap <C-s> :w<CR>
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
@@ -522,6 +526,17 @@ map :x<cr> <nop>
 " == Elixir format ====================
 
 let g:mix_format_on_save = 1
+
+" == vim test ========================================================
+
+if has('nvim')
+  let test#strategy = "neovim"
+  " escape insert mode in terminal easier
+  tmap <C-o> <C-\><C-n>
+endif
+
+nnoremap <leader>ts :TestSuite<CR> " test all
+nnoremap <leader>tf :TestFile<CR>  " test single
 
 " == User defined =====================
 
