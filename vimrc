@@ -24,12 +24,15 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'docunext/closetag.vim'
+
+Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
+
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-Plugin 'w0rp/ale'
 Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdtree'
+
+Plugin 'w0rp/ale'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -43,14 +46,9 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'bling/vim-airline'
 
 " Snippets
-if !has('nvim')
-  Plugin 'SirVer/ultisnips'
-  Plugin 'honza/vim-snippets'
-  Plugin 'rstacruz/vim-ultisnips-css'
-else
-  Plugin 'Shougo/neosnippet.vim'
-  Plugin 'Shougo/neosnippet-snippets'
-endif
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'rstacruz/vim-ultisnips-css'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -68,7 +66,6 @@ Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'mhinz/vim-mix-format'
-" Plugin 'slashmili/alchemist.vim'
 
 " Golang
 Plugin 'fatih/vim-go'
@@ -105,7 +102,7 @@ filetype on             " /!\ doesn't play well with compatible mode
 filetype plugin on      " trigger file type specific plugins
 filetype indent on      " indent based on file type syntax
 
-set clipboard=unnamed   " Yank everything to the system clipboard
+set clipboard^=unnamed,unnamedplus   " Yank everything to the system clipboard
 
 set history=1000        " keep 1000 lines of command line history
 set undolevels=200      " Undo history
@@ -125,7 +122,6 @@ set showcmd             " show command in bottom bar
 set scrolloff=1         " Always show at least one line above/below the cursor.
 set nocursorline        " highlight current line
 set wildmenu
-set showmatch           " higlight matching parenthesis
 " }}}
 
 " {{{ Editing
@@ -139,10 +135,10 @@ if !has('nvim')
   fixdel
 endif
 
+set tabstop=2
 set softtabstop=2
 set shiftwidth=2                " indent with 2 spaces
 set shiftround                  " use multiple of shiftwidth when indenting with '<' and '>'
-set tabstop=2
 set expandtab
 set wrap                        " set linewrap
 
@@ -169,7 +165,7 @@ vmap <Tab> >
 vmap <S-Tab> <
 
 " Syntax coloring lines that are too long just slows down the world
-set synmaxcol=250
+set synmaxcol=256
 
 " allow multiple pastes of the same content when pasting in visual mode.
 vnoremap p pgvy
@@ -275,8 +271,8 @@ set mousehide               " hide mouse pointer when typing
 " }}}
 
 " ALE {{{
-let g:ale_completion_enabled = 1
-autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
+let g:ale_completion_enabled = 0
+" autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 let g:ale_php_phpcs_standard = "--tab-width=2"
 
 " Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
@@ -481,34 +477,17 @@ let g:go_fmt_command = "goimports"
 let g:jsx_ext_required = 0
 
 " == Snippets ======================================================
-if !has('nvim')
 
-  " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<c-j>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-  let g:UltiSnipsListSnippets="<c-tab>"
-  let g:UltiSnipsUsePythonVersion = 3
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-tab>"
+
+if has('nvim')
+  let g:UltiSnipsUsePythonVersion = 2
 else
-  " Plugin key-mappings.
-  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-  imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-  " SuperTab like snippets behavior.
-  " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-  "imap <expr><TAB>
-  " \ pumvisible() ? "\<C-n>" :
-  " \ neosnippet#expandable_or_jumpable() ?
-  " \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-  " For conceal markers.
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
+  let g:UltiSnipsUsePythonVersion = 3
 endif
 
 " Do not interfere with vim mapping
