@@ -68,8 +68,17 @@ _install() {
   # Symlink new vimrc
   ln -s $VIM_DIR/vimrc ~/.vimrc
 
-  _print "Install plugins"
-  vim +PluginInstall +qall
+  # _print "Install plugins"
+  # vim +PluginInstall +qall
+
+  _print "Installing python (for neovim)"
+  v=$(which nnvim)
+  _print $v
+  if [ "$v" != "nnvim not found" ]; then
+    _print ">>> NEO VIM"
+  fi
+  # pip2 install --user neovim
+  # pip3 install --user neovim
 
   _success  "Ready to rock!"
   _print    "* Reload your shell for maximum effect *"

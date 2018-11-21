@@ -50,12 +50,12 @@ if has('nvim')
   Plugin 'rstacruz/vim-ultisnips-css'
 
   " deoplete
-  " Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " Plugin 'roxma/nvim-yarp'
-  " Plugin 'roxma/vim-hug-neovim-rpc'
+  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plugin 'roxma/nvim-yarp'
+  Plugin 'roxma/vim-hug-neovim-rpc'
   " let g:deoplete#enable_at_startup = 1
   " " Pass a dictionary to set multiple options
-  " call deoplete#custom#option({'auto_complete': v:false})
+  " " call deoplete#custom#option({'auto_complete': v:false})
   " inoremap <silent><expr> <TAB>
   "       \ pumvisible() ? "\<C-n>" :
   "       \ <SID>check_back_space() ? "\<TAB>" :
@@ -68,7 +68,6 @@ else
   " Plugin 'Shougo/neosnippet.vim'
   " Plugin 'Shougo/neosnippet-snippets'
 endif
-
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -293,7 +292,7 @@ set mousehide               " hide mouse pointer when typing
 " }}}
 
 " ALE {{{
-let g:ale_completion_enabled = 1
+" let g:ale_completion_enabled = 1
 autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 let g:ale_php_phpcs_standard = "--tab-width=2"
 
@@ -308,7 +307,7 @@ let g:ale_fixers.elixir = ['mix_format']
 " Supertab {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
-
+"
 " Easy Align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -391,7 +390,7 @@ endfunction
 " Clean windows weird characters
 command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
 function! CleanWindowsCharacters()
-  :%s/\\\//g
+  :%s/\\\\\//g
 endf
 
 " Sudo to write
@@ -430,7 +429,7 @@ map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:
 
 " == Javascript =============================
 
-" let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow = 1
 
 " == Nerdtree ===============================
 
@@ -563,6 +562,8 @@ map :x<cr> <nop>
 
 let g:mix_format_on_save = 1
 
+inoremap pp \|><space>
+
 " == vim test ========================================================
 
 if has('nvim')
@@ -573,6 +574,12 @@ endif
 
 nnoremap <leader>ts :TestSuite<CR> " test all
 nnoremap <leader>tf :TestFile<CR>  " test single
+
+" == git (fugitive) ==================================================
+
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gl :Gpull<CR>
 
 " == User defined =====================
 
