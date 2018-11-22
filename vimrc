@@ -296,13 +296,9 @@ set mousehide               " hide mouse pointer when typing
 " }}}
 
 " ALE {{{
-<<<<<<< HEAD
 " let g:ale_completion_enabled = 1
 autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
-=======
 let g:ale_completion_enabled = 0
-" autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
->>>>>>> 639a5f47d243d4cdd79a855479e41a01055481c5
 let g:ale_php_phpcs_standard = "--tab-width=2"
 
 " Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
