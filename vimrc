@@ -71,10 +71,6 @@ else
   " Plugin 'Shougo/neosnippet-snippets'
 endif
 
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'rstacruz/vim-ultisnips-css'
-
 " Javascript
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
