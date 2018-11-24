@@ -546,8 +546,6 @@ map :x<cr> <nop>
 
 let g:mix_format_on_save = 1
 
-inoremap pp \|><space>
-
 " == vim test ========================================================
 
 if has('nvim')
