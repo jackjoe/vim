@@ -400,10 +400,9 @@ command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 if has("gui_running") " Fuck you, help key, seriously
   set fuoptions=maxvert,maxhorz
+  noremap  <F1> :set invfullscreen<CR>
+  inoremap <F1> <ESC>:set invfullscreen<CR>
 endif
-
-noremap  <F1> :set invfullscreen<CR>
-inoremap <F1> <ESC>:set invfullscreen<CR>
 
 " switch between last two files
 nnoremap <leader><Tab> <c-^>
@@ -413,6 +412,9 @@ noremap gI `.
 
 " split line and preserve cursor position
 nnoremap S mzi<CR><ESC>`z
+
+" escape insert mode
+inoremap jj <ESC>
 
 " == Paste mode ===============================
 
