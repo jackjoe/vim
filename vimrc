@@ -52,6 +52,8 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rstacruz/vim-ultisnips-css'
 
+Plugin 'mhinz/vim-signify'
+Plugin 'ryanoasis/vim-devicons'
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
