@@ -6,8 +6,6 @@ if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
 endif
 
-let base16colorspace=256  " Access colors present in 256 colorspace
-
 " Vundle must be first
 " Vundle {{{
 filetype on   " first on, to avoid vim exiting with status code 1!
@@ -46,14 +44,34 @@ Plugin 'junegunn/vim-easy-align'
 Plugin 'janko-m/vim-test'
 
 Plugin 'bling/vim-airline'
-
-" Snippets
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'rstacruz/vim-ultisnips-css'
-
 Plugin 'mhinz/vim-signify'
 Plugin 'ryanoasis/vim-devicons'
+
+" Snippets
+if has('nvim')
+  Plugin 'SirVer/ultisnips'
+  Plugin 'honza/vim-snippets'
+  Plugin 'rstacruz/vim-ultisnips-css'
+
+  " deoplete
+  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plugin 'roxma/nvim-yarp'
+  Plugin 'roxma/vim-hug-neovim-rpc'
+  " let g:deoplete#enable_at_startup = 1
+  " " Pass a dictionary to set multiple options
+  " " call deoplete#custom#option({'auto_complete': v:false})
+  " inoremap <silent><expr> <TAB>
+  "       \ pumvisible() ? "\<C-n>" :
+  "       \ <SID>check_back_space() ? "\<TAB>" :
+  "       \ deoplete#mappings#manual_complete()
+  " function! s:check_back_space() abort "{{{
+  "   let col = col('.') - 1
+  "   return !col || getline('.')[col - 1]  =~ '\s'
+  " endfunction"}}}
+else
+  " Plugin 'Shougo/neosnippet.vim'
+  " Plugin 'Shougo/neosnippet-snippets'
+endif
 
 " Javascript
 Plugin 'pangloss/vim-javascript'
@@ -115,6 +133,7 @@ set ttyfast             " Yes, we have a fast terminal
 set title               " change the terminal title
 set lazyredraw          " do not redraw when executing macros
 set report=0            " always report changes
+nnoremap Q <Nop>        " we don't do ex mode
 
 " }}}
 
@@ -276,8 +295,9 @@ set mousehide               " hide mouse pointer when typing
 " }}}
 
 " ALE {{{
+" let g:ale_completion_enabled = 1
+autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 let g:ale_completion_enabled = 0
-" autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 let g:ale_php_phpcs_standard = "--tab-width=2"
 
 " Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
@@ -291,7 +311,7 @@ let g:ale_fixers.elixir = ['mix_format']
 " Supertab {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
-
+"
 " Easy Align {{{
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -374,7 +394,7 @@ endfunction
 " Clean windows weird characters
 command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
 function! CleanWindowsCharacters()
-  :%s/\\\//g
+  :%s/\\\\\//g
 endf
 
 " Sudo to write
@@ -383,10 +403,9 @@ command! -nargs=0 Sw w !sudo tee % > /dev/null
 
 if has("gui_running") " Fuck you, help key, seriously
   set fuoptions=maxvert,maxhorz
+  noremap  <F1> :set invfullscreen<CR>
+  inoremap <F1> <ESC>:set invfullscreen<CR>
 endif
-
-noremap  <F1> :set invfullscreen<CR>
-inoremap <F1> <ESC>:set invfullscreen<CR>
 
 " switch between last two files
 nnoremap <leader><Tab> <c-^>
@@ -396,6 +415,9 @@ noremap gI `.
 
 " split line and preserve cursor position
 nnoremap S mzi<CR><ESC>`z
+
+" escape insert mode
+inoremap jj <ESC>
 
 " == Paste mode ===============================
 
@@ -413,7 +435,7 @@ map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:
 
 " == Javascript =============================
 
-" let g:javascript_plugin_flow = 1
+let g:javascript_plugin_flow = 1
 
 " == Nerdtree ===============================
 
@@ -539,6 +561,19 @@ endif
 
 nnoremap <leader>ts :TestSuite<CR> " test all
 nnoremap <leader>tf :TestFile<CR>  " test single
+
+" == git (fugitive) ==================================================
+
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gl :Gpull<CR>
+
+" if exists('$TMUX')
+"   " Colors in tmux
+"   let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
+"   let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
+" endif
+" set termguicolors
 
 " == User defined =====================
 

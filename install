@@ -33,6 +33,10 @@ _usage() {
   exit 0
 }
 
+have() {
+  type "$1" &> /dev/null
+}
+
 #############################################################################
 
 _install_macvim() {
@@ -67,6 +71,12 @@ _install() {
 
   # Symlink new vimrc
   ln -s $VIM_DIR/vimrc ~/.vimrc
+
+  if have nvim; then
+    _print "Installing python (for neovim)"
+    pip2 install --user neovim
+    pip3 install --user neovim
+  fi
 
   _print "Install plugins"
   vim +PluginInstall +qall
