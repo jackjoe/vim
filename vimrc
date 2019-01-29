@@ -55,7 +55,7 @@ if has('nvim')
   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plugin 'roxma/nvim-yarp'
   Plugin 'roxma/vim-hug-neovim-rpc'
-  " let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_at_startup = 1
   " " Pass a dictionary to set multiple options
   " " call deoplete#custom#option({'auto_complete': v:false})
   " inoremap <silent><expr> <TAB>
