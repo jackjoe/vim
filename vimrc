@@ -269,20 +269,6 @@ set noerrorbells            " shut up
 set mousehide               " hide mouse pointer when typing
 " }}}
 
-" ALE {{{
-" let g:ale_completion_enabled = 1
-autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
-let g:ale_completion_enabled = 0
-let g:ale_php_phpcs_standard = "--tab-width=2"
-
-" Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
-let g:ale_linters = {}
-let g:ale_linters.elixir = []
-
-let g:ale_fixers = {}
-let g:ale_fixers.elixir = ['mix_format']
-" }}}
-
 " Supertab {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
@@ -401,10 +387,6 @@ set pastetoggle=<F2>
 " convert list of lines to <li>
 map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:nohl<CR>
 
-" == Javascript =============================
-
-let g:javascript_plugin_flow = 1
-
 " == Nerdtree ===============================
 
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
@@ -499,13 +481,36 @@ inoremap <c-x><c-k> <c-x><c-k>
 " autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
 " autocmd BufWinLeave * call clearmatches()
 
+" ALE {{{
+autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
+
+let g:ale_completion_enabled = 0
+let g:ale_php_phpcs_standard = "--tab-width=2"
+
+let g:ale_fixers = {}
+let g:ale_fixers.elixir = ['mix_format']
+let g:ale_fixers.php = ['prettier']
+" }}}
+
+" == Javascript =============================
+
+let g:javascript_plugin_flow = 1
+
 " == Prettier =========================
+
+" when running at every change you may want to disable quickfix
+let g:prettier#quickfix_enabled = 0
+let g:prettier#config#tab_width = 2
 
 let g:prettier#autoformat = 0
 let g:prettier#config#semi = 'false'
 let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#config#parser = 'babylon'
-autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql,*.md Prettier
+
+autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+autocmd BufWritePre *.md Prettier
+autocmd BufWritePre *.php Prettier
+autocmd FileType php let b:prettier_ft_default_args = { 'parser': 'php' }
 
 " no save all, to prevent prettier errors
 noremap :wq<cr> <nop>
