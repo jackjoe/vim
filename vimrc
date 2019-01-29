@@ -31,11 +31,9 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 
 Plugin 'w0rp/ale'
-Plugin 'ajh17/VimCompletesMe'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
-Plugin 'tpope/vim-fugitive'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
@@ -55,20 +53,8 @@ if has('nvim')
   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plugin 'roxma/nvim-yarp'
   Plugin 'roxma/vim-hug-neovim-rpc'
-  let g:deoplete#enable_at_startup = 1
-  " " Pass a dictionary to set multiple options
-  " " call deoplete#custom#option({'auto_complete': v:false})
-  " inoremap <silent><expr> <TAB>
-  "       \ pumvisible() ? "\<C-n>" :
-  "       \ <SID>check_back_space() ? "\<TAB>" :
-  "       \ deoplete#mappings#manual_complete()
-  " function! s:check_back_space() abort "{{{
-  "   let col = col('.') - 1
-  "   return !col || getline('.')[col - 1]  =~ '\s'
-  " endfunction"}}}
 else
-  " Plugin 'Shougo/neosnippet.vim'
-  " Plugin 'Shougo/neosnippet-snippets'
+  Plugin 'ajh17/VimCompletesMe'
 endif
 
 " Javascript
@@ -76,13 +62,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
-
-" Haskell
-" Install stylish-haskell via cabal
-" Plugin 'nbouscal/vim-stylish-haskell'
-" Plugin 'Shougo/vimproc.vim'
-" Plugin 'lukerandall/haskellmode-vim'
-" Plugin 'bitc/vim-hdevtools'
 
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
@@ -92,12 +71,10 @@ Plugin 'mhinz/vim-mix-format'
 Plugin 'fatih/vim-go'
 
 " Formats
-Plugin 'godlygeek/tabular' " needed for markdown
 Plugin 'tpope/vim-markdown'
 Plugin 'cespare/vim-toml'
 Plugin 'ekalinin/dockerfile.vim'
 Plugin 'ingydotnet/yaml-vim'
-Plugin 'lumiliet/vim-twig'
 Plugin 'mattn/emmet-vim'
 Plugin 'jwalton512/vim-blade'
 
@@ -348,13 +325,6 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 let g:airline_powerline_fonts=1
 set ttimeoutlen=50
 
-" == Haskell, configure browser for haskell_doc.vim ================
-
-" let g:haddock_browser = "open"
-" let g:haddock_browser_callformat = "%s %s"
-" let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
-" let g:haskell_indent_case=2
-
 " == Source after saving ================
 
 " Keyboard {{{
@@ -522,12 +492,12 @@ inoremap <c-x><c-k> <c-x><c-k>
 " == Highlight =========================
 " Highlight words to avoid in production
 
-highlight TechWordsToAvoid ctermbg=red ctermfg=white
-match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
-autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
-autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
-autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
-autocmd BufWinLeave * call clearmatches()
+" highlight TechWordsToAvoid ctermbg=red ctermfg=white
+" match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
+" autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
+" autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
+" autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
+" autocmd BufWinLeave * call clearmatches()
 
 " == Prettier =========================
 
