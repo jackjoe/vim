@@ -38,6 +38,7 @@ Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
 Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
+Plugin 'andyl/vim-textobj-elixir'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'janko-m/vim-test'
 
