@@ -532,6 +532,8 @@ if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
 
+let test#elixir#exunit#executable = "source .env.test && mix test"
+
 nnoremap <leader>ts :TestSuite<CR> " test all
 nnoremap <leader>tf :TestFile<CR>  " test single
 
