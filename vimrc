@@ -487,6 +487,10 @@ autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 let g:ale_completion_enabled = 0
 let g:ale_php_phpcs_standard = "--tab-width=2"
 
+" Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
+let g:ale_linters = {}
+let g:ale_linters.elixir = []
+
 let g:ale_fixers = {}
 let g:ale_fixers.elixir = ['mix_format']
 let g:ale_fixers.php = ['prettier']
@@ -509,7 +513,9 @@ let g:prettier#config#parser = 'babylon'
 
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
 autocmd BufWritePre *.md Prettier
-autocmd BufWritePre *.php Prettier
+" let ftPHPToIgnore = ['blade.php']
+" autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | Prettier
+" autocmd BufWritePre *.php Prettier
 autocmd FileType php let b:prettier_ft_default_args = { 'parser': 'php' }
 
 " no save all, to prevent prettier errors
