@@ -36,8 +36,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-entire'
+" Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
+Plugin 'andyl/vim-textobj-elixir'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'janko-m/vim-test'
 
@@ -537,6 +538,8 @@ if has('nvim')
   " escape insert mode in terminal easier
   tmap <C-o> <C-\><C-n>
 endif
+
+let test#elixir#exunit#executable = "source .env.test && mix test"
 
 nnoremap <leader>ts :TestSuite<CR> " test all
 nnoremap <leader>tf :TestFile<CR>  " test single
