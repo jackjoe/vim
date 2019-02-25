@@ -188,6 +188,8 @@ endif
 " pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
 let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules'
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
 
 " Allow lowercase ack in case of misspelling
 cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
