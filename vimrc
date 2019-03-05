@@ -518,7 +518,8 @@ autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
 autocmd BufWritePre *.md Prettier
 " let ftPHPToIgnore = ['blade.php']
 " autocmd BufWritePre * if index(ftToIgnore, &ft) < 0 | Prettier
-" autocmd BufWritePre *.php Prettier
+autocmd BufWritePre *.php if expand('%') !~ "blade" | Prettier
+autocmd BufWritePre *.php Prettier
 autocmd FileType php let b:prettier_ft_default_args = { 'parser': 'php' }
 
 " no save all, to prevent prettier errors
