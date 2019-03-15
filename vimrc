@@ -189,6 +189,7 @@ endif
 " apt-get install silversearcher-ag
 let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules'
 cnoreabbrev Ack Ack!
+cnoreabbrev ack Ack!
 nnoremap <Leader>a :Ack!<Space>
 
 " Allow lowercase ack in case of misspelling
