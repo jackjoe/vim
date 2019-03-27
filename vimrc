@@ -67,6 +67,7 @@ Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 " Elixir
 Plugin 'elixir-editors/vim-elixir'
 Plugin 'mhinz/vim-mix-format'
+Plugin 'slashmili/alchemist.vim'
 
 " Golang
 Plugin 'fatih/vim-go'
