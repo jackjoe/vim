@@ -13,8 +13,6 @@ filetype off  " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" We might implement https://github.com/junegunn/vim-plug/
 " }}}
 
 " Plugins {{{
@@ -36,7 +34,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
 Plugin 'ervandew/supertab'
 Plugin 'kana/vim-textobj-user'
-" Plugin 'kana/vim-textobj-entire'
 Plugin 'kana/vim-textobj-line'
 Plugin 'andyl/vim-textobj-elixir'
 Plugin 'junegunn/vim-easy-align'
@@ -58,27 +55,22 @@ else
   Plugin 'ajh17/VimCompletesMe'
 endif
 
+" Syntax
+Plugin 'sheerun/vim-polyglot'
+
 " Javascript
-Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'mxw/vim-jsx'
 Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
 
-" Elixir
-Plugin 'elixir-editors/vim-elixir'
+" Java
+Plugin 'rhysd/vim-clang-format'
+
+"" Elixir
 Plugin 'mhinz/vim-mix-format'
 Plugin 'slashmili/alchemist.vim'
 
-" Golang
-Plugin 'fatih/vim-go'
-
 " Formats
-Plugin 'tpope/vim-markdown'
-Plugin 'cespare/vim-toml'
-Plugin 'ekalinin/dockerfile.vim'
-Plugin 'ingydotnet/yaml-vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'jwalton512/vim-blade'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -126,12 +118,12 @@ set wildmenu
 " }}}
 
 " {{{ Editing
-
 set nowrap                      " don't wrap lines
 set nojoinspaces                " insert only one space after '.', '?', '!' when joining lines
 set showmatch                   " briefly jumps the cursor to the matching brace on insert
 set matchtime=4                 " blink matching braces for 0.4s
 set backspace=indent,eol,start  " allow backspacing over everything
+
 if !has('nvim')
   fixdel
 endif
@@ -186,15 +178,11 @@ endif
 
 " Ag
 " brew install the_silver_searcher
-" pacman -S the_silver_searcher
 " apt-get install silversearcher-ag
 let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules'
 cnoreabbrev Ack Ack!
 cnoreabbrev ack Ack!
 nnoremap <Leader>a :Ack!<Space>
-
-" Allow lowercase ack in case of misspelling
-cnoreabbrev <expr> ack getcmdtype() == ':' && getcmdline() ==# 'ack' ? 'Ack' : 'ack'
 
 " == Buffers ==================================
 
@@ -222,7 +210,8 @@ set wildignore+=*node_modules*
 set wildignore+=*vim/backups*
 set wildignore+=.git,.yarn                          " ignore the .git directory
 set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store,*.min.css,*.min.js,&.map
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
+set wildignore+=*.min.css,*.min.js,*.map
 
 if exists("&wildignorecase")
   set wildignorecase
@@ -240,7 +229,6 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 au BufRead,BufNewFile *.module,*.inc,*.install    set filetype=php
 au BufRead,BufNewFile *.less,*.scss               set filetype=css
-" au BufRead,BufNewFile *.json                      set filetype=javascript
 au BufRead,BufNewFile *.handlebars,*.hbs          set filetype=handlebars
 au BufRead,BufNewFile *.tmpl,*.vue                set filetype=html
 au BufRead,BufNewFile *.go                        set filetype=go
@@ -423,6 +411,10 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
+
+" == Java =============================
+
+autocmd FileType java ClangFormatAutoEnable
 
 " == Split windows ====================
 
