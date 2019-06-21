@@ -501,6 +501,7 @@ let g:javascript_plugin_flow = 1
 
 " when running at every change you may want to disable quickfix
 let g:prettier#quickfix_enabled = 0
+let g:prettier#quickfix_auto_focus = 0
 let g:prettier#config#tab_width = 2
 
 let g:prettier#autoformat = 0
