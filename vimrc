@@ -60,7 +60,7 @@ Plugin 'sheerun/vim-polyglot'
 
 " Javascript
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plugin 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/1.x' }
 
 " Java
 Plugin 'rhysd/vim-clang-format'
