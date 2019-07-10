@@ -46,14 +46,18 @@ if has('nvim')
   Plugin 'SirVer/ultisnips'
   Plugin 'honza/vim-snippets'
   Plugin 'rstacruz/vim-ultisnips-css'
-
-  " deoplete
-  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plugin 'roxma/nvim-yarp'
-  Plugin 'roxma/vim-hug-neovim-rpc'
-else
-  Plugin 'ajh17/VimCompletesMe'
 endif
+
+" Autocomplete
+" if has('nvim')
+"   " deoplete
+"   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"   Plugin 'roxma/nvim-yarp'
+"   Plugin 'roxma/vim-hug-neovim-rpc'
+" else
+"   Plugin 'ajh17/VimCompletesMe'
+" endif
+Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Syntax
 Plugin 'sheerun/vim-polyglot'
@@ -65,7 +69,7 @@ Plugin 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/1.x' 
 " Java
 Plugin 'rhysd/vim-clang-format'
 
-"" Elixir
+" Elixir
 Plugin 'mhinz/vim-mix-format'
 Plugin 'slashmili/alchemist.vim'
 
@@ -527,6 +531,22 @@ map :x<cr> <nop>
 
 let g:mix_format_on_save = 1
 
+" == Coc ===========================================================
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 " == vim test ========================================================
 
 if has('nvim')
@@ -545,13 +565,6 @@ nnoremap <leader>tf :TestFile<CR>  " test single
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gl :Gpull<CR>
-
-" if exists('$TMUX')
-"   " Colors in tmux
-"   let &t_8f = "<Esc>[38;2;%lu;%lu;%lum"
-"   let &t_8b = "<Esc>[48;2;%lu;%lu;%lum"
-" endif
-" set termguicolors
 
 " == User defined =====================
 
