@@ -2,5 +2,7 @@
 *.local
 .DS_Store
 bundle/
+plugged/
+autoload/
 vimrc.symlink
 .vim-installed

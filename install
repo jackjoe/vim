@@ -54,12 +54,12 @@ _install() {
     exit 1
   fi
 
-  # Vundle
-  _print "Installing Vundle"
-  if [ -d "$VIM_DIR/bundle/vundle" ] ; then
-    _success "Vundle is already installed"
+  # Vim plug
+  _print "Installing Vim Plug"
+  if [ -f "$VIM_DIR/autoload/plug.vim" ] ; then
+    _success "Vim Plug is already installed"
   else
-    git clone https://github.com/VundleVim/Vundle.vim.git $VIM_DIR/bundle/Vundle.vim
+    curl -fLo $VIM_DIR/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   fi
 
   curdir=$(pwd)
@@ -79,7 +79,7 @@ _install() {
   fi
 
   _print "Install plugins"
-  vim +PluginInstall +qall
+  vim +PlugInstall +qall
 
   _success  "Ready to rock!"
   _print    "* Reload your shell for maximum effect *"

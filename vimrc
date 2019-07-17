@@ -6,83 +6,72 @@ if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
 endif
 
-" Vundle must be first
-" Vundle {{{
-filetype on   " first on, to avoid vim exiting with status code 1!
-filetype off  " required!
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" }}}
-
 " Plugins {{{
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'docunext/closetag.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'docunext/closetag.vim'
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
-Plugin 'w0rp/ale'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-obsession'
-Plugin 'ervandew/supertab'
-Plugin 'kana/vim-textobj-user'
-Plugin 'kana/vim-textobj-line'
-Plugin 'andyl/vim-textobj-elixir'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'janko-m/vim-test'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
+Plug 'ervandew/supertab'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'andyl/vim-textobj-elixir'
+Plug 'junegunn/vim-easy-align'
+Plug 'janko-m/vim-test'
 
-Plugin 'bling/vim-airline'
+Plug 'bling/vim-airline'
 
 " Snippets
 if has('nvim')
-  Plugin 'SirVer/ultisnips'
-  Plugin 'honza/vim-snippets'
-  Plugin 'rstacruz/vim-ultisnips-css'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'rstacruz/vim-ultisnips-css'
 endif
 
 " Autocomplete
 " if has('nvim')
 "   " deoplete
-"   Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"   Plugin 'roxma/nvim-yarp'
-"   Plugin 'roxma/vim-hug-neovim-rpc'
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
 " else
-"   Plugin 'ajh17/VimCompletesMe'
+"   Plug 'ajh17/VimCompletesMe'
 " endif
-Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Syntax
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " Javascript
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/1.x' }
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/1.x' }
 
 " Java
-Plugin 'rhysd/vim-clang-format'
+Plug 'rhysd/vim-clang-format'
 
 " Elixir
-Plugin 'mhinz/vim-mix-format'
-Plugin 'slashmili/alchemist.vim'
+Plug 'mhinz/vim-mix-format'
+Plug 'slashmili/alchemist.vim'
 
 " Formats
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " vim-scripts repos
-Plugin 'L9'
-Plugin 'tComment'
+Plug 'vim-scripts/L9'
+Plug 'vim-scripts/tComment'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 " }}}
 
 " General {{{
@@ -345,7 +334,8 @@ endfunction
 " Clean windows weird characters
 command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
 function! CleanWindowsCharacters()
-  :%s/\\\\\//g
+  :%s/\\\\\
+//g
 endf
 
 " Sudo to write
@@ -487,6 +477,12 @@ autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
 
 let g:ale_completion_enabled = 0
 let g:ale_php_phpcs_standard = "--tab-width=2"
+
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 
 " Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
 let g:ale_linters = {}
