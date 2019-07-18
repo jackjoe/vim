@@ -6,8 +6,9 @@ if $SHELL =~ 'bin/fish'
   set shell=/bin/sh
 endif
 
-" Plugins {{{
 call plug#begin('~/.vim/plugged')
+
+" Plugins {{{
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'docunext/closetag.vim'
@@ -71,7 +72,6 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/tComment'
 
-call plug#end()
 " }}}
 
 " General {{{
@@ -630,3 +630,7 @@ nnoremap <leader>gl :Gpull<CR>
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+" == End vim-plug =====================
+
+call plug#end()
