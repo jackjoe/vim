@@ -20,7 +20,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 
-Plug 'w0rp/ale'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
@@ -62,6 +61,9 @@ Plug 'mattn/emmet-vim'
 " vim-scripts repos
 Plug 'vim-scripts/L9'
 Plug 'vim-scripts/tComment'
+
+" Yank fix
+Plug 'bfredl/nvim-miniyank'
 
 " }}}
 
@@ -256,6 +258,13 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+" }}}
+
+" == Yank ================================
+
+" Yank {{{
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
 " }}}
 
 " == Statusline =========================
@@ -463,27 +472,6 @@ inoremap <c-x><c-k> <c-x><c-k>
 " autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
 " autocmd BufWinLeave * call clearmatches()
 
-" ALE {{{
-autocmd FileType elixir nnoremap <c-]> :ALEGoToDefinition<cr>
-
-let g:ale_completion_enabled = 0
-let g:ale_php_phpcs_standard = "--tab-width=2"
-
-" Write this in your vimrc file
-let g:ale_lint_on_text_changed = 'never'
-" You can disable this option too
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
-
-" Disable linting in elixir so iex works https://github.com/elixir-editors/vim-elixir/issues/412
-let g:ale_linters = {}
-let g:ale_linters.elixir = []
-
-let g:ale_fixers = {}
-let g:ale_fixers.elixir = ['mix_format']
-let g:ale_fixers.php = ['prettier']
-" }}}
-
 " == Javascript =============================
 
 let g:javascript_plugin_flow = 1
@@ -493,12 +481,20 @@ let g:javascript_plugin_flow = 1
 " when running at every change you may want to disable quickfix
 let g:prettier#quickfix_enabled = 0
 let g:prettier#quickfix_auto_focus = 0
-let g:prettier#config#tab_width = 2
 
 let g:prettier#autoformat = 0
+
+let g:prettier#config#tab_width = 2
+let g:prettier#config#print_width = 80
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#bracket_spacing = 'false'
+let g:prettier#config#jsx_bracket_same_line = 'false'
+let g:prettier#config#arrow_parens = 'avoid'
 let g:prettier#config#semi = 'false'
 let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#config#parser = 'babylon'
+let g:prettier#config#html_whitespace_sensitivity = 'css'
 
 autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
 autocmd BufWritePre *.md Prettier
