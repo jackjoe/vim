@@ -612,12 +612,17 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 nnoremap <leader>gl :Gpull<CR>
 
-" == User defined =====================
+" == User defined plugs =====================
 
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+if filereadable(expand("~/.vimrc.plugs.local"))
+  source ~/.vimrc.plugs.local
 endif
 
 " == End vim-plug =====================
 
 call plug#end()
+
+" == User defined =====================
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
