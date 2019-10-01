@@ -6,3 +6,4 @@ plugged/
 autoload/
 vimrc.symlink
 .vim-installed
+sessions
