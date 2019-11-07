@@ -218,8 +218,9 @@ au BufRead,BufNewFile *.less,*.scss               set filetype=css
 au BufRead,BufNewFile *.handlebars,*.hbs          set filetype=handlebars
 au BufRead,BufNewFile *.tmpl,*.vue                set filetype=html
 au BufRead,BufNewFile *.go                        set filetype=go
-au BufRead,BufNewFile *.ru,*.rb                   set filetype=ruby
-au BufNewFile,BufRead Fastfile,Appfile,Snapfile,Scanfile,Gymfile,Matchfile,Deliverfile set filetype=ruby
+au BufRead,BufNewFile *.ru,*.rb,Deliverfile       set filetype=ruby
+au BufNewFile,BufRead Fastfile,Appfile,Snapfile   set filetype=ruby
+au BufNewFile,BufRead Scanfile,Gymfile,Matchfile  set filetype=ruby
 
 " Haskell
 " autocmd FileType haskell                          setlocal expandtab shiftwidth=2 softtabstop=2
@@ -594,7 +595,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " CoC
-let g:coc_global_extensions = ['coc-eslint','coc-flow', 'coc-prettier', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists']
+let g:coc_global_extensions = ['coc-eslint', 'coc-flow', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists', 'coc-phpls']
 
 " == path helpers ====================================================
 " == vim test ========================================================
@@ -603,13 +604,10 @@ let g:coc_global_extensions = ['coc-eslint','coc-flow', 'coc-prettier', 'coc-jso
 if has("mac") || has("gui_macvim") || has("gui_mac")
   " relative path  (src/foo.txt)
   nnoremap <leader>cf :let @*=expand("%")<CR>
-
   " absolute path  (/something/src/foo.txt)
   nnoremap <leader>cF :let @*=expand("%:p")<CR>
-
   " filename       (foo.txt)
   nnoremap <leader>ct :let @*=expand("%:t")<CR>
-
   " directory name (/something/src)
   nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
 endif
