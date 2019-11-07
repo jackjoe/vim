@@ -1,15 +1,6 @@
 {
   "coc.preferences.autoTrigger": "trigger",
   "coc.preferences.timeout": 300,
-  "coc.tslint.enable": false,
-  "coc.tsserver.enable": false,
-  "languageserver": {
-      "flow": {
-          "command": "flow-language-server",
-          "args": ["--stdio"],
-          "filetypes": ["javascript", "javascript.jsx"],
-          "initializationOptions": {},
-          "settings": {}
-      }
-  }
+  "tslint.enable": false,
+  "tsserver.enable": false
 }
