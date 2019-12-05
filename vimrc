@@ -30,7 +30,7 @@ Plug 'andyl/vim-textobj-elixir'
 Plug 'junegunn/vim-easy-align'
 Plug 'janko-m/vim-test'
 
-Plug 'bling/vim-airline'
+" Plug 'bling/vim-airline'
 
 " Snippets
 if has('nvim')
@@ -294,9 +294,9 @@ endif
 
 " == Airline =========================
 
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
-let g:airline_powerline_fonts=1
-set ttimeoutlen=50
+" set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
+" let g:airline_powerline_fonts=1
+" set ttimeoutlen=50
 
 " == Source after saving ================
 
@@ -359,7 +359,7 @@ noremap gI `.
 nnoremap S mzi<CR><ESC>`z
 
 " escape insert mode
-inoremap jj <ESC>
+" inoremap jj <ESC>
 
 " == Paste mode ===============================
 
@@ -371,6 +371,8 @@ set pastetoggle=<F2>
 
 :vmap <leader><leader>b <S-S><strong>
 :vmap <leader><leader>i <S-S><em>
+
+map tgt diti<%= gettext("<ESC>p2la<Space>%><ESC>
 
 " convert list of lines to <li>
 map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:nohl<CR>
