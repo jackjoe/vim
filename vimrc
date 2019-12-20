@@ -30,8 +30,6 @@ Plug 'andyl/vim-textobj-elixir'
 Plug 'junegunn/vim-easy-align'
 Plug 'janko-m/vim-test'
 
-" Plug 'bling/vim-airline'
-
 " Snippets
 if has('nvim')
   Plug 'SirVer/ultisnips'
@@ -46,7 +44,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/1.x' }
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/1.x' }
 
 " Java
 Plug 'rhysd/vim-clang-format'
@@ -482,28 +480,28 @@ let g:javascript_plugin_flow = 1
 " == Prettier =========================
 
 " when running at every change you may want to disable quickfix
-let g:prettier#quickfix_enabled = 0
-let g:prettier#quickfix_auto_focus = 0
-
-let g:prettier#autoformat = 0
-
-let g:prettier#config#tab_width = 2
-let g:prettier#config#print_width = 80
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'false'
-let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#arrow_parens = 'avoid'
-let g:prettier#config#semi = 'false'
-let g:prettier#config#trailing_comma = 'es5'
-let g:prettier#config#parser = 'babylon'
-let g:prettier#config#html_whitespace_sensitivity = 'css'
-
-autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
-autocmd BufWritePre *.md Prettier
-autocmd BufWritePre *.php if expand('%') !~ "blade.php" | Prettier
-autocmd BufWritePre *.php Prettier
-autocmd FileType php let b:prettier_ft_default_args = { 'parser': 'php' }
+" let g:prettier#quickfix_enabled = 0
+" let g:prettier#quickfix_auto_focus = 0
+"
+" let g:prettier#autoformat = 0
+"
+" let g:prettier#config#tab_width = 2
+" let g:prettier#config#print_width = 80
+" let g:prettier#config#use_tabs = 'false'
+" let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#bracket_spacing = 'false'
+" let g:prettier#config#jsx_bracket_same_line = 'false'
+" let g:prettier#config#arrow_parens = 'avoid'
+" let g:prettier#config#semi = 'false'
+" let g:prettier#config#trailing_comma = 'es5'
+" let g:prettier#config#parser = 'babel'
+" let g:prettier#config#html_whitespace_sensitivity = 'css'
+"
+" autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+" autocmd BufWritePre *.md Prettier
+" autocmd BufWritePre *.php if expand('%') !~ "blade.php" | Prettier
+" autocmd BufWritePre *.php Prettier
+" autocmd FileType php let b:prettier_ft_default_args = { 'parser': 'php' }
 
 " no save all, to prevent prettier errors
 noremap :wq<cr> <nop>
@@ -597,7 +595,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " CoC
-let g:coc_global_extensions = ['coc-eslint', 'coc-flow', 'coc-prettier', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists', 'coc-phpls']
+let g:coc_global_extensions = ['coc-eslint', 'coc-flow', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists', 'coc-phpls']
 
 " == path helpers ====================================================
 " == vim test ========================================================

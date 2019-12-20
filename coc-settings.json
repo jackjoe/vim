@@ -1,6 +1,0 @@
-{
-  "coc.preferences.autoTrigger": "trigger",
-  "coc.preferences.timeout": 300,
-  "tslint.enable": false,
-  "tsserver.enable": false
-}
