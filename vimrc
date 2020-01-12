@@ -290,12 +290,6 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
-" == Airline =========================
-
-" set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline) "
-" let g:airline_powerline_fonts=1
-" set ttimeoutlen=50
-
 " == Source after saving ================
 
 " Keyboard {{{
