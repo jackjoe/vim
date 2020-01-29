@@ -50,8 +50,8 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'rhysd/vim-clang-format'
 
 " Elixir
-Plug 'mhinz/vim-mix-format'
-Plug 'slashmili/alchemist.vim'
+" Plug 'mhinz/vim-mix-format'
+" Plug 'slashmili/alchemist.vim'
 
 " Formats
 Plug 'mattn/emmet-vim'
@@ -507,7 +507,9 @@ map :x<cr> <nop>
 
 " == Elixir format ====================
 
-let g:mix_format_on_save = 1
+" roll our own
+autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %
+" let g:mix_format_on_save = 1
 
 " == Coc ===========================================================
 
