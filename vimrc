@@ -594,7 +594,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = ['coc-eslint', 'coc-flow', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists', 'coc-phpls']
 
 " == path helpers ====================================================
-" == vim test ========================================================
 
 " copy current file name (relative/absolute) to system clipboard
 if has("mac") || has("gui_macvim") || has("gui_mac")
@@ -607,6 +606,12 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
   " directory name (/something/src)
   nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
 endif
+
+" open current file in gitk, F1 (useless key anyway, who needs help?)
+map <F1> :!tig %<CR>
+map <leader>t :!tig %<CR>
+
+" command! Tig "!tig %"
 
 " == vim test ========================================================
 
