@@ -299,6 +299,8 @@ let mapleader = ","
 " Save
 nnoremap <leader>w :w<CR>
 nnoremap <C-s> :w<CR>
+" alias :lw to :w
+cnoreabbrev lw w
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
