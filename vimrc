@@ -51,7 +51,7 @@ Plug 'rhysd/vim-clang-format'
 
 " Elixir
 " Plug 'mhinz/vim-mix-format'
-" Plug 'slashmili/alchemist.vim'
+Plug 'slashmili/alchemist.vim'
 
 " Formats
 Plug 'mattn/emmet-vim'
