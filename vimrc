@@ -13,8 +13,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'docunext/closetag.vim'
 
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -58,7 +58,7 @@ Plug 'mattn/emmet-vim'
 
 " vim-scripts repos
 Plug 'vim-scripts/L9'
-Plug 'vim-scripts/tComment'
+" Plug 'vim-scripts/tComment'
 
 " Yank fix
 Plug 'bfredl/nvim-miniyank'
@@ -369,19 +369,6 @@ map tgt diti<%= gettext("<ESC>p2la<Space>%><ESC>
 " convert list of lines to <li>
 map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:nohl<CR>
 
-" == Nerdtree ===============================
-
-nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-
-" set autochdir
-let NERDTreeChDirMode = 1
-
-" close Nerdtree when only nerdtree is open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 " == fzf ===================================
 
 nmap <C-p> :Files<CR>
@@ -417,7 +404,7 @@ nmap <silent> <Tab><Tab> <C-w>w
 
 " enlarge splits
 map + 3<c-w>>
-map - 3<c-w><
+"map - 3<c-w><
 
 " == Search ==========================
 
