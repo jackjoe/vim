@@ -237,6 +237,7 @@ set smartcase               " ... unless they contain at least one capital lette
 
 " Files/Backup {{{
 set nobackup                " do not keep a backup file, use versions instead
+set nowritebackup
 set nowb
 set noswapfile
 " }}}
@@ -298,6 +299,8 @@ let mapleader = ","
 " Save
 nnoremap <leader>w :w<CR>
 nnoremap <C-s> :w<CR>
+" alias :lw to :w
+cnoreabbrev lw w
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
@@ -509,16 +512,19 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" always show signcolumns
+" set signcolumn=yes
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" Use K to show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+"
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
