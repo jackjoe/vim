@@ -29,6 +29,9 @@ Plug 'kana/vim-textobj-line'
 Plug 'andyl/vim-textobj-elixir'
 Plug 'junegunn/vim-easy-align'
 Plug 'janko-m/vim-test'
+" Nerdtree
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " Snippets
 if has('nvim')
@@ -605,6 +608,19 @@ map <F1> :!tig %<CR>
 map <leader>t :!tig %<CR>
 
 " command! Tig "!tig %"
+
+" == Nerdtree ===============================
+
+nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" set autochdir
+let NERDTreeChDirMode = 1
+
+" close Nerdtree when only nerdtree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " == vim test ========================================================
 
