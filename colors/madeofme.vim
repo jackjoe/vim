@@ -148,5 +148,3 @@ hi rubyoperator guifg=#EC606A guibg=NONE guisp=NONE gui=NONE ctermfg=13 ctermbg=
 "hi clear -- no settings --
 hi htmlendtag guifg=#45c1ea guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
 hi elixirAtom guifg=#3BFFBC guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
-" adaptations
-" vertical split lint
