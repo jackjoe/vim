@@ -49,10 +49,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " Java
 Plug 'rhysd/vim-clang-format'
 
-" Elixir
-" Plug 'mhinz/vim-mix-format'
-" Plug 'slashmili/alchemist.vim'
-
 " Formats
 Plug 'mattn/emmet-vim'
 
@@ -301,6 +297,8 @@ nnoremap <leader>w :w<CR>
 nnoremap <C-s> :w<CR>
 " alias :lw to :w
 cnoreabbrev lw w
+" alias :we to :w
+cnoreabbrev we w
 
 " Show/hide hidden characters
 nmap <leader>l :set list!<cr>
@@ -600,7 +598,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 let g:coc_global_extensions = ['coc-eslint', 'coc-flow', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists', 'coc-phpls']
 
 " == path helpers ====================================================
-" == vim test ========================================================
 
 " copy current file name (relative/absolute) to system clipboard
 if has("mac") || has("gui_macvim") || has("gui_mac")
