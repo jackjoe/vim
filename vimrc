@@ -13,8 +13,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'docunext/closetag.vim'
 
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
@@ -29,6 +29,9 @@ Plug 'kana/vim-textobj-line'
 Plug 'andyl/vim-textobj-elixir'
 Plug 'junegunn/vim-easy-align'
 Plug 'janko-m/vim-test'
+" Nerdtree
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 
 " Snippets
 if has('nvim')
@@ -44,7 +47,6 @@ Plug 'sheerun/vim-polyglot'
 
 " Javascript
 Plug 'othree/javascript-libraries-syntax.vim'
-" Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'branch': 'release/1.x' }
 
 " Java
 Plug 'rhysd/vim-clang-format'
@@ -54,7 +56,7 @@ Plug 'mattn/emmet-vim'
 
 " vim-scripts repos
 Plug 'vim-scripts/L9'
-Plug 'vim-scripts/tComment'
+" Plug 'vim-scripts/tComment'
 
 " Yank fix
 Plug 'bfredl/nvim-miniyank'
@@ -370,19 +372,6 @@ map tgt diti<%= gettext("<ESC>p2la<Space>%><ESC>
 " convert list of lines to <li>
 map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:nohl<CR>
 
-" == Nerdtree ===============================
-
-nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-
-" set autochdir
-let NERDTreeChDirMode = 1
-
-" close Nerdtree when only nerdtree is open
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 " == fzf ===================================
 
 nmap <C-p> :Files<CR>
@@ -418,7 +407,7 @@ nmap <silent> <Tab><Tab> <C-w>w
 
 " enlarge splits
 map + 3<c-w>>
-map - 3<c-w><
+"map - 3<c-w><
 
 " == Search ==========================
 
@@ -609,6 +598,25 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
   " directory name (/something/src)
   nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
 endif
+
+" open current file in gitk, F1 (useless key anyway, who needs help?)
+map <F1> :!tig %<CR>
+map <leader>t :!tig %<CR>
+
+" command! Tig "!tig %"
+
+" == Nerdtree ===============================
+
+nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
+
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+" set autochdir
+let NERDTreeChDirMode = 1
+
+" close Nerdtree when only nerdtree is open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " == vim test ========================================================
 
