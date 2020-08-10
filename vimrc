@@ -13,9 +13,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'docunext/closetag.vim'
 
-" Plug 'scrooloose/nerdtree'
-" Plug 'jistr/vim-nerdtree-tabs'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
@@ -29,6 +26,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'andyl/vim-textobj-elixir'
 Plug 'junegunn/vim-easy-align'
 Plug 'janko-m/vim-test'
+
 " Nerdtree
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
