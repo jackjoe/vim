@@ -597,12 +597,6 @@ if has("mac") || has("gui_macvim") || has("gui_mac")
   nnoremap <leader>ch :let @*=expand("%:p:h")<CR>
 endif
 
-" open current file in gitk, F1 (useless key anyway, who needs help?)
-map <F1> :!tig %<CR>
-map <leader>t :!tig %<CR>
-
-" command! Tig "!tig %"
-
 " == Nerdtree ===============================
 
 nmap <silent> <c-n> :NERDTreeToggle \| :silent NERDTreeMirror<CR>
@@ -626,14 +620,15 @@ endif
 
 let test#elixir#exunit#executable = "source .env.test && mix test"
 
-nnoremap <leader>ts :TestSuite<CR> " test all
-nnoremap <leader>tf :TestFile<CR>  " test single
+nnoremap <leader>ts :TestSuite<CR>    " test suite
+nnoremap <leader>tf :TestFile<CR>     " test single file
+nnoremap <leader>tn :TestNearest<CR>  " test nearest
 
 " == git (fugitive) ==================================================
 
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gl :Gpull<CR>
+" nnoremap <leader>gs :Gstatus<CR>
+" nnoremap <leader>gp :Gpush<CR>
+" nnoremap <leader>gl :Gpull<CR>
 
 " == User defined plugs =====================
 
