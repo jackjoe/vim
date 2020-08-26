@@ -17,6 +17,7 @@ let g:colors_name = "madeofcode"
 hi IncSearch guifg=NONE guibg=#233466 guisp=#233466 gui=NONE ctermfg=NONE ctermbg=17 cterm=NONE
 "hi WildMenu -- no settings --
 "hi SignColumn -- no settings --
+hi SignColumn guifg=NONE guibg=#090a1b guisp=#233466 gui=NONE
 hi SpecialComment guifg=#f8f8f8 guibg=NONE guisp=NONE gui=NONE ctermfg=15 ctermbg=NONE cterm=NONE
 hi Typedef guifg=#6fd3ff guibg=NONE guisp=NONE gui=NONE ctermfg=81 ctermbg=NONE cterm=NONE
 hi Title guifg=#f8f8f8 guibg=NONE guisp=NONE gui=bold ctermfg=15 ctermbg=NONE cterm=bold
