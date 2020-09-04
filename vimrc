@@ -159,10 +159,10 @@ endif
 " Ag
 " brew install the_silver_searcher
 " apt-get install silversearcher-ag
-let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules'
+let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules --ignore tmp'
 cnoreabbrev Ack Ack!
 cnoreabbrev ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <meLeader>* :Ack!<cr>
 
 " == Buffers ==================================
 
