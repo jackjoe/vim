@@ -405,7 +405,7 @@ nmap <silent> <Tab><Tab> <C-w>w
 
 " enlarge splits
 map + 3<c-w>>
-"map - 3<c-w><
+map - 3<c-w><
 
 " == Search ==========================
 
