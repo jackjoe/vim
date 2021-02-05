@@ -159,7 +159,12 @@ endif
 " Ag
 " brew install the_silver_searcher
 " apt-get install silversearcher-ag
-let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules --ignore tmp'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+elseif executable('ag')
+  let g:ackprg = 'ag --nogroup --nocolor --column --ignore="*.map" --ignore="*.min.js" --ignore node_modules'
+endif
+
 cnoreabbrev Ack Ack!
 cnoreabbrev ack Ack!
 nnoremap <meLeader>* :Ack!<cr>
@@ -405,7 +410,7 @@ nmap <silent> <Tab><Tab> <C-w>w
 
 " enlarge splits
 map + 3<c-w>>
-"map - 3<c-w><
+map - 3<c-w><
 
 " == Search ==========================
 
