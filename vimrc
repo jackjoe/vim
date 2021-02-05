@@ -581,7 +581,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " CoC
-let g:coc_global_extensions = ['coc-eslint', 'coc-flow', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists', 'coc-phpls', 'coc-diagnostic', 'coc-prettier']
+let g:coc_global_extensions = ['coc-eslint', 'coc-flow', 'coc-css', 'coc-json', 'coc-pyls', 'coc-yaml', 'coc-ultisnips', 'coc-snippets', 'coc-elixir', 'coc-tailwindcss', 'coc-tag', 'coc-highlight', 'coc-lists', 'coc-phpls', 'coc-diagnostic', 'coc-prettier', 'coc-tsserver']
 
 " == path helpers ====================================================
 
