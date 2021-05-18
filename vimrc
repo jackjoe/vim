@@ -54,10 +54,14 @@ Plug 'mattn/emmet-vim'
 
 " vim-scripts repos
 Plug 'vim-scripts/L9'
-" Plug 'vim-scripts/tComment'
 
 " Yank fix
 Plug 'bfredl/nvim-miniyank'
+
+" Telescope
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
 
 " }}}
 
@@ -378,7 +382,16 @@ map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:
 " == fzf ===================================
 
 nmap <C-p> :Files<CR>
-" nmap <C-t> :Tags<CR>
+nmap <C-t> :Tags<CR>
+
+" == Telescope =============================
+
+" Using lua functions
+" nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>
+" nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+" nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+" nnoremap <leader>fbr <cmd>lua require('telescope.builtin').file_browser()<cr>
+" nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " == Emmet (previously Zencoding) ==========
 
@@ -450,45 +463,11 @@ endif
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
 
-" == Highlight =========================
-" Highlight words to avoid in production
-
-" highlight TechWordsToAvoid ctermbg=red ctermfg=white
-" match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
-" autocmd BufWinEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
-" autocmd InsertEnter * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
-" autocmd InsertLeave * match TechWordsToAvoid /\cconsole\|var_dump\|print_r\|alert\|console/
-" autocmd BufWinLeave * call clearmatches()
-
 " == Javascript =============================
 
 let g:javascript_plugin_flow = 1
 
 " == Prettier =========================
-
-" when running at every change you may want to disable quickfix
-" let g:prettier#quickfix_enabled = 0
-" let g:prettier#quickfix_auto_focus = 0
-"
-" let g:prettier#autoformat = 0
-"
-" let g:prettier#config#tab_width = 2
-" let g:prettier#config#print_width = 80
-" let g:prettier#config#use_tabs = 'false'
-" let g:prettier#config#single_quote = 'true'
-" let g:prettier#config#bracket_spacing = 'false'
-" let g:prettier#config#jsx_bracket_same_line = 'false'
-" let g:prettier#config#arrow_parens = 'avoid'
-" let g:prettier#config#semi = 'false'
-" let g:prettier#config#trailing_comma = 'es5'
-" let g:prettier#config#parser = 'babel'
-" let g:prettier#config#html_whitespace_sensitivity = 'css'
-"
-" autocmd BufWritePre *.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
-" autocmd BufWritePre *.md Prettier
-" autocmd BufWritePre *.php if expand('%') !~ "blade.php" | Prettier
-" autocmd BufWritePre *.php Prettier
-" autocmd FileType php let b:prettier_ft_default_args = { 'parser': 'php' }
 
 " no save all, to prevent prettier errors
 noremap :wq<cr> <nop>
@@ -548,8 +527,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
+" xmap <leader>f <Plug>(coc-format-selected)
+" nmap <leader>f <Plug>(coc-format-selected)
 
 " augroup mygroup
 "   autocmd!
@@ -560,12 +539,12 @@ nmap <leader>f <Plug>(coc-format-selected)
 " augroup end
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a <Plug>(coc-codeaction-selected)
-nmap <leader>a <Plug>(coc-codeaction-selected)
+" xmap <leader>a <Plug>(coc-codeaction-selected)
+" nmap <leader>a <Plug>(coc-codeaction-selected)
 
 " Remap for do codeAction of current line
-nmap <leader>ac <Plug>(coc-codeaction)
-" Fix autofix problem of current line
+" nmap <leader>ac <Plug>(coc-codeaction)
+" " Fix autofix problem of current line
 " nmap <leader>qf <Plug>(coc-fix-current)
 
 " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
