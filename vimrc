@@ -24,7 +24,6 @@ Plug 'ervandew/supertab'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-line'
 Plug 'andyl/vim-textobj-elixir'
-Plug 'junegunn/vim-easy-align'
 Plug 'janko-m/vim-test'
 
 " Nerdtree
@@ -58,15 +57,9 @@ Plug 'vim-scripts/L9'
 " Yank fix
 Plug 'bfredl/nvim-miniyank'
 
-" Telescope
-" Plug 'nvim-lua/popup.nvim'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-
 " }}}
 
 " General {{{
-" map : to ; for qwerty
 noremap ; :
 
 set encoding=utf8
@@ -119,12 +112,6 @@ set shiftround                  " use multiple of shiftwidth when indenting with
 set expandtab
 set wrap                        " set linewrap
 
-function! Tab4Losers()
-  set softtabstop=4
-  set shiftwidth=4
-  set tabstop=4
-endfunction
-
 set lbr
 set tw=500
 set autoindent
@@ -153,16 +140,8 @@ if v:version > 703 || v:version == 703 && has('patch541')
   set formatoptions+=j
 endif
 
-" in makefiles, don't expand tabs to spaces, since actual tab characters are
-" needed, and have indentation at 8 chars to be sure that all indents are tabs
-" (despite the mappings later):
-" autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
-
 " == Silver Searcher ===========================
 
-" Ag
-" brew install the_silver_searcher
-" apt-get install silversearcher-ag
 if executable('rg')
   let g:ackprg = 'rg --vimgrep'
 elseif executable('ag')
@@ -195,8 +174,7 @@ set completeopt=longest,menuone,preview             " better completion
 set wildmenu                                        " enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
-set wildignore+=*node_modules*
-set wildignore+=*vim/backups*
+set wildignore+=*node_modules*,*vim/backups*
 set wildignore+=.git,.yarn                          " ignore the .git directory
 set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
@@ -208,7 +186,7 @@ endif
 
 " == Color + font ===================================
 
-set ffs=unix,mac,dos	  " Support all three, in this order
+set ffs=unix,mac,dos	                              " Support all three, in this order
 
 " == Git/SVN Errors =====================================
 
@@ -216,22 +194,12 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " == Filetypes =======================================
 
-au BufRead,BufNewFile *.module,*.inc,*.install    set filetype=php
 au BufRead,BufNewFile *.less,*.scss               set filetype=css
-au BufRead,BufNewFile *.handlebars,*.hbs          set filetype=handlebars
 au BufRead,BufNewFile *.tmpl,*.vue                set filetype=html
 au BufRead,BufNewFile *.go                        set filetype=go
 au BufRead,BufNewFile *.ru,*.rb,Deliverfile       set filetype=ruby
 au BufNewFile,BufRead Fastfile,Appfile,Snapfile   set filetype=ruby
 au BufNewFile,BufRead Scanfile,Gymfile,Matchfile  set filetype=ruby
-
-" Haskell
-" autocmd FileType haskell                          setlocal expandtab shiftwidth=2 softtabstop=2
-" au Bufenter *.hs,*.lhs compiler ghc
-" " Extra syntax highlighting
-" au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Thorfile,.caprc,.irbrc,irb_tempfile*} set ft=ruby
-" " Spell check certain filetypes (eg Markdown)
-" autocmd BufRead,BufNewFile *.md,*.txt             setlocal spell
 
 " Searching {{{
 set hlsearch                " Highlight search things
@@ -256,14 +224,6 @@ set mousehide               " hide mouse pointer when typing
 " Supertab {{{
 let g:SuperTabDefaultCompletionType = "<c-n>"
 " }}}
-"
-" Easy Align {{{
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-" }}}
 
 " == Yank ================================
 
@@ -271,21 +231,6 @@ nmap ga <Plug>(EasyAlign)
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 " }}}
-
-" == Statusline =========================
-
-function! CurDir()
-  let curdir = substitute(getcwd(), '/Users/', "~/..", "g")
-  return curdir
-endfunction
-
-function! HasPaste()
-  if &paste
-    return 'PASTE MODE  '
-  else
-    return ''
-  endif
-endfunction
 
 " == Mouse =============================
 
@@ -321,26 +266,6 @@ nnoremap k gk
 nnoremap gV `[v`]
 " }}}
 
-command! KillWhitespace :call StripTrailingWhitespaces()<CR>
-function! StripTrailingWhitespaces()
-  " Preparation: save last search, and cursor position.
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-  " Do the business:
-  %s/\s\+$//e
-  " Clean up: restore previous search history, and cursor position
-  let @/=_s
-  call cursor(l, c)
-endfunction
-
-" Clean windows weird characters
-command! CleanWindowsShit :call CleanWindowsCharacters()<CR>
-function! CleanWindowsCharacters()
-  :%s/\\\\\
-//g
-endf
-
 " Sudo to write
 cmap w!! w !sudo tee % >/dev/null
 command! -nargs=0 Sw w !sudo tee % > /dev/null
@@ -359,9 +284,6 @@ noremap gI `.
 
 " split line and preserve cursor position
 nnoremap S mzi<CR><ESC>`z
-
-" escape insert mode
-" inoremap jj <ESC>
 
 " == Paste mode ===============================
 
@@ -383,15 +305,6 @@ map <leader><leader>l :s/\s\+$//e<CR>:'<,'>s/^/<li>/g<CR>:'<,'>s/$/<\/li>/g<CR>:
 
 nmap <C-p> :Files<CR>
 nmap <C-t> :Tags<CR>
-
-" == Telescope =============================
-
-" Using lua functions
-" nnoremap <leader>f <cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({}))<cr>
-" nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-" nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-" nnoremap <leader>fbr <cmd>lua require('telescope.builtin').file_browser()<cr>
-" nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " == Emmet (previously Zencoding) ==========
 
@@ -481,7 +394,6 @@ map :x<cr> <nop>
 
 " roll our own
 autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %
-" let g:mix_format_on_save = 1
 
 " == Coc ===========================================================
 
@@ -516,36 +428,6 @@ if exists('*complete_info')
 else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-" xmap <leader>f <Plug>(coc-format-selected)
-" nmap <leader>f <Plug>(coc-format-selected)
-
-" augroup mygroup
-"   autocmd!
-"   " Setup formatexpr specified filetype(s).
-"   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-"   " Update signature help on jump placeholder
-"   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" augroup end
-
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-" xmap <leader>a <Plug>(coc-codeaction-selected)
-" nmap <leader>a <Plug>(coc-codeaction-selected)
-
-" Remap for do codeAction of current line
-" nmap <leader>ac <Plug>(coc-codeaction)
-" " Fix autofix problem of current line
-" nmap <leader>qf <Plug>(coc-fix-current)
 
 " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 nmap <silent> <TAB> <Plug>(coc-range-select)
@@ -607,12 +489,6 @@ let test#elixir#exunit#executable = "source .env.test && mix test"
 nnoremap <leader>ts :TestSuite<CR>    " test suite
 nnoremap <leader>tf :TestFile<CR>     " test single file
 nnoremap <leader>tn :TestNearest<CR>  " test nearest
-
-" == git (fugitive) ==================================================
-
-" nnoremap <leader>gs :Gstatus<CR>
-" nnoremap <leader>gp :Gpush<CR>
-" nnoremap <leader>gl :Gpull<CR>
 
 " == User defined plugs =====================
 
