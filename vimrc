@@ -174,7 +174,7 @@ set completeopt=longest,menuone,preview             " better completion
 set wildmenu                                        " enable ctrl-n and ctrl-p to scroll thru matches
 set wildmode=longest:full,list:longest
 set wildignore=*.o,*.obj,*~                         " stuff to ignore when tab completing
-set wildignore+=*node_modules*,*vim/backups*
+set wildignore+=*node_modules*,*vim/backups*,*ts-build*
 set wildignore+=.git,.yarn                          " ignore the .git directory
 set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
@@ -194,6 +194,7 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " == Filetypes =======================================
 
+au BufRead,BufNewFile *.heex                      set filetype=eelixir
 au BufRead,BufNewFile *.less,*.scss               set filetype=css
 au BufRead,BufNewFile *.tmpl,*.vue                set filetype=html
 au BufRead,BufNewFile *.go                        set filetype=go
@@ -397,6 +398,8 @@ map :x<cr> <nop>
 
 " roll our own
 autocmd BufWritePost *.exs,*.ex silent :!source .env && mix format --check-equivalent %
+
+au FileType elixir let $MIX_ENV = 'test'
 
 " == Coc ===========================================================
 
