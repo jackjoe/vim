@@ -136,9 +136,7 @@ vnoremap p pgvy
 " }}}
 
 " Better line joins
-if v:version > 703 || v:version == 703 && has('patch541')
-  set formatoptions+=j
-endif
+set formatoptions+=j
 
 " == Silver Searcher ===========================
 
@@ -161,12 +159,10 @@ set switchbuf=usetab " switch to existing tab then window when switching buffer
 set fsync            " sync after write
 set confirm          " ask whether to save changed files
 
-if has("autocmd")
-  augroup trailing_spaces
-    " autocmd!
-    autocmd BufWritePre * :%s/\s\+$//e " remove trailing spaces before saving
-  augroup END
-endif
+augroup trailing_spaces
+  " autocmd!
+  autocmd BufWritePre * :%s/\s\+$//e " remove trailing spaces before saving
+augroup END
 
 " == Completion ==================================
 
@@ -179,10 +175,7 @@ set wildignore+=.git,.yarn                          " ignore the .git directory
 set wildignore+=*.DS_Store                          " ignore Mac finder/spotlight crap
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.DS_Store
 set wildignore+=*.min.css,*.min.js,*.map
-
-if exists("&wildignorecase")
-  set wildignorecase
-endif
+set wildignorecase
 
 " == Color + font ===================================
 
@@ -356,7 +349,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
 let g:go_fmt_command = "goimports"
 
 " == VIM JSX =======================================================
@@ -379,10 +371,6 @@ endif
 
 " Do not interfere with vim mapping
 inoremap <c-x><c-k> <c-x><c-k>
-
-" == Javascript =============================
-
-let g:javascript_plugin_flow = 1
 
 " == Prettier =========================
 
@@ -414,12 +402,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=number
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -436,9 +419,9 @@ else
 endif
 
 " Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
+" nmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <TAB> <Plug>(coc-range-select)
+" xmap <silent> <S-TAB> <Plug>(coc-range-select-backword)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
